@@ -1,0 +1,21 @@
+[user]
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[user]
+[user]
+[user]
+	name = Leonard Schuetz
+	email = leni.schuetz@me.com
+[push]
+	default = simple
+[color]
+	ui = auto
