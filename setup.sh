@@ -7,10 +7,12 @@ sudo mkdir ~/github/
 
 # Uninstall all previous copies of vim
 sudo apt-get remove --purge vim vim-runtime vim-gnome vim-tiny vim-common vim-gui-common
-sudo apt-get build-dep vim-gnome
-sudo apt-get install python-dev libncurses5-dev
 sudo rm -rf /usr/local/share/vim
 sudo rm /usr/bin/vim
+
+# Install some needed libraries
+sudo apt-get build-dep vim-gnome
+sudo apt-get install python-dev libncurses5-dev
 
 # Install vim
 cd ~/github/
@@ -20,7 +22,6 @@ cd vim/src
 	--with-features=huge \
 	--enable-largefile \
 	--enable-pythoninterp \
-	--with-python-config-dir=/usr/lib/python2.7/config \
 	--enable-gui=auto
 sudo make
 sudo make install

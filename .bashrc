@@ -1,6 +1,10 @@
-export PATH=$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/bin
-PS1="\[\e[0;93m\]\w\n⚡️ \[\e[1;35m\]> \[\e[0;97m\]"
-export PS2="⚡️ > "
+PATH=$PATH:/opt/local/bin
+PATH=$PATH:/opt/local/sbin
+PATH=$PATH:/usr/local/bin
+PATH=$PATH:/System/Library/Frameworks/Python.framework/Versions/3.5/bin
+export PATH=$PATH
+PS1="\[\e[0;93m\]\w\n> \[\e[0;97m\]"
+export PS2="> "
 
 # Reference: https://spin.atomicobject.com/2016/05/28/log-bash-history/
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
@@ -14,6 +18,7 @@ alias tbz='cd ~/Documents/Schule/TBZ/'
 alias debian='ssh root@30414.hostserv.eu'
 alias launch='~/Documents/launch.sh'
 alias watchdir='watch -d ls -l'
+alias vlc='/Applications/VLC.app/Contents/MacOS/VLC -I rc'
 
 # Applications
 finder() {
@@ -36,7 +41,7 @@ atom() {
 
 alias l='ls -G1al'
 alias bpr='source ~/.bash_profile; clear'
-alias bpo='atom ~/.bash_profile'
+alias bpo='atom ~/.bashrc'
 alias tmuxconf='vim ~/.tmux.conf'
 alias ..='cd ../'
 alias cl='clear'
