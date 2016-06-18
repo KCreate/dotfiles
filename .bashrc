@@ -9,6 +9,9 @@ export PS2="> "
 # Reference: https://spin.atomicobject.com/2016/05/28/log-bash-history/
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
 
+# Python path
+export PYTHONPATH=/
+
 # Directorys
 alias gh='cd ~/Documents/Github'
 alias de='cd ~/Desktop'
@@ -105,6 +108,12 @@ _npm_install_completion () {
 
 	IFS="$si"
 }
+
 # bind the above function to `npm` autocompletion
 complete -o default -F _npm_install_completion npm
 ## END BASH npm install autocomplete
+
+# Python virtualenv
+source ~/venv/base/bin/activate
+alias pyenva='source bin/activate'
+alias pyenvd='deactivate'
