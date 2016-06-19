@@ -114,6 +114,5 @@ complete -o default -F _npm_install_completion npm
 ## END BASH npm install autocomplete
 
 # Python virtualenv
-source ~/venv/base/bin/activate
 alias pyenva='source bin/activate'
 alias pyenvd='deactivate'
