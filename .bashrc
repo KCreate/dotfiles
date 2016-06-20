@@ -1,9 +1,30 @@
+# Colors
+# Reference: http://stackoverflow.com/questions/10466749/bash-colored-output-with-a-variable
+RESTORE='\033[0m'
+RED='\033[00;31m'
+GREEN='\033[00;32m'
+YELLOW='\033[00;33m'
+BLUE='\033[00;34m'
+PURPLE='\033[00;35m'
+CYAN='\033[00;36m'
+LIGHTGRAY='\033[00;37m'
+LRED='\033[01;31m'
+LGREEN='\033[01;32m'
+LYELLOW='\033[01;33m'
+LBLUE='\033[01;34m'
+LPURPLE='\033[01;35m'
+LCYAN='\033[01;36m'
+WHITE='\033[01;37m'
+
+# Path
 PATH=$PATH:/opt/local/bin
 PATH=$PATH:/opt/local/sbin
 PATH=$PATH:/usr/local/bin
 PATH=$PATH:/System/Library/Frameworks/Python.framework/Versions/3.5/bin
 export PATH=$PATH
-PS1="\[\e[0;93m\]\w\n> \[\e[0;97m\]"
+
+# Shell
+PS1="${LYELLOW}\w\n${LGREEN}> ${RESTORE}"
 export PS2="> "
 
 # Reference: https://spin.atomicobject.com/2016/05/28/log-bash-history/

@@ -47,6 +47,9 @@ set background=dark
 colorscheme onedark
 syntax on
 
+" Line number coloring
+highlight LineNr ctermfg=white
+
 set wildmenu
 set showcmd
 set mouse=a
