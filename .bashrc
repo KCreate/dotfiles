@@ -24,8 +24,8 @@ PATH=$PATH:/System/Library/Frameworks/Python.framework/Versions/3.5/bin
 export PATH=$PATH
 
 # Shell
-PS1="${LYELLOW}\w\n${LGREEN}> ${RESTORE}"
-export PS2="> "
+PS1="${RED}\w\n${RED}❯ ${RESTORE}"
+export PS2="❯ "
 
 # Reference: https://spin.atomicobject.com/2016/05/28/log-bash-history/
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
@@ -41,8 +41,6 @@ alias wd='cd /Users/leonardschuetz/Documents/Github/KCreate/leonardschuetz.ch'
 alias tbz='cd ~/Documents/Schule/TBZ/'
 alias debian='ssh root@30414.hostserv.eu'
 alias launch='~/Documents/launch.sh'
-alias watchdir='watch -d ls -l'
-alias vlc='/Applications/VLC.app/Contents/MacOS/VLC -I rc'
 
 # Applications
 finder() {
@@ -63,7 +61,7 @@ atom() {
 	fi
 }
 
-alias l='ls -G1al'
+alias l='ls -Gal'
 alias bpr='source ~/.bash_profile; clear'
 alias bpo='atom ~/.bashrc'
 alias tmuxconf='vim ~/.tmux.conf'
