@@ -12,11 +12,10 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'scrooloose/nerdtree'
 Plugin 'ap/vim-css-color'
-Plugin 'elzr/vim-json'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'mattn/emmet-vim'
 Plugin 'valloric/matchtagalways'
+Plugin 'tpope/vim-surround'
 
 call vundle#end()
 filetype plugin indent on
@@ -43,7 +42,6 @@ set backspace=2
 set notimeout ttimeout ttimeoutlen=0
 
 " Set the color scheme
-set background=dark
 colorscheme onedark
 syntax on
 

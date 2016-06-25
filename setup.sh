@@ -1,50 +1,38 @@
+echo "this script has not been tested! be careful"
+exit 1
+
 # Install Xcode developer tools
 xcode-select --install
 
+# Install homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 # Install git
-sudo apt-get install git
+brew install git
 sudo mkdir ~/github/
 
-# Uninstall all previous copies of vim
-sudo apt-get remove --purge vim vim-runtime vim-gnome vim-tiny vim-common vim-gui-common
-sudo rm -rf /usr/local/share/vim
-sudo rm /usr/bin/vim
-
-# Install some needed libraries
-sudo apt-get build-dep vim-gnome
-sudo apt-get install python-dev libncurses5-dev
+brew install python3
 
 # Install vim
-cd ~/github/
-sudo git clone https://github.com/vim/vim/
-cd vim/src
-./configure \
-	--with-features=huge \
-	--enable-largefile \
-	--enable-pythoninterp \
-	--enable-gui=auto
-sudo make
-sudo make install
-sudo mv ./vim /usr/bin/
+brew install macvim --with-override-system-vim
 
 # Setup Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-# Install NodeJS 6
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-sudo apt-get install -y nodejs
+# Install NodeJS
+brew install node
 
 # Globally install some npm packages
 sudo npm install -g pm2
 
 # Install tmux
-sudo apt-get install tmux
+brew install tmux
 
 # Download dotfiles from github
 git clone https://github.com/KCreate/dotfiles.git ~/.dotfiles/
 
-# Copy the vim theme from resources to the right location
-cp ~/.dotfiles/resources/onedark.vim ~/.vim/colors/
+# Copy vim themes
+ln -s ~/.dotfiles/resources/onedark.vim ~/.vim/colors/onedark.vim
 
 # Create back up directory for already existing dotfiles
 mkdir ~/.dotfiles/backup
