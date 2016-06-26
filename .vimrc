@@ -48,20 +48,24 @@ syntax on
 " Line number coloring
 highlight LineNr ctermfg=white
 
+" command autocompletion
 set wildmenu
-set showcmd
+
+" enable the mouse
 set mouse=a
 
-set ruler
-
+" remap tab to 4 spaces
+set tabstop=4
+set softtabstop=0
+set expandtab
 set shiftwidth=4
-set softtabstop=4
-set shiftround
 set smarttab
+
+set shiftround
 set showbreak=…
 set ttyfast
 set autoindent
 set smartindent
 
-set expandtab
+" Hide the default vim statusbar
 set noshowmode
