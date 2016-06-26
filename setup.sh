@@ -59,6 +59,9 @@ vim +PluginInstall +qall
 # Configure OSX to be how I like it
 # Kinda inspired by https://github.com/mathiasbynens/dotfiles/blob/master/.osx
 
+# Enable scroll gestures in dock
+defaults write com.apple.dock scroll-to-open -bool true
+
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
