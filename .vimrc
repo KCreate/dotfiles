@@ -16,6 +16,7 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'valloric/matchtagalways'
 Plugin 'tpope/vim-surround'
+Plugin 'mustache/vim-mustache-handlebars'
 
 call vundle#end()
 filetype plugin indent on
@@ -69,3 +70,7 @@ set smartindent
 
 " Hide the default vim statusbar
 set noshowmode
+
+" Associate *.handlebars and *.hb with html files
+au BufRead,BufNewFile *.handlebars setfiletype html
+au BufRead,BufNewFile *.hb setfiletype html
