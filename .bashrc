@@ -1,7 +1,7 @@
 # Colors
 # Reference: http://stackoverflow.com/questions/10466749/bash-colored-output-with-a-variable
 RESTORE='\033[0m'
-RED='\033[00;31m'
+RED='\033[38;5;3m'
 GREEN='\033[00;32m'
 YELLOW='\033[00;33m'
 BLUE='\033[00;34m'
@@ -16,6 +16,15 @@ LPURPLE='\033[01;35m'
 LCYAN='\033[01;36m'
 WHITE='\033[01;37m'
 
+function color {
+    if [ $# -eq 1 ]
+    then
+        echo "\033[38;5;${1}m"
+    else
+        echo "\033[38;5;${1};48;5;${2}m"
+    fi
+}
+
 # Path
 PATH=$PATH:/opt/local/bin
 PATH=$PATH:/opt/local/sbin
@@ -24,7 +33,7 @@ PATH=$PATH:/System/Library/Frameworks/Python.framework/Versions/3.5/bin
 export PATH=$PATH
 
 # Shell
-PS1="${RED}\w\n${RED}❯ ${RESTORE}"
+PS1="$(color 3)\w\n$(color 3)❯${RESTORE} "
 export PS2="❯ "
 
 # Reference: https://spin.atomicobject.com/2016/05/28/log-bash-history/
@@ -44,21 +53,21 @@ alias launch='~/Documents/launch.sh'
 
 # Applications
 finder() {
-	if [ $# -eq 0 ]
-	then
-		open -a "Finder" .;
-	else
-		open "$1";
-	fi
+    if [ $# -eq 0 ]
+    then
+        open -a "Finder" .;
+    else
+        open "$1";
+    fi
 }
 
 atom() {
-	if [ $# -eq 0 ]
-	then
-		open -a "Atom.app" .;
-	else
-		open -a "Atom.app" $1;
-	fi
+    if [ $# -eq 0 ]
+    then
+        open -a "Atom.app" .;
+    else
+        open -a "Atom.app" $1;
+    fi
 }
 
 alias l='ls -Gal'
@@ -72,33 +81,33 @@ alias cl='clear'
 alias dirs='dirs -v'
 
 spacer-tile() {
-	defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'; killall Dock;
+    defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'; killall Dock;
 }
 
 network() {
-	echo "Ext: "$(dig +short myip.opendns.com @resolver1.opendns.com);
-	echo "Loc: "$(ipconfig getifaddr en0);
+    echo "Ext: "$(dig +short myip.opendns.com @resolver1.opendns.com);
+    echo "Loc: "$(ipconfig getifaddr en0);
 }
 
 cd() {
-	builtin cd "$@";
-	l;
+    builtin cd "$@";
+    l;
 }
 
 clone() {
-	git clone https://github.com/$1 '/Users/leonardschuetz/Documents/GitHub/'$1'/';
-	gh;
-	cd $1;
+    git clone https://github.com/$1 '/Users/leonardschuetz/Documents/GitHub/'$1'/';
+    gh;
+    cd $1;
 }
 
 delf() {
-	rm "$1";
-	l;
+    rm "$1";
+    l;
 }
 
 deld() {
-	rm -rf "$1";
-	l;
+    rm -rf "$1";
+    l;
 }
 
 # NPM autocomplete
@@ -115,17 +124,17 @@ _npm_install_completion () {
       words=("${COMP_WORDS[@]}")
     fi
 
-	local si="$IFS"
+    local si="$IFS"
 
-	# if your npm command includes `install` or `i `
-	if [[ ${words[@]} =~ 'install' ]] || [[ ${words[@]} =~ 'i ' ]]; then
-		local cur=${COMP_WORDS[COMP_CWORD]}
+    # if your npm command includes `install` or `i `
+    if [[ ${words[@]} =~ 'install' ]] || [[ ${words[@]} =~ 'i ' ]]; then
+        local cur=${COMP_WORDS[COMP_CWORD]}
 
-		# supply autocomplete words from `~/.npm`, with $cur being value of current expansion like 'expre'
-		COMPREPLY=( $( compgen -W "$(ls ~/.npm )" -- $cur ) )
-	fi
+        # supply autocomplete words from `~/.npm`, with $cur being value of current expansion like 'expre'
+        COMPREPLY=( $( compgen -W "$(ls ~/.npm )" -- $cur ) )
+    fi
 
-	IFS="$si"
+    IFS="$si"
 }
 
 # bind the above function to `npm` autocompletion
