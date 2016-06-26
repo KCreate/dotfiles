@@ -36,6 +36,7 @@ alias wd='cd /Users/leonardschuetz/Documents/Github/KCreate/leonardschuetz.ch'
 alias tbz='cd ~/Documents/Schule/TBZ/'
 alias debian='ssh root@30414.hostserv.eu'
 alias launch='~/Documents/launch.sh'
+alias ql='qlmanage -p '
 
 # Applications
 finder() {

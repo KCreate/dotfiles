@@ -62,6 +62,9 @@ vim +PluginInstall +qall
 # Enable scroll gestures in dock
 defaults write com.apple.dock scroll-to-open -bool true
 
+# Create a symbolic link to the airport command for easy access
+sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/local/bin/airport
+
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
@@ -119,7 +122,7 @@ launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/nul
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-# Save screenshots to the desktop
+# Save screenshots to the screenshots folder
 defaults write com.apple.screencapture location -string "${HOME}/Documents/Screenshots/"
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
@@ -187,6 +190,11 @@ defaults write com.apple.dashboard mcx-disabled -bool true
 
 # Don’t show Dashboard as a Space
 defaults write com.apple.dock dashboard-in-overlay -bool true
+
+# Install latest version of bash and set as current users default shell
+brew install bash
+sudo echo $(brew --prefix)/bin/bash >> /etc/shells
+chsh -s $(brew --prefix)/bin/bash
 
 # Add iOS & Watch Simulator to Launchpad
 sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app" "/Applications/Simulator.app"
