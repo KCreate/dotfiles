@@ -1,20 +1,6 @@
 # Colors
 # Reference: http://stackoverflow.com/questions/10466749/bash-colored-output-with-a-variable
 RESTORE='\033[0m'
-RED='\033[38;5;3m'
-GREEN='\033[00;32m'
-YELLOW='\033[00;33m'
-BLUE='\033[00;34m'
-PURPLE='\033[00;35m'
-CYAN='\033[00;36m'
-LIGHTGRAY='\033[00;37m'
-LRED='\033[01;31m'
-LGREEN='\033[01;32m'
-LYELLOW='\033[01;33m'
-LBLUE='\033[01;34m'
-LPURPLE='\033[01;35m'
-LCYAN='\033[01;36m'
-WHITE='\033[01;37m'
 
 function color {
     if [ $# -eq 1 ]
@@ -33,8 +19,8 @@ PATH=$PATH:/System/Library/Frameworks/Python.framework/Versions/3.5/bin
 export PATH=$PATH
 
 # Shell
-PS1="$(color 3)\w\n$(color 3)❯${RESTORE} "
-export PS2="❯ "
+export PS1="$(color 3)\w\n${RESTORE}$(color 3)❯${RESTORE} "
+export PS2="$(color 3)❯${RESTORE} "
 
 # Reference: https://spin.atomicobject.com/2016/05/28/log-bash-history/
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
