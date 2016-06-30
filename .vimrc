@@ -9,7 +9,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ap/vim-css-color'
 Plugin 'jelera/vim-javascript-syntax'
@@ -17,9 +18,33 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'valloric/matchtagalways'
 Plugin 'tpope/vim-surround'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'benmills/vimux'
+Plugin 'moll/vim-node'
 
 call vundle#end()
 filetype plugin indent on
+
+" Glyphs
+set encoding=utf-8
+
+" vim-devicons config
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
+let g:WebDevIcons_conceal_nerdtree_brackets = 0
+let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+
+" airline options
+let g:airline_powerline_fonts=1
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_theme='kolor'
+
+" ctrlp config
+let g:ctrlp_show_hidden = 1
+
+" don't hide quotes in json files
+let g:vim_json_syntax_conceal = 0
 
 " Enable relative line numbers
 set relativenumber
@@ -34,8 +59,6 @@ set laststatus=2
 set t_Co=256
 let g:miniBufExplForceSyntaxEnable = 1
 
-set encoding=utf-8
-
 " Make backspace work over lines
 set backspace=2
 
@@ -47,7 +70,11 @@ colorscheme onedark
 syntax on
 
 " Line number coloring
-highlight LineNr ctermfg=white
+highlight LineNr ctermfg=white term=bold
+highlight CursorLineNR ctermfg=220
+
+" Use the vertical box drawing character for split panes
+set fillchars=vert:│
 
 " command autocompletion
 set wildmenu
@@ -73,4 +100,4 @@ set noshowmode
 
 " Associate *.handlebars and *.hb with html files
 au BufRead,BufNewFile *.handlebars setfiletype html
-au BufRead,BufNewFile *.hb setfiletype html
+au BufRead,BufNewFile *.hbs setfiletype html
