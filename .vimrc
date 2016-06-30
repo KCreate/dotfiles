@@ -23,12 +23,27 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'benmills/vimux'
 Plugin 'moll/vim-node'
 Plugin 'mkitt/tabline.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive'
+Plugin 'mxw/vim-jsx'
 
 call vundle#end()
 filetype plugin indent on
 
 " Glyphs
 set encoding=utf-8
+
+" syntastic config
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_loc_list_height = 5
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_stl_format = ''
+
+" vim-jsx config
+let g:jsx_ext_required = 0 "Allow JSX in normal JS files"
 
 " vim-devicons config
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
@@ -47,6 +62,9 @@ hi TabLineFill  ctermfg=lightgreen  ctermbg=darkgreen
 hi TabLine      ctermfg=blue        ctermbg=yellow
 hi TabLineSel   ctermfg=Red         ctermbg=Yellow
 hi Title        ctermfg=lightblue   ctermbg=magenta
+
+" bind Control-t to run "npm test"
+map <C-t> :VimuxRunCommand("npm test")<CR>
 
 " ctrlp config
 let g:ctrlp_show_hidden = 1
@@ -80,6 +98,10 @@ syntax on
 " Line number coloring
 highlight LineNr ctermfg=white term=bold
 highlight CursorLineNR ctermfg=220
+
+" syntastic error styling
+hi SpellBad ctermfg=white ctermbg=grey
+hi SpellCap ctermfg=white ctermbg=grey
 
 " Use the vertical box drawing character for split panes
 set fillchars=vert:│
