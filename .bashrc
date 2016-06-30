@@ -18,9 +18,13 @@ PATH=$PATH:/usr/local/bin
 PATH=$PATH:/System/Library/Frameworks/Python.framework/Versions/3.5/bin
 export PATH=$PATH
 
+# dotfiles
+export DOT=~/.dotfiles
+
 # Shell
-export PS1="$(color 3)\w\n${RESTORE}$(color 3)❯${RESTORE} "
-export PS2="$(color 3)❯${RESTORE} "
+SHELLCOLOR=63
+export PS1="$(color $SHELLCOLOR)\w\n${RESTORE}$(color $SHELLCOLOR)❯${RESTORE} "
+export PS2="$(color $SHELLCOLOR)❯${RESTORE} "
 
 # Reference: https://spin.atomicobject.com/2016/05/28/log-bash-history/
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
