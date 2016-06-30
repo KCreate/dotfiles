@@ -22,6 +22,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'benmills/vimux'
 Plugin 'moll/vim-node'
+Plugin 'mkitt/tabline.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -39,6 +40,13 @@ let g:airline_powerline_fonts=1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_theme='kolor'
+let g:airline#extensions#tabline#enabled = 1
+
+" Vim tabs styling
+hi TabLineFill  ctermfg=lightgreen  ctermbg=darkgreen
+hi TabLine      ctermfg=blue        ctermbg=yellow
+hi TabLineSel   ctermfg=Red         ctermbg=Yellow
+hi Title        ctermfg=lightblue   ctermbg=magenta
 
 " ctrlp config
 let g:ctrlp_show_hidden = 1
