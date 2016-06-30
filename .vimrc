@@ -1,3 +1,6 @@
+" Set the shell
+set shell=/bin/bash
+
 " Setup Vundle
 set nocompatible
 filetype off
@@ -56,6 +59,18 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_theme='kolor'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_min_count = 2
+let g:airline#extensions#tabline#buffer_min_count = 2 " never show buffers"
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" switch to next buffer via gt
+map <c-l> :bnext<CR>
+map <c-h> :bprevious<CR>
+
+" remap wq to save and close buffer
+cnoreabbrev wq w<bar>bd
+cnoreabbrev bx up<bar>bd
 
 " Vim tabs styling
 hi TabLineFill  ctermfg=lightgreen  ctermbg=darkgreen
@@ -68,6 +83,8 @@ map <C-t> :VimuxRunCommand("npm test")<CR>
 
 " ctrlp config
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_use_caching = 0
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|.git)$'
 
 " don't hide quotes in json files
 let g:vim_json_syntax_conceal = 0
@@ -76,6 +93,7 @@ let g:vim_json_syntax_conceal = 0
 set relativenumber
 set number
 
+" open nerdtree via Control n
 map <C-n> :NERDTreeToggle<CR>
 
 " Show hidden files inside nerdtree
