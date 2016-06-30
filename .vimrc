@@ -29,9 +29,13 @@ Plugin 'mkitt/tabline.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mxw/vim-jsx'
+Plugin 'henrik/vim-reveal-in-finder'
 
 call vundle#end()
 filetype plugin indent on
+
+" map control-f to reveal in finder
+map <c-f> :Reveal<CR>
 
 " Glyphs
 set encoding=utf-8
