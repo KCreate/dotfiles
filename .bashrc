@@ -63,8 +63,7 @@ atom() {
 
 alias l='ls -Gal'
 alias bpr='source ~/.bash_profile; clear'
-alias bpo='atom ~/.bashrc'
-alias tmuxconf='vim ~/.tmux.conf'
+alias bpo='vim ~/.bashrc'
 alias ..='cd ../'
 alias cl='clear'
 
