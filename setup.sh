@@ -31,9 +31,6 @@ brew install tmux
 # Download dotfiles from github
 git clone https://github.com/KCreate/dotfiles.git ~/.dotfiles/
 
-# Copy vim themes
-ln -s ~/.dotfiles/resources/onedark.vim ~/.vim/colors/onedark.vim
-
 # Create back up directory for already existing dotfiles
 mkdir ~/.dotfiles/backup
 
