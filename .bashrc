@@ -1,13 +1,13 @@
 # Colors
 # Reference: http://stackoverflow.com/questions/10466749/bash-colored-output-with-a-variable
-RESTORE='\033[0m'
+RESTORE='\[\033[0m\]'
 
 function color {
     if [ $# -eq 1 ]
     then
-        echo "\033[38;5;${1}m"
+        echo "\[\033[38;5;${1}m\]"
     else
-        echo "\033[38;5;${1};48;5;${2}m"
+        echo "\[\033[38;5;${1};48;5;${2}m\]"
     fi
 }
 
