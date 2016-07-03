@@ -32,9 +32,13 @@ Plugin 'mxw/vim-jsx'
 Plugin 'henrik/vim-reveal-in-finder'
 Plugin 'mattn/emmet-vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'terryma/vim-multiple-cursors'
 
 call vundle#end()
 filetype plugin indent on
+
+" Remap vim-multiple-cursors to C-d like in sublime
+let g:multi_cursor_next_key='<C->'
 
 " Reduce the updatetime
 set updatetime=250
