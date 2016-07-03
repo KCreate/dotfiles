@@ -33,6 +33,7 @@ Plugin 'henrik/vim-reveal-in-finder'
 Plugin 'mattn/emmet-vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'morhetz/gruvbox'
 
 call vundle#end()
 filetype plugin indent on
@@ -69,6 +70,8 @@ let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_stl_format = ''
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
 
 " vim-jsx config
 let g:jsx_ext_required = 0 "Allow JSX in normal JS files"
@@ -135,8 +138,15 @@ set backspace=2
 set notimeout ttimeout ttimeoutlen=0
 
 " Set the color scheme
-colorscheme onedark
+set background=dark
+colorscheme gruvbox
 syntax on
+
+" Gruvbox config
+let g:gruvbox_contrast_dark="medium"
+let g:gruvbox_italic=1
+let g:gruvbox_italicize_comments=1
+let g:gruvbox_italicize_strings=1
 
 " Line number coloring
 highlight LineNr ctermfg=white term=bold
