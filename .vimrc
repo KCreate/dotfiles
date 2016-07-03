@@ -46,6 +46,12 @@ set updatetime=250
 " map control-f to reveal in finder
 map <c-f> :Reveal<CR>
 
+" Navigate between wrapped lines
+noremap <silent> <Up> gk
+noremap <silent> <Down> gj
+noremap <silent> k gk
+noremap <silent> j gj
+
 " Encoding
 set encoding=utf-8
 
