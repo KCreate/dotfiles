@@ -30,6 +30,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mxw/vim-jsx'
 Plugin 'henrik/vim-reveal-in-finder'
+Plugin 'mattn/emmet-vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -37,8 +38,14 @@ filetype plugin indent on
 " map control-f to reveal in finder
 map <c-f> :Reveal<CR>
 
-" Glyphs
+" Encoding
 set encoding=utf-8
+
+" Force *.md files to be recognized as markdown
+au BufNewFile, BufReadPost *.md set filetype=markdown
+
+" Markdown fence code highlighting
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'javascript', 'css', 'scss']
 
 " syntastic config
 let g:syntastic_javascript_checkers = ['eslint']
