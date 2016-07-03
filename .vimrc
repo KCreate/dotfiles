@@ -31,9 +31,13 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'mxw/vim-jsx'
 Plugin 'henrik/vim-reveal-in-finder'
 Plugin 'mattn/emmet-vim'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 filetype plugin indent on
+
+" Reduce the updatetime
+set updatetime=250
 
 " map control-f to reveal in finder
 map <c-f> :Reveal<CR>
