@@ -11,29 +11,30 @@ set clipboard=unnamed
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'ap/vim-css-color'
+Plugin 'benmills/vimux'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'henrik/vim-reveal-in-finder'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'mattn/emmet-vim'
+Plugin 'mkitt/tabline.vim'
+Plugin 'moll/vim-node'
+Plugin 'morhetz/gruvbox'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'mxw/vim-jsx'
+Plugin 'pangloss/vim-javascript'
+Plugin 'Raimondi/delimitMate'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'valloric/matchtagalways'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree'
-Plugin 'ap/vim-css-color'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'valloric/matchtagalways'
-Plugin 'tpope/vim-surround'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'Raimondi/delimitMate'
-Plugin 'benmills/vimux'
-Plugin 'moll/vim-node'
-Plugin 'mkitt/tabline.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-fugitive'
-Plugin 'mxw/vim-jsx'
-Plugin 'henrik/vim-reveal-in-finder'
-Plugin 'mattn/emmet-vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'morhetz/gruvbox'
+Plugin 'VundleVim/Vundle.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -167,10 +168,9 @@ set mouse=a
 
 " remap tab to 4 spaces
 set tabstop=4
-set softtabstop=0
+set softtabstop=4
 set expandtab
 set shiftwidth=4
-set smarttab
 
 set shiftround
 set showbreak=…
