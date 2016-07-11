@@ -91,12 +91,12 @@ clone() {
 }
 
 delf() {
-    rm "$1";
+    mv "$1" "/Users/leonardschuetz/.Trash/";
     l;
 }
 
 deld() {
-    rm -rf "$1";
+    mv "$1" "/Users/leonardschuetz/.Trash/";
     l;
 }
 
