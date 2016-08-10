@@ -35,6 +35,7 @@ Plugin 'valloric/matchtagalways'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'rhysd/vim-crystal'
 
 call vundle#end()
 filetype plugin indent on
@@ -56,9 +57,6 @@ noremap <silent> j gj
 
 " Encoding
 set encoding=utf-8
-
-" Force *.md files to be recognized as markdown
-au BufNewFile, BufReadPost *.md set filetype=markdown
 
 " Markdown fence code highlighting
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'javascript', 'css', 'scss']
@@ -181,6 +179,13 @@ set smartindent
 " Hide the default vim statusbar
 set noshowmode
 
-" Associate *.handlebars and *.hb with html files
 au BufRead,BufNewFile *.handlebars setfiletype html
 au BufRead,BufNewFile *.hbs setfiletype html
+au BufNewFile, BufReadPost *.md set filetype=markdown
+
+" Automatically remove whitespace on file write
+autocmd BufWritePre * %s/\s\+$//e
+
+" Indent with 2 spaces in ruby or crystal files
+autocmd FileType crystal setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2

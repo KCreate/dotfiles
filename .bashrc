@@ -21,10 +21,16 @@ export PATH=$PATH
 # dotfiles
 export DOT=~/.dotfiles
 
+# Export default colors
+export COLOR_PRI=234
+export COLOR_SEC=235
+export COLOR_TER=236
+export COLOR_HIL=255
+export COLOR_SHE=42
+
 # Shell
-SHELLCOLOR=63
-export PS1="$(color $SHELLCOLOR)\w\n${RESTORE}$(color $SHELLCOLOR)❯${RESTORE} "
-export PS2="$(color $SHELLCOLOR)❯${RESTORE} "
+export PS1="$(color $COLOR_SHE)\w\n${RESTORE}$(color $COLOR_SHE)❯${RESTORE} "
+export PS2="$(color $COLOR_SHE)❯${RESTORE} "
 
 # Reference: https://spin.atomicobject.com/2016/05/28/log-bash-history/
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
