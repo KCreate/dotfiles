@@ -105,9 +105,6 @@ hi TabLine      ctermfg=blue        ctermbg=yellow
 hi TabLineSel   ctermfg=Red         ctermbg=Yellow
 hi Title        ctermfg=lightblue   ctermbg=magenta
 
-" bind Control-t to run "npm test"
-map <C-t> :VimuxRunCommand("npm test")<CR>
-
 " ctrlp config
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_use_caching = 0
@@ -189,3 +186,4 @@ autocmd BufWritePre * %s/\s\+$//e
 " Indent with 2 spaces in ruby or crystal files
 autocmd FileType crystal setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
