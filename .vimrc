@@ -114,7 +114,6 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|.git)$'
 let g:vim_json_syntax_conceal = 0
 
 " Enable relative line numbers
-set relativenumber
 set number
 
 " open nerdtree via Control n
