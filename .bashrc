@@ -16,6 +16,7 @@ PATH=$PATH:/opt/local/bin
 PATH=$PATH:/opt/local/sbin
 PATH=$PATH:/usr/local/bin
 PATH=$PATH:/System/Library/Frameworks/Python.framework/Versions/3.5/bin
+PATH=$PATH:/System/Library/Frameworks/Python.framework/Versions/2.7/bin
 export PATH=$PATH
 
 # dotfiles

@@ -1,4 +1,10 @@
 [user]
+[alias]
+    s = status -s
+    c = commit -m
+    co = checkout
+    aa = add -A
+    p = push
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
