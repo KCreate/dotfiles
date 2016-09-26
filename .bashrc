@@ -20,8 +20,8 @@ PATH=$PATH:/System/Library/Frameworks/Python.framework/Versions/2.7/bin
 export PATH=$PATH
 
 # Gopath
-GOPATH = ~/.gocode
-export GOPATH
+GOPATH=~/.gocode
+export GOPATH=$GOPATH
 
 # dotfiles
 export DOT=~/.dotfiles
