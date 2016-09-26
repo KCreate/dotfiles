@@ -19,6 +19,10 @@ PATH=$PATH:/System/Library/Frameworks/Python.framework/Versions/3.5/bin
 PATH=$PATH:/System/Library/Frameworks/Python.framework/Versions/2.7/bin
 export PATH=$PATH
 
+# Gopath
+GOPATH = ~/.gocode
+export GOPATH
+
 # dotfiles
 export DOT=~/.dotfiles
 
