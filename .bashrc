@@ -12,20 +12,11 @@ function color {
 }
 
 # Path
-PATH=$PATH:/opt/local/bin
-PATH=$PATH:/opt/local/sbin
 PATH=$PATH:/usr/local/bin
-PATH=$PATH:~/.gocode/bin
-PATH=$PATH:/System/Library/Frameworks/Python.framework/Versions/3.5/bin
-PATH=$PATH:/System/Library/Frameworks/Python.framework/Versions/2.7/bin
 export PATH=$PATH
 
-# Gopath
-GOPATH=~/.gocode
-export GOPATH=$GOPATH
-
 # dotfiles
-export DOT=~/.dotfiles
+export DOT=~/dotfiles
 
 # Export default colors
 export COLOR_PRI=234
@@ -41,18 +32,11 @@ export PS2="$(color $COLOR_SHE)❯${RESTORE} "
 # Reference: https://spin.atomicobject.com/2016/05/28/log-bash-history/
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
 
-# Python path
-export PYTHONPATH=/
-
 # Directorys
 alias gh='cd ~/Documents/Github'
 alias de='cd ~/Desktop'
 alias doc='cd ~/Documents'
-alias wd='cd /Users/leonardschuetz/Documents/Github/KCreate/leonardschuetz.ch'
 alias tbz='cd ~/Documents/Schule/TBZ/'
-alias debian='ssh root@30414.hostserv.eu'
-alias launch='~/Documents/launch.sh'
-alias ql='qlmanage -p '
 
 # Applications
 finder() {
@@ -61,15 +45,6 @@ finder() {
         open -a "Finder" .;
     else
         open "$1";
-    fi
-}
-
-atom() {
-    if [ $# -eq 0 ]
-    then
-        open -a "Atom.app" .;
-    else
-        open -a "Atom.app" $1;
     fi
 }
 
@@ -142,7 +117,3 @@ _npm_install_completion () {
 # bind the above function to `npm` autocompletion
 complete -o default -F _npm_install_completion npm
 ## END BASH npm install autocomplete
-
-# Python virtualenv
-alias pyenva='source bin/activate'
-alias pyenvd='deactivate'
