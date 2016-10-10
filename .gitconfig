@@ -27,3 +27,7 @@
 	ui = auto
 [commit]
 	gpgsign = true
+[github]
+	user = KCreate
+[ghi]
+	token = !security find-internet-password -a KCreate -s github.com -l 'ghi token' -w

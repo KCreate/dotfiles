@@ -59,6 +59,9 @@ noremap <silent> j gj
 " Encoding
 set encoding=utf-8
 
+" Guifont
+set guifont=Fira\ Mono\ Medium\ for\ Powerline
+
 " Markdown fence code highlighting
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'javascript', 'css', 'scss']
 
@@ -178,6 +181,7 @@ set noshowmode
 
 au BufRead,BufNewFile *.handlebars setfiletype html
 au BufRead,BufNewFile *.hbs setfiletype html
+au BufRead,BufNewFile *.charly setfiletype charly
 au BufNewFile, BufReadPost *.md set filetype=markdown
 
 " Automatically remove whitespace on file write
@@ -186,4 +190,5 @@ autocmd BufWritePre * %s/\s\+$//e
 " Indent with 2 spaces in ruby or crystal files
 autocmd FileType crystal setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType charly setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2

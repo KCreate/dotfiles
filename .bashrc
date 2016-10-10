@@ -12,6 +12,7 @@ function color {
 }
 
 # Path
+PATH=/usr/local/Cellar/ruby/2.3.1_2/bin/:$PATH
 PATH=$PATH:/usr/local/bin
 export PATH=$PATH
 
@@ -28,6 +29,9 @@ export COLOR_SHE=42
 # Shell
 export PS1="$(color $COLOR_SHE)\w\n${RESTORE}$(color $COLOR_SHE)❯${RESTORE} "
 export PS2="$(color $COLOR_SHE)❯${RESTORE} "
+
+# Charly dir
+export CHARLYDIR=~/Documents/Github/KCreate/charly-lang/src/charly/std-lib
 
 # Reference: https://spin.atomicobject.com/2016/05/28/log-bash-history/
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
@@ -117,3 +121,4 @@ _npm_install_completion () {
 # bind the above function to `npm` autocompletion
 complete -o default -F _npm_install_completion npm
 ## END BASH npm install autocomplete
+
