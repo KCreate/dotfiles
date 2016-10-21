@@ -24,7 +24,7 @@ export COLOR_PRI=234
 export COLOR_SEC=235
 export COLOR_TER=236
 export COLOR_HIL=255
-export COLOR_SHE=42
+export COLOR_SHE=220
 
 # Shell
 export PS1="$(color $COLOR_SHE)\w\n${RESTORE}$(color $COLOR_SHE)❯${RESTORE} "
@@ -52,7 +52,16 @@ finder() {
     fi
 }
 
-alias l='ls -Gal'
+atom() {
+    if [ $# -eq 0 ]
+    then
+        open -a Atom.app .;
+    else
+        open -a Atom.app “$1”;
+    fi
+}
+
+alias l='ls -Galh'
 alias bpr='source ~/.bash_profile; clear'
 alias bpo='vim ~/.bashrc'
 alias ..='cd ../'
