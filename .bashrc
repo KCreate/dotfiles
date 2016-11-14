@@ -31,7 +31,10 @@ export PS1="$(color $COLOR_SHE)\w\n${RESTORE}$(color $COLOR_SHE)❯${RESTORE} "
 export PS2="$(color $COLOR_SHE)❯${RESTORE} "
 
 # Charly dir
-export CHARLYDIR=~/Documents/Github/KCreate/charly-lang/src/charly/std-lib
+export CHARLYDIR=~/Documents/Github/KCreate/charly-lang
+
+# Node path
+export NODE_PATH=/usr/local/lib/node_modules
 
 # Reference: https://spin.atomicobject.com/2016/05/28/log-bash-history/
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
