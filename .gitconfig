@@ -5,6 +5,9 @@
     co = checkout
     aa = add -A
     p = push
+    ci = ci-status
+    pr = pull-request
+    ca = commit -am
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f

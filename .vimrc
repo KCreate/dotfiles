@@ -181,7 +181,7 @@ set noshowmode
 
 au BufRead,BufNewFile *.handlebars setfiletype html
 au BufRead,BufNewFile *.hbs setfiletype html
-au BufRead,BufNewFile *.charly setfiletype charly
+au BufRead,BufNewFile *.charly setfiletype javascript
 au BufNewFile, BufReadPost *.md set filetype=markdown
 
 " Automatically remove whitespace on file write

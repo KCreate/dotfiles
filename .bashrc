@@ -26,8 +26,11 @@ export COLOR_TER=236
 export COLOR_HIL=255
 export COLOR_SHE=220
 
+# PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+
 # Shell
-export PS1="$(color $COLOR_SHE)\w\n${RESTORE}$(color $COLOR_SHE)❯${RESTORE} "
+export PROMPT_COMMAND='__git_ps1'
+export PS1="$(color $COLOR_SHE)\w$(color $COLOR_HIL)$(__git_ps1 ' (%s)')${RESTORE}\n${RESTORE}$(color $COLOR_SHE)❯${RESTORE} "
 export PS2="$(color $COLOR_SHE)❯${RESTORE} "
 
 # Charly dir
@@ -64,11 +67,12 @@ atom() {
     fi
 }
 
-alias l='ls -Galh'
+alias l='ls -Glah'
 alias bpr='source ~/.bash_profile; clear'
 alias bpo='vim ~/.bashrc'
 alias ..='cd ../'
 alias cl='clear'
+eval "$(hub alias -s)"
 
 # Show numbered dir stack
 alias dirs='dirs -v'
@@ -130,7 +134,9 @@ _npm_install_completion () {
     IFS="$si"
 }
 
+source ~/dotfiles/completions/git-completion.bash
+source ~/dotfiles/completions/git-prompt.sh
+
 # bind the above function to `npm` autocompletion
 complete -o default -F _npm_install_completion npm
 ## END BASH npm install autocomplete
-
