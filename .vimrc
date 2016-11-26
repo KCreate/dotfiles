@@ -12,25 +12,12 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'airblade/vim-gitgutter'
-Plugin 'ap/vim-css-color'
-Plugin 'benmills/vimux'
-Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'henrik/vim-reveal-in-finder'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'mattn/emmet-vim'
 Plugin 'mkitt/tabline.vim'
-Plugin 'moll/vim-node'
 Plugin 'morhetz/gruvbox'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'mxw/vim-jsx'
-Plugin 'pangloss/vim-javascript'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
 Plugin 'valloric/matchtagalways'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -41,14 +28,8 @@ Plugin 'kballard/vim-swift'
 call vundle#end()
 filetype plugin indent on
 
-" Remap vim-multiple-cursors to C-d like in sublime
-let g:multi_cursor_next_key='<C->'
-
 " Reduce the updatetime
 set updatetime=250
-
-" map control-f to reveal in finder
-map <c-f> :Reveal<CR>
 
 " Navigate between wrapped lines
 noremap <silent> <Up> gk
@@ -76,14 +57,6 @@ let g:syntastic_stl_format = ''
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 
-" vim-jsx config
-let g:jsx_ext_required = 0 "Allow JSX in normal JS files"
-
-" vim-devicons config
-let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
-let g:WebDevIcons_conceal_nerdtree_brackets = 0
-let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
-
 " airline options
 let g:airline_powerline_fonts=1
 let g:airline_left_sep=''
@@ -99,10 +72,6 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 map <c-l> :bnext<CR>
 map <c-h> :bprevious<CR>
 
-" remap wq to save and close buffer
-cnoreabbrev wq w<bar>bd
-cnoreabbrev bx up<bar>bd
-
 " Vim tabs styling
 hi TabLineFill  ctermfg=lightgreen  ctermbg=darkgreen
 hi TabLine      ctermfg=blue        ctermbg=yellow
@@ -113,9 +82,6 @@ hi Title        ctermfg=lightblue   ctermbg=magenta
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_use_caching = 0
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|.git)$'
-
-" don't hide quotes in json files
-let g:vim_json_syntax_conceal = 0
 
 " Enable relative line numbers
 set number
@@ -165,10 +131,10 @@ set wildmenu
 set mouse=a
 
 " remap tab to 4 spaces
-set tabstop=4
-set softtabstop=4
+set tabstop=2
+set softtabstop=2
 set expandtab
-set shiftwidth=4
+set shiftwidth=2
 
 set shiftround
 set showbreak=…
@@ -179,10 +145,8 @@ set smartindent
 " Hide the default vim statusbar
 set noshowmode
 
-au BufRead,BufNewFile *.handlebars setfiletype html
-au BufRead,BufNewFile *.hbs setfiletype html
-au BufRead,BufNewFile *.charly setfiletype javascript
-au BufNewFile, BufReadPost *.md set filetype=markdown
+au BufRead, BufNewFile      *.charly        setfiletype javascript
+au BufNewFile, BufReadPost  *.md            setfiletype markdown
 
 " Automatically remove whitespace on file write
 autocmd BufWritePre * %s/\s\+$//e
