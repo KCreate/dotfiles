@@ -26,11 +26,8 @@ export COLOR_TER=236
 export COLOR_HIL=255
 export COLOR_SHE=220
 
-# PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
-
 # Shell
-export PROMPT_COMMAND='__git_ps1'
-export PS1="$(color $COLOR_SHE)\w$(color $COLOR_HIL)$(__git_ps1 ' (%s)')${RESTORE}\n${RESTORE}$(color $COLOR_SHE)❯${RESTORE} "
+export PS1="$(color $COLOR_SHE)\w\n${RESTORE}$(color $COLOR_SHE)❯${RESTORE} "
 export PS2="$(color $COLOR_SHE)❯${RESTORE} "
 
 # Charly dir
@@ -140,3 +137,4 @@ source ~/dotfiles/completions/git-prompt.sh
 # bind the above function to `npm` autocompletion
 complete -o default -F _npm_install_completion npm
 ## END BASH npm install autocomplete
+if [ -f $(brew --prefix)/etc/bash_completion ]; then source $(brew --prefix)/etc/bash_completion; fi

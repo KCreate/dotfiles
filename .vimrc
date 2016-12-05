@@ -145,7 +145,7 @@ set smartindent
 " Hide the default vim statusbar
 set noshowmode
 
-au BufRead, BufNewFile      *.charly        setfiletype javascript
+au BufRead, BufNewFile      *.ch            setfiletype javascript
 au BufNewFile, BufReadPost  *.md            setfiletype markdown
 
 " Automatically remove whitespace on file write
