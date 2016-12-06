@@ -99,7 +99,7 @@ highlight Title       ctermfg=lightblue   ctermbg=magenta
 "
 let g:ctrlp_show_hidden=1
 let g:ctrlp_use_caching=0
-let g:ctrlp_custom_ignore="\v[\/](node_modules|.git)$"
+let g:ctrlp_custom_ignore='\v[\/](node_modules|.git)$'
 
 highlight LineNr ctermfg=black term=bold
 highlight CursorLineNR ctermfg=21
