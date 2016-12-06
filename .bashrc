@@ -24,7 +24,7 @@ export COLOR_PRI=234
 export COLOR_SEC=235
 export COLOR_TER=236
 export COLOR_HIL=255
-export COLOR_SHE=220
+export COLOR_SHE=21
 
 # Shell
 export PS1="$(color $COLOR_SHE)\w\n${RESTORE}$(color $COLOR_SHE)❯${RESTORE} "
@@ -43,7 +43,7 @@ export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:
 alias gh='cd ~/Documents/Github'
 alias de='cd ~/Desktop'
 alias doc='cd ~/Documents'
-alias tbz='cd ~/Documents/Schule/TBZ/'
+alias tbz='cd ~/Documents/School/TBZ/'
 
 # Applications
 finder() {
@@ -64,7 +64,7 @@ atom() {
     fi
 }
 
-alias l='ls -Glah'
+alias l="ls -A | gxargs -d ' ' | sed '$d'"
 alias bpr='source ~/.bash_profile; clear'
 alias bpo='vim ~/.bashrc'
 alias ..='cd ../'
@@ -102,33 +102,6 @@ delf() {
 deld() {
     mv "$1" "/Users/leonardschuetz/.Trash/";
     l;
-}
-
-# NPM autocomplete
-# Reference:
-# https://medium.com/@jamischarles/adding-autocomplete-to-npm-install-5efd3c424067
-
-# BASH standalone npm install autocomplete. Add this to ~/.bashrc file.
-_npm_install_completion () {
-    local words cword
-    if type _get_comp_words_by_ref &>/dev/null; then
-      _get_comp_words_by_ref -n = -n @ -w words -i cword
-    else
-      cword="$COMP_CWORD"
-      words=("${COMP_WORDS[@]}")
-    fi
-
-    local si="$IFS"
-
-    # if your npm command includes `install` or `i `
-    if [[ ${words[@]} =~ 'install' ]] || [[ ${words[@]} =~ 'i ' ]]; then
-        local cur=${COMP_WORDS[COMP_CWORD]}
-
-        # supply autocomplete words from `~/.npm`, with $cur being value of current expansion like 'expre'
-        COMPREPLY=( $( compgen -W "$(ls ~/.npm )" -- $cur ) )
-    fi
-
-    IFS="$si"
 }
 
 source ~/dotfiles/completions/git-completion.bash
