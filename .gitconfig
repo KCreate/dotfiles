@@ -9,6 +9,9 @@
   pr = pull-request
   ca = commit -am
   log = log --oneline --decorate --graph --all
+  branch = branch -vv
+  l = log --oneline --decorate --graph --all
+  br = branch -vv
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
@@ -20,8 +23,6 @@
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
 	required = true
-[user]
-[user]
 [user]
 	name = Leonard Schuetz
 	email = leni.schuetz@me.com
