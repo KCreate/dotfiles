@@ -26,6 +26,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'rhysd/vim-crystal'
+Plugin 'morhetz/gruvbox'
 
 call vundle#end()
 filetype plugin indent on
@@ -69,8 +70,8 @@ set updatetime=500
 "
 set guifont=Fira\ Mono\ Medium\ for\ Powerline
 syntax enable
-set background=light
-colorscheme solarized
+set background=dark
+colorscheme gruvbox
 
 let g:solarized_termcolors=16
 
@@ -80,7 +81,7 @@ let g:solarized_termcolors=16
 let g:airline_powerline_fonts=1
 let g:airline_left_sep=""
 let g:airline_right_sep=""
-let g:airline_theme='solarized'
+let g:airline_theme='luna'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#tab_min_count=2
 let g:airline#extensions#tabline#buffer_min_count=2
@@ -101,7 +102,7 @@ let g:ctrlp_show_hidden=1
 let g:ctrlp_use_caching=0
 let g:ctrlp_custom_ignore='\v[\/](node_modules|.git|.shards)$'
 
-highlight LineNr ctermfg=black term=bold
+highlight LineNr ctermfg=white term=bold
 highlight CursorLineNR ctermfg=21
 
 "
