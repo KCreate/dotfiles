@@ -34,6 +34,7 @@ filetype plugin indent on
 "
 " Navigation and control
 "
+let mapleader = ','
 noremap <silent> <Up> gk
 noremap <silent> <Down> gj
 noremap <silent> k gk
@@ -111,3 +112,17 @@ highlight CursorLineNR ctermfg=21
 autocmd BufRead, BufNewFile *.ch setfiletype javascript
 autocmd BufNewFile, BufReadPost *.md setfiletype markdown
 autocmd BufWritePre * %s/\s\+$//e " Remove whitespace on file write
+
+nnoremap <Leader>H :call<SID>LongLineHLToggle()<cr>
+hi OverLength ctermbg=none cterm=none
+match OverLength /\%>80v/
+fun! s:LongLineHLToggle()
+ if !exists('w:longlinehl')
+  let w:longlinehl = matchadd('ErrorMsg', '.\%>80v', 0)
+  echo "Long lines highlighted"
+ else
+  call matchdelete(w:longlinehl)
+  unl w:longlinehl
+  echo "Long lines unhighlighted"
+ endif
+endfunction
