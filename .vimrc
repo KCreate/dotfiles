@@ -12,6 +12,18 @@ set notimeout ttimeout ttimeoutlen=0
 set number
 
 "
+" Navigation and control
+"
+let mapleader = ","
+noremap <silent> <Up> gk
+noremap <silent> <Down> gj
+noremap <silent> k gk
+noremap <silent> j gj
+noremap <c-l> :bnext<CR>
+noremap <c-h> :bprevious<CR>
+noremap <c-n> :NERDTreeToggle<CR>
+
+"
 " Vundle Setup
 "
 set nocompatible
@@ -30,18 +42,6 @@ Plugin 'morhetz/gruvbox'
 
 call vundle#end()
 filetype plugin indent on
-
-"
-" Navigation and control
-"
-let mapleader = ','
-noremap <silent> <Up> gk
-noremap <silent> <Down> gj
-noremap <silent> k gk
-noremap <silent> j gj
-noremap <c-l> :bnext<CR>
-noremap <c-h> :bprevious<CR>
-noremap <c-n> :NERDTreeToggle<CR>
 
 set wildmenu
 set mouse=a
