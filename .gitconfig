@@ -38,3 +38,5 @@
 	token = !security find-internet-password -a KCreate -s github.com -l 'ghi token' -w
 [core]
 	editor = /usr/bin/vim
+[gpg]
+	program = /usr/local/bin/gpg

@@ -2,6 +2,7 @@
 " Operating System Settings
 " Integration with system services
 "
+set nocompatible
 set shell=/bin/bash
 set clipboard=unnamed
 set encoding=utf-8
@@ -10,6 +11,7 @@ set t_Co=256
 set backspace=2
 set notimeout ttimeout ttimeoutlen=0
 set number
+set hlsearch
 
 "
 " Navigation and control
@@ -26,7 +28,6 @@ noremap <c-n> :NERDTreeToggle<CR>
 "
 " Vundle Setup
 "
-set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -109,9 +110,9 @@ highlight CursorLineNR ctermfg=21
 "
 " Filetypes
 "
-autocmd BufRead, BufNewFile *.ch setfiletype javascript
-autocmd BufNewFile, BufReadPost *.md setfiletype markdown
-autocmd BufWritePre * %s/\s\+$//e " Remove whitespace on file write
+au BufNewFile,BufReadPost *.md set filetype=markdown
+au BufNewFile,BufReadPost *.ch set filetype=javascript
+au BufWritePre * %s/\s\+$//e " Remove whitespace on file write
 
 nnoremap <Leader>H :call<SID>LongLineHLToggle()<cr>
 hi OverLength ctermbg=none cterm=none
