@@ -1,69 +1,54 @@
-echo "this script has not been tested! be careful"
-exit 1
-
-# Install Xcode developer tools
+#
+# Basic bootstrapping
+#
 xcode-select --install
-
-# Install homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-# Install git
 brew install git
-sudo mkdir ~/github/
+brew install mas
+brew install crystal-lang
+brew install findutils
 
-brew install python3
+#
+# Setup folder structure
+#
+mkdir ~/Documents/GitHub
+mkdir ~/Documents/Screenshots
+mkdir ~/Documents/Stuff
 
-# Install vim
+#
+# Install some applications from brew
+#
+brew install node
+brew install vim --with-override-system-vim
 brew install macvim --with-override-system-vim
 
-# Setup Vundle
+#
+# Install Mac App Store applications
+#
+mas install 403388562 # Transmit
+mas install 969418666 # ColorSnapper2
+mas install 443987910 # 1Password
+mas install 409201541 # Pages
+mas install 497799835 # Xcode
+mas install 409183694 # Keynote
+mas install 425424353 # The Unarchiver
+mas install 409203825 # Numbers
+
+#
+# Download and symlink dotfiles from github
+#
+git clone https://github.com/KCreate/dotfiles.git ~/dotfiles/
+ln -sf ~/dotfiles/.vimrc ~/.vimrc
+ln -sf ~/dotfiles/.bashrc ~/.bashrc
+ln -sf ~/dotfiles/.bash_profile ~/.bash_profile
+ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-# Install NodeJS
-brew install node
-
-# Globally install some npm packages
-sudo npm install -g pm2
-
-# Install tmux
-brew install tmux
-
-# Download dotfiles from github
-git clone https://github.com/KCreate/dotfiles.git ~/.dotfiles/
-
-# Create back up directory for already existing dotfiles
-mkdir ~/.dotfiles/backup
-
-# Back up already existing dotfiles
-declare -a arr=("~/.vimrc" "~/.tmux.conf" "~/.bashrc" "~/.bash_profile" "~/.gitconfig")
-for i in "${arr[@]}"
-do
-    if [ -f "$i"]; then
-        mv "~/$i" ~/.dotfiles/backup/
-    fi
-done
-
-# Create symlinks in home directory to dotfiles folder
-ln -s ~/.dotfiles/.vimrc ~/.vimrc
-ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
-ln -s ~/.dotfiles/.bashrc ~/.bashrc
-ln -s ~/.dotfiles/.bash_profile ~/.bash_profile
-ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
-
-# Install all vim plugins
 vim +PluginInstall +qall
 
-# Configure OSX to be how I like it
-# Kinda inspired by https://github.com/mathiasbynens/dotfiles/blob/master/.osx
-
-# Enable scroll gestures in dock
-defaults write com.apple.dock scroll-to-open -bool true
-
-# Create a symbolic link to the airport command for easy access
-sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/local/bin/airport
-
-# Disable the sound effects on boot
-sudo nvram SystemAudioVolume=" "
+#
+# OSX Configuration
+# Inspired by https://github.com/mathiasbynens/dotfiles/blob/master/.osx
+#
 
 # Save to disk (not to iCloud) by default
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
@@ -99,7 +84,7 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write NSGlobalDomain KeyRepeat -int 2
 
 # Set language and text formats
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
@@ -123,13 +108,7 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 defaults write com.apple.screencapture location -string "${HOME}/Documents/Screenshots/"
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
-defaults write com.apple.screencapture type -string "JPG"
-
-# Enable subpixel font rendering on non-Apple LCDs
-defaults write NSGlobalDomain AppleFontSmoothing -int 2
-
-# Enable HiDPI display modes (requires restart)
-sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
+defaults write com.apple.screencapture type -string "PNG"
 
 # Set Desktop as the default location for new Finder windows
 # For other paths, use `PfLo` and `file:///full/path/here/`
@@ -162,25 +141,16 @@ defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
 defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 
-# Enable AirDrop over Ethernet and on unsupported Macs running Lion
-defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
-
 # Show the ~/Library folder
 chflags nohidden ~/Library
 
 # Show the /Volumes folder
-sudo chflags nohidden /Volumes
+chflags nohidden /Volumes
 
 # Wipe all (default) app icons from the Dock
 # This is only really useful when setting up a new Mac, or if you don’t use
 # the Dock to launch apps.
 defaults write com.apple.dock persistent-apps -array
-
-# Show only open applications in the Dock
-defaults write com.apple.dock static-only -bool true
-
-# Speed up Mission Control animations
-defaults write com.apple.dock expose-animation-duration -float 0.1
 
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
@@ -188,16 +158,17 @@ defaults write com.apple.dashboard mcx-disabled -bool true
 # Don’t show Dashboard as a Space
 defaults write com.apple.dock dashboard-in-overlay -bool true
 
-# Install latest version of bash and set as current users default shell
-brew install bash
-sudo echo $(brew --prefix)/bin/bash >> /etc/shells
-chsh -s $(brew --prefix)/bin/bash
-
-# Add iOS & Watch Simulator to Launchpad
-sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app" "/Applications/Simulator.app"
-sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator (Watch).app" "/Applications/Simulator (Watch).app"
-
-echo "###";
-echo "Installation complete!";
-echo "Restart now!";
-echo "###";
+echo "Installation complete!"
+echo "Restart now!"
+echo "You still need to download the following programs from the internet:"
+echo "- MySQL WorkBench"
+echo "- Spotify"
+echo "- Chrome"
+echo "- iTerm2"
+echo "- Docker"
+echo "- Atom"
+echo "- 1Password"
+echo "- GPG Keychain"
+echo "- Tower"
+echo "- TrashBegone"
+echo "- Whatsapp"
