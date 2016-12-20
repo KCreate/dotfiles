@@ -70,6 +70,7 @@ alias bpo='vim ~/.bashrc'
 alias ..='cd ../'
 alias cl='clear'
 eval "$(hub alias -s)"
+alias spot='shpotify'
 
 # Show numbered dir stack
 alias dirs='dirs -v'

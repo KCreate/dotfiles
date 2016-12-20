@@ -3,6 +3,7 @@
 " Integration with system services
 "
 set nocompatible
+set hidden
 set shell=/bin/bash
 set clipboard=unnamed
 set encoding=utf-8
@@ -12,6 +13,13 @@ set backspace=2
 set notimeout ttimeout ttimeoutlen=0
 set number
 set hlsearch
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
+set guioptions-=b
+set guioptions-=h
+set guioptions+=m
 
 "
 " Navigation and control
@@ -24,6 +32,10 @@ noremap <silent> j gj
 noremap <c-l> :bnext<CR>
 noremap <c-h> :bprevious<CR>
 noremap <c-n> :NERDTreeToggle<CR>
+
+" <Ctrl-l> redraws the screen and removes any search highlighting.
+nnoremap <buffer><silent> <C-i> :call g:far#change_exclud_under_cursor(-1)<CR>
+vnoremap <buffer><silent> <C-i> :call g:far#change_exclud_under_cursor(-1)<CR>
 
 "
 " Vundle Setup
@@ -40,6 +52,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'rhysd/vim-crystal'
 Plugin 'morhetz/gruvbox'
+Plugin 'brooth/far.vim'
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 filetype plugin indent on
@@ -58,6 +72,14 @@ set smartindent
 set noshowmode " Hides the default vim status bar
 
 "
+" Far.vim config
+"
+let g:far#auto_preview=1
+let g:far#highlight_match=1
+let g:far#default_mappings=1
+nnoremap <silent> <C-f> :Farp<CR>
+
+"
 " NerdTree Settings
 "
 let NERDTreeShowHidden=1
@@ -70,7 +92,7 @@ set updatetime=500
 "
 " Aesthetic settings
 "
-set guifont=Fira\ Mono\ Medium\ for\ Powerline
+set guifont=Menlo
 syntax enable
 set background=dark
 colorscheme gruvbox
@@ -80,14 +102,16 @@ let g:solarized_termcolors=16
 "
 " Vim-Airline config options
 "
-let g:airline_powerline_fonts=1
 let g:airline_left_sep=""
 let g:airline_right_sep=""
-let g:airline_theme='luna'
+let g:airline_theme='cool'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#tab_min_count=2
 let g:airline#extensions#tabline#buffer_min_count=2
 let g:airline#extensions#tabline#fnamemod=":t"
+let g:airline_section_b='' " Hides git info
+let g:airline_section_y='' " Hides file encoding
+let g:airline_section_z='' " Hides line number, column number etc.
 
 "
 " Vim Tabs styling
