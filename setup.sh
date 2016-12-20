@@ -4,23 +4,17 @@
 xcode-select --install
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install git
-brew install mas
-brew install crystal-lang
-brew install findutils
 
 #
-# Setup folder structure
-#
-mkdir ~/Documents/GitHub
-mkdir ~/Documents/Screenshots
-mkdir ~/Documents/Stuff
-
-#
-# Install some applications from brew
+# Install some stuff from brew
 #
 brew install node
 brew install vim --with-override-system-vim
 brew install macvim --with-override-system-vim
+brew install hub
+brew install findutils
+brew install crystal-lang
+brew install mas
 
 #
 # Install Mac App Store applications
@@ -44,6 +38,13 @@ ln -sf ~/dotfiles/.bash_profile ~/.bash_profile
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
+
+#
+# Setup folder structure
+#
+mkdir ~/Documents/GitHub
+mkdir ~/Documents/Screenshots
+mkdir ~/Documents/Stuff
 
 #
 # OSX Configuration

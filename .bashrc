@@ -16,42 +16,45 @@ PATH=/usr/local/Cellar/ruby/2.3.1_2/bin/:$PATH
 PATH=$PATH:/usr/local/bin
 export PATH=$PATH
 
-# dotfiles
-export DOT=~/dotfiles
-
-# Export default colors
+#
+# Default Colors used throughout the terminal and applications
+#
 export COLOR_PRI=234
 export COLOR_SEC=235
 export COLOR_TER=236
 export COLOR_HIL=255
 export COLOR_SHE=220
 
-# Shell
+#
+# Shorthand aliases for commonly used directories
+#
+alias doc='cd ~/Documents'
+alias gh='cd ~/Documents/GitHub'
+alias de='cd ~/Desktop'
+alias dot='cd ~/dotfiles'
+
+#
+# Shell input settings
+#
 export PS1="$(color $COLOR_SHE)\w\n${RESTORE}$(color $COLOR_SHE)❯${RESTORE} "
 export PS2="$(color $COLOR_SHE)❯${RESTORE} "
-
-# Charly dir
-export CHARLYDIR=~/Documents/Github/KCreate/charly-lang
-
-# Node path
-export NODE_PATH=/usr/local/lib/node_modules
-
-# Reference: https://spin.atomicobject.com/2016/05/28/log-bash-history/
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
 
-# Directorys
-alias gh='cd ~/Documents/Github'
-alias de='cd ~/Desktop'
-alias doc='cd ~/Documents'
-alias tbz='cd ~/Documents/School/TBZ/'
+#
+# Config directories
+#
+export CHARLYDIR=~/Documents/Github/KCreate/charly-lang
+export NODE_PATH=/usr/local/lib/node_modules
 
-# Applications
+#
+# Bindings to some applications
+#
 finder() {
     if [ $# -eq 0 ]
     then
         open -a "Finder" .;
     else
-        open "$1";
+        open -a "Finder" "$1";
     fi
 }
 
@@ -64,25 +67,17 @@ atom() {
     fi
 }
 
-alias l="ls -laGh"
-alias bpr='source ~/.bash_profile; clear'
-alias bpo='vim ~/.bashrc'
-alias ..='cd ../'
-alias cl='clear'
-eval "$(hub alias -s)"
-alias spot='shpotify'
-
-# Show numbered dir stack
-alias dirs='dirs -v'
-
-spacer-tile() {
-    defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'; killall Dock;
-}
-
 network() {
     echo "Ext: "$(dig +short myip.opendns.com @resolver1.opendns.com);
     echo "Loc: "$(ipconfig getifaddr en0);
 }
+
+#
+# Shorthand aliases and defaults for some commands
+#
+alias l="ls -laGh"
+alias ..='cd ../'
+alias cl='clear'
 
 cd() {
     builtin cd "$@";
@@ -95,20 +90,14 @@ clone() {
     cd $1;
 }
 
-delf() {
-    mv "$1" "/Users/leonardschuetz/.Trash/";
-    l;
-}
+#
+# Setup hub (installed from homebrew)
+#
+eval "$(hub alias -s)"
 
-deld() {
-    mv "$1" "/Users/leonardschuetz/.Trash/";
-    l;
-}
-
+#
+# Bash completions
+#
 source ~/dotfiles/completions/git-completion.bash
 source ~/dotfiles/completions/git-prompt.sh
-
-# bind the above function to `npm` autocompletion
-complete -o default -F _npm_install_completion npm
-## END BASH npm install autocomplete
 if [ -f $(brew --prefix)/etc/bash_completion ]; then source $(brew --prefix)/etc/bash_completion; fi
