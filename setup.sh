@@ -51,6 +51,9 @@ mkdir ~/Documents/Stuff
 # Inspired by https://github.com/mathiasbynens/dotfiles/blob/master/.osx
 #
 
+# Enable the Three Finger Drag Gesture
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerSwipeGesture -int 1
+
 # Save to disk (not to iCloud) by default
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
