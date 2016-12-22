@@ -15,6 +15,7 @@ brew install hub
 brew install findutils
 brew install crystal-lang
 brew install mas
+brew cask install vlc
 
 #
 # Install Mac App Store applications
