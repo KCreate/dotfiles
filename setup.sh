@@ -16,6 +16,7 @@ brew install findutils
 brew install crystal-lang
 brew install mas
 brew cask install vlc
+brew install homebrew/versions/llvm38
 
 #
 # Install Mac App Store applications
