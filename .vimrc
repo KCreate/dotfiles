@@ -142,4 +142,4 @@ au BufWritePre * %s/\s\+$//e " Remove whitespace on file write
 " Highlight lines longer than 100 columns with a red background
 "
 highlight OverLength ctermbg=red ctermfg=white guifg=white guibg=#FF5C57
-match OverLength /\%81v.\+/
+match OverLength /\%121v.\+/
