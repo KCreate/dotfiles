@@ -6,15 +6,20 @@ xcode-select --install
 brew install git
 
 #
+# Install Xcode before any other application
+#
+brew install mas
+mas install 497799835 # Xcode
+sudo xcodebuild -license accept
+
+#
 # Install some stuff from brew
 #
 brew install node
-brew install vim --with-override-system-vim
 brew install macvim --with-override-system-vim
 brew install hub
 brew install findutils
 brew install crystal-lang
-brew install mas
 brew cask install vlc
 brew install homebrew/versions/llvm38
 
@@ -25,7 +30,6 @@ mas install 403388562 # Transmit
 mas install 969418666 # ColorSnapper2
 mas install 443987910 # 1Password
 mas install 409201541 # Pages
-mas install 497799835 # Xcode
 mas install 409183694 # Keynote
 mas install 425424353 # The Unarchiver
 mas install 409203825 # Numbers
@@ -47,6 +51,8 @@ vim +PluginInstall +qall
 mkdir ~/Documents/GitHub
 mkdir ~/Documents/Screenshots
 mkdir ~/Documents/Stuff
+mkdir ~/Documents/Wallpaper
+mkdir ~/.logs
 
 #
 # OSX Configuration
@@ -148,10 +154,10 @@ defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 
 # Show the ~/Library folder
-chflags nohidden ~/Library
+sudo chflags nohidden ~/Library
 
 # Show the /Volumes folder
-chflags nohidden /Volumes
+sudo chflags nohidden /Volumes
 
 # Wipe all (default) app icons from the Dock
 # This is only really useful when setting up a new Mac, or if you don’t use
@@ -173,7 +179,6 @@ echo "- Chrome"
 echo "- iTerm2"
 echo "- Docker"
 echo "- Atom"
-echo "- 1Password"
 echo "- GPG Keychain"
 echo "- Tower"
 echo "- TrashBegone"
