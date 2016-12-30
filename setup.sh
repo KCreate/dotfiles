@@ -19,9 +19,8 @@ brew install node
 brew install macvim --with-override-system-vim
 brew install hub
 brew install findutils
-brew install crystal-lang
+brew install crystal-lang --with-llvm
 brew cask install vlc
-brew install homebrew/versions/llvm38
 
 #
 # Install Mac App Store applications
