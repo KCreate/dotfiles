@@ -31,7 +31,7 @@ export COLOR_SHE=220
 alias doc='cd ~/Documents'
 alias gh='cd ~/Documents/GitHub'
 alias de='cd ~/Desktop'
-export DOT='~/dotfiles'
+alias dotfiles='cd ~/dotfiles'
 
 #
 # Shell input settings
