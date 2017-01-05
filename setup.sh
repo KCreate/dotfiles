@@ -21,6 +21,7 @@ brew install hub
 brew install findutils
 brew install crystal-lang --with-llvm
 brew cask install vlc
+brew install graphviz --with-app --with-freetype --with-librsvg
 
 #
 # Install Mac App Store applications
