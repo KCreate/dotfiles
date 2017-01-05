@@ -35,6 +35,11 @@ mas install 425424353 # The Unarchiver
 mas install 409203825 # Numbers
 
 #
+# Install the rust compiler and development tools
+#
+curl https://sh.rustup.rs -sSf | sh
+
+#
 # Download and symlink dotfiles from github
 #
 git clone https://github.com/KCreate/dotfiles.git ~/dotfiles/
