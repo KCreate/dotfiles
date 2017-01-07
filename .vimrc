@@ -13,6 +13,7 @@ set backspace=2
 set notimeout ttimeout ttimeoutlen=0
 set number
 set hlsearch
+set incsearch
 set guioptions-=l
 set guioptions-=L
 set guioptions-=r
@@ -54,6 +55,7 @@ Plugin 'rhysd/vim-crystal'
 Plugin 'morhetz/gruvbox'
 Plugin 'brooth/far.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'jiangmiao/auto-pairs'
 
 call vundle#end()
 filetype plugin indent on
@@ -111,7 +113,6 @@ let g:airline#extensions#tabline#buffer_min_count=2
 let g:airline#extensions#tabline#fnamemod=":t"
 let g:airline_section_b='' " Hides git info
 let g:airline_section_y='' " Hides file encoding
-let g:airline_section_z='' " Hides line number, column number etc.
 
 "
 " Vim Tabs styling
