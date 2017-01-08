@@ -102,6 +102,11 @@ colorscheme gruvbox
 let g:solarized_termcolors=16
 
 "
+" auto-pairs config
+"
+let g:AutoPairs = {'(': ')', '[': ']', '{': '}', "'": "'", '"': '"'}
+
+"
 " Vim-Airline config options
 "
 let g:airline_left_sep=""
