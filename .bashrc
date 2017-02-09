@@ -44,7 +44,7 @@ export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:
 #
 # Config directories
 #
-export CHARLYDIR=~/Documents/Github/KCreate/charly-lang
+export CHARLYDIR=/Users/leonardschuetz/Documents/GitHub/charly-lang/charly
 export NODE_PATH=/usr/local/lib/node_modules
 
 #

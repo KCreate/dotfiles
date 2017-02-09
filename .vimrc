@@ -56,6 +56,7 @@ Plugin 'morhetz/gruvbox'
 Plugin 'brooth/far.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'Addisonbean/Vim-Xcode-Theme'
 
 call vundle#end()
 filetype plugin indent on
@@ -96,8 +97,8 @@ set updatetime=500
 "
 set guifont=Menlo
 syntax enable
-set background=dark
-colorscheme gruvbox
+set background=light
+colorscheme xcode
 
 let g:solarized_termcolors=16
 
