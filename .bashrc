@@ -37,8 +37,8 @@ alias dotfiles='cd ~/dotfiles'
 #
 # Shell input settings
 #
-export PS1="$(color $COLOR_SHE)\w\n${RESTORE}$(color $COLOR_SHE)❯${RESTORE} "
-export PS2="$(color $COLOR_SHE)❯${RESTORE} "
+export PS1="$(color $COLOR_SHE)\$${RESTORE} "
+export PS2=$PS1
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
 
 #
