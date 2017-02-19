@@ -52,11 +52,9 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'rhysd/vim-crystal'
-Plugin 'morhetz/gruvbox'
 Plugin 'brooth/far.vim'
-Plugin 'tpope/vim-fugitive'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'Addisonbean/Vim-Xcode-Theme'
+Plugin 'nanotech/jellybeans.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -95,12 +93,10 @@ set updatetime=500
 "
 " Aesthetic settings
 "
-set guifont=Menlo
+set guifont="Operator Mono Book"
 syntax enable
-set background=light
-colorscheme xcode
-
-let g:solarized_termcolors=16
+set background=dark
+colorscheme jellybeans
 
 "
 " auto-pairs config
