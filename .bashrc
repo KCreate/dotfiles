@@ -24,7 +24,7 @@ export COLOR_PRI=234
 export COLOR_SEC=235
 export COLOR_TER=236
 export COLOR_HIL=255
-export COLOR_SHE=220
+export COLOR_SHE=231
 
 #
 # Shorthand aliases for commonly used directories
