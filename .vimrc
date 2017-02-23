@@ -55,6 +55,8 @@ Plugin 'rhysd/vim-crystal'
 Plugin 'brooth/far.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 call vundle#end()
 filetype plugin indent on
@@ -71,6 +73,7 @@ set ttyfast
 set autoindent
 set smartindent
 set noshowmode " Hides the default vim status bar
+set nofoldenable " Disables code folding
 
 "
 " Far.vim config
@@ -79,6 +82,11 @@ let g:far#auto_preview=1
 let g:far#highlight_match=1
 let g:far#default_mappings=1
 nnoremap <silent> <C-f> :Farp<CR>
+
+"
+" Clear search highlighting
+"
+nnoremap <Esc> :noh<CR>
 
 "
 " NerdTree Settings

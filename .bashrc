@@ -80,6 +80,10 @@ alias l="ls -laGh"
 alias ..='cd ../'
 alias cl='clear'
 
+gvim() {
+  $(/usr/local/bin/gvim $@) 2> /dev/null &
+}
+
 cd() {
     builtin cd "$@";
     l;
