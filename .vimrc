@@ -116,7 +116,7 @@ let g:AutoPairs = {'(': ')', '[': ']', '{': '}', "'": "'", '"': '"'}
 "
 let g:airline_left_sep=""
 let g:airline_right_sep=""
-let g:airline_theme='cool'
+let g:airline_theme='cobalt2'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#tab_min_count=2
 let g:airline#extensions#tabline#buffer_min_count=2

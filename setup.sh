@@ -26,13 +26,14 @@ brew install graphviz --with-app --with-freetype --with-librsvg
 #
 # Install Mac App Store applications
 #
-mas install 403388562 # Transmit
-mas install 969418666 # ColorSnapper2
-mas install 443987910 # 1Password
-mas install 409201541 # Pages
-mas install 409183694 # Keynote
-mas install 425424353 # The Unarchiver
-mas install 409203825 # Numbers
+mas install 403388562   # Transmit
+mas install 969418666   # ColorSnapper2
+mas install 443987910   # 1Password
+mas install 409201541   # Pages
+mas install 409183694   # Keynote
+mas install 425424353   # The Unarchiver
+mas install 409203825   # Numbers
+mas install 1206020918  # Battery Indicator
 
 #
 # Install the rust compiler and development tools
