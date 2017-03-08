@@ -57,6 +57,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'morhetz/gruvbox'
 
 call vundle#end()
 filetype plugin indent on
@@ -101,10 +102,17 @@ set updatetime=500
 "
 " Aesthetic settings
 "
-set guifont="Operator Mono Book"
+set guifont=Droid\ Sans\ Mono:h10
 syntax enable
-set background=dark
-colorscheme jellybeans
+set background=light
+colorscheme gruvbox
+
+"
+" GruvBox config
+"
+let g:gruvbox_contrast_light="hard"
+let g:gruvbox_italicize_strings=1
+let g:gruvbox_invert_signs=1
 
 "
 " auto-pairs config
@@ -116,7 +124,7 @@ let g:AutoPairs = {'(': ')', '[': ']', '{': '}', "'": "'", '"': '"'}
 "
 let g:airline_left_sep=""
 let g:airline_right_sep=""
-let g:airline_theme='cobalt2'
+let g:airline_theme='aurora'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#tab_min_count=2
 let g:airline#extensions#tabline#buffer_min_count=2
