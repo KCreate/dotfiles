@@ -79,6 +79,7 @@ network() {
 alias l="ls -laGh"
 alias ..='cd ../'
 alias cl='clear'
+alias irc="irssi"
 
 gvim() {
   $(/usr/local/bin/gvim $@) 2> /dev/null &
