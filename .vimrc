@@ -102,9 +102,9 @@ set updatetime=500
 "
 " Aesthetic settings
 "
-set guifont=Droid\ Sans\ Mono:h10
+set guifont=Hack:h11
 syntax enable
-set background=light
+set background=dark
 colorscheme gruvbox
 
 "
@@ -124,7 +124,7 @@ let g:AutoPairs = {'(': ')', '[': ']', '{': '}', "'": "'", '"': '"'}
 "
 let g:airline_left_sep=""
 let g:airline_right_sep=""
-let g:airline_theme='aurora'
+let g:airline_theme='cool'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#tab_min_count=2
 let g:airline#extensions#tabline#buffer_min_count=2
