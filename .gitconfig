@@ -2,10 +2,15 @@
 [alias]
   s = status -s --branch
   c = commit -m
+  cm = commit
+  ca = commit -a
+  cp = !git commit && git push
+  cap = !git commit -a && git push
   co = checkout
   cb = checkout -b
   pop = reset HEAD~1
   f = fetch
+  p = push
   aa = add -A
   log = log --oneline --decorate --graph --all
   l = log --oneline --decorate --graph --all
