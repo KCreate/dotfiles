@@ -5,10 +5,11 @@
   co = checkout
   cb = checkout -b
   pop = reset HEAD~1
+  f = fetch
   aa = add -A
   log = log --oneline --decorate --graph --all
+  l = log --oneline --decorate --graph --all
   branch = branch -vv
-	l = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
@@ -34,6 +35,6 @@
 [ghi]
 	token = !security find-internet-password -a KCreate -s github.com -l 'ghi token' -w
 [core]
-	editor = /usr/bin/vim
+	editor = '/usr/local/bin/gvim' -f -i NONE
 [gpg]
 	program = /usr/local/bin/gpg
