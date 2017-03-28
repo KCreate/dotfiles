@@ -60,6 +60,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'morhetz/gruvbox'
 Plugin 'itchyny/vim-cursorword'
 Plugin 'mhartington/oceanic-next'
+Plugin 'chriskempson/base16-vim'
 " Plugin 'MaxSt/FlatColor' " <- this is fire
 
 call vundle#end()
@@ -108,7 +109,7 @@ set updatetime=500
 set guifont=Hack:h11
 syntax enable
 set background=dark
-colorscheme OceanicNext
+colorscheme base16-paraiso
 
 "
 " GruvBox config
