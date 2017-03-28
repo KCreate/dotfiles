@@ -58,6 +58,9 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'morhetz/gruvbox'
+Plugin 'itchyny/vim-cursorword'
+Plugin 'mhartington/oceanic-next'
+" Plugin 'MaxSt/FlatColor' " <- this is fire
 
 call vundle#end()
 filetype plugin indent on
@@ -105,7 +108,7 @@ set updatetime=500
 set guifont=Hack:h11
 syntax enable
 set background=dark
-colorscheme gruvbox
+colorscheme OceanicNext
 
 "
 " GruvBox config
