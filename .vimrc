@@ -62,7 +62,8 @@ Plugin 'itchyny/vim-cursorword'
 Plugin 'mhartington/oceanic-next'
 Plugin 'chriskempson/base16-vim'
 Plugin 'timakro/vim-searchant'
-Plugin 'MaxSt/FlatColor' "
+Plugin 'MaxSt/FlatColor'
+Plugin 'terryma/vim-multiple-cursors'
 
 call vundle#end()
 filetype plugin indent on
@@ -117,9 +118,18 @@ colorscheme FlatColor
 "
 " cursorline config
 "
-nnoremap <Leader>c :set cursorline! <CR>
+set cursorline
 hi CursorLineNR gui=bold guibg=#15122e guifg=#ffffff
 hi CursorLine guibg=#1e1c30
+
+"
+" Multiplte cursor config
+"
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<C-d>'
+let g:multi_cursor_prev_key='<C-s>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
 
 "
 " GruvBox config
