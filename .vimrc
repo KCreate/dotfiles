@@ -33,6 +33,23 @@ noremap <silent> j gj
 noremap <c-l> :bnext<CR>
 noremap <c-h> :bprevious<CR>
 noremap <c-n> :NERDTreeToggle<CR>
+nnoremap - /
+
+"
+" Buffer management
+"
+nnoremap bp :bprevious<CR>
+nnoremap bn :bnext<CR>
+
+"
+" Split management
+"
+nnoremap sh :split<CR>
+nnoremap sv :vsplit<CR>
+nnoremap sq <C-W>q
+nnoremap s= <C-W>=
+nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <buffer><silent> <C-i> :call g:far#change_exclud_under_cursor(-1)<CR>
@@ -65,6 +82,7 @@ Plugin 'timakro/vim-searchant'
 Plugin 'MaxSt/FlatColor'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'vim-scripts/AutoComplPop'
 
 call vundle#end()
 filetype plugin indent on
@@ -107,6 +125,14 @@ let NERDTreeShowHidden=1
 " Misc. settings
 "
 set updatetime=500
+
+"
+" Git bindings
+"
+nnoremap gs :!git s <CR>
+nnoremap gp :!git p <CR>
+nnoremap gc :!git commit -p <CR>
+nnoremap gd :!git diff <CR>
 
 "
 " Aesthetic settings
