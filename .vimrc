@@ -64,6 +64,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'timakro/vim-searchant'
 Plugin 'MaxSt/FlatColor'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'scrooloose/nerdcommenter'
 
 call vundle#end()
 filetype plugin indent on
