@@ -123,6 +123,11 @@ hi CursorLineNR gui=bold guibg=#15122e guifg=#ffffff
 hi CursorLine guibg=#1e1c30
 
 "
+" Project management
+"
+nnoremap <C-m> :!make <CR>
+
+"
 " Multiplte cursor config
 "
 let g:multi_cursor_use_default_mapping=0
