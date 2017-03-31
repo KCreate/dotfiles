@@ -61,7 +61,8 @@ Plugin 'morhetz/gruvbox'
 Plugin 'itchyny/vim-cursorword'
 Plugin 'mhartington/oceanic-next'
 Plugin 'chriskempson/base16-vim'
-" Plugin 'MaxSt/FlatColor' " <- this is fire
+Plugin 'timakro/vim-searchant'
+Plugin 'MaxSt/FlatColor' "
 
 call vundle#end()
 filetype plugin indent on
@@ -92,6 +93,8 @@ nnoremap <silent> <C-f> :Farp<CR>
 " Clear search highlighting
 "
 nnoremap <Esc> :noh<CR>
+let g:searchant_map_stop = 0
+nmap <Esc> <Plug>SearchantStop
 
 "
 " NerdTree Settings
@@ -109,7 +112,14 @@ set updatetime=500
 set guifont=Hack:h11
 syntax enable
 set background=dark
-colorscheme base16-paraiso
+colorscheme FlatColor
+
+"
+" cursorline config
+"
+nnoremap <Leader>c :set cursorline! <CR>
+hi CursorLineNR gui=bold guibg=#15122e guifg=#ffffff
+hi CursorLine guibg=#1e1c30
 
 "
 " GruvBox config
@@ -150,9 +160,6 @@ highlight Title       ctermfg=lightblue   ctermbg=magenta
 let g:ctrlp_show_hidden=1
 let g:ctrlp_use_caching=0
 let g:ctrlp_custom_ignore='\v[\/](node_modules|.git|.shards)$'
-
-highlight LineNr ctermfg=white term=bold
-highlight CursorLineNR ctermfg=21
 
 "
 " Filetypes
