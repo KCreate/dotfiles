@@ -51,10 +51,6 @@ nnoremap s= <C-W>=
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
-" <Ctrl-l> redraws the screen and removes any search highlighting.
-nnoremap <buffer><silent> <C-i> :call g:far#change_exclud_under_cursor(-1)<CR>
-vnoremap <buffer><silent> <C-i> :call g:far#change_exclud_under_cursor(-1)<CR>
-
 "
 " Vundle Setup
 "
@@ -129,10 +125,11 @@ set updatetime=500
 "
 " Git bindings
 "
-nnoremap gs :!git s <CR>
+nnoremap gs :!git status <CR>
 nnoremap gp :!git p <CR>
-nnoremap gc :!git commit -p <CR>
-nnoremap gd :!git diff <CR>
+nnoremap gc :!git commit <CR>
+nnoremap ga :!git add %<CR>
+nnoremap gr :!git reset<CR>
 
 "
 " Aesthetic settings
@@ -180,7 +177,7 @@ let g:AutoPairs = {'(': ')', '[': ']', '{': '}', "'": "'", '"': '"'}
 "
 let g:airline_left_sep=""
 let g:airline_right_sep=""
-let g:airline_theme='cool'
+let g:airline_theme='cobalt2'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#tab_min_count=2
 let g:airline#extensions#tabline#buffer_min_count=2
@@ -195,6 +192,11 @@ highlight TabLineFill ctermfg=lightgreen  ctermbg=darkgreen
 highlight TabLine     ctermfg=blue        ctermbg=yellow
 highlight TabLineSel  ctermfg=red         ctermbg=yellow
 highlight Title       ctermfg=lightblue   ctermbg=magenta
+
+"
+" Cursor styling
+"
+highlight Cursor guifg=black guibg=white
 
 "
 " CTRLP config
