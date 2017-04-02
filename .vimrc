@@ -26,13 +26,13 @@ set guioptions+=m
 " Navigation and control
 "
 let mapleader = ","
-noremap <silent> <Up> gk
-noremap <silent> <Down> gj
-noremap <silent> k gk
-noremap <silent> j gj
-noremap <c-l> :bnext<CR>
-noremap <c-h> :bprevious<CR>
-noremap <c-n> :NERDTreeToggle<CR>
+nnoremap <silent> <Up> gk
+nnoremap <silent> <Down> gj
+nnoremap <silent> k gk
+nnoremap <silent> j gj
+nnoremap <c-l> :bnext<CR>
+nnoremap <c-h> :bprevious<CR>
+nnoremap <c-n> :NERDTreeToggle<CR>
 nnoremap - /
 
 "
