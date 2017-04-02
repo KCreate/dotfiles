@@ -44,10 +44,15 @@ nnoremap bn :bnext<CR>
 "
 " Split management
 "
-nnoremap sh :split<CR>
-nnoremap sv :vsplit<CR>
+nnoremap sw :split<CR>
+nnoremap sd :vsplit<CR>
 nnoremap sq <C-W>q
 nnoremap s= <C-W>=
+nnoremap sh <C-W><left>
+nnoremap sj <C-W><down>
+nnoremap sk <C-W><up>
+nnoremap sl <C-W><right>
+
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
@@ -78,7 +83,6 @@ Plugin 'timakro/vim-searchant'
 Plugin 'MaxSt/FlatColor'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'vim-scripts/AutoComplPop'
 
 call vundle#end()
 filetype plugin indent on
