@@ -154,6 +154,7 @@ hi CursorLine guibg=#1e1c30
 " Project management
 "
 nnoremap <C-m> :!make <CR>
+nnoremap <CR> <Nop>
 
 "
 " Multiplte cursor config
