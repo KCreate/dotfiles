@@ -103,3 +103,27 @@ eval "$(hub alias -s)"
 source ~/dotfiles/completions/git-completion.bash
 source ~/dotfiles/completions/git-prompt.sh
 if [ -f $(brew --prefix)/etc/bash_completion ]; then source $(brew --prefix)/etc/bash_completion; fi
+
+#
+# Commonly visited websites
+#
+COMMON_SITES=(
+  https://www.facebook.com/
+  https://twitter.com/
+  https://github.com/
+  http://turnoff.us/
+  http://www.commitstrip.com/en/?
+  https://news.ycombinator.com/
+  https://lobste.rs/
+  https://www.reddit.com/
+  https://www.reddit.com/r/ProgrammerHumor/
+  https://www.youtube.com/
+  http://designspiration.net/
+  http://abduzeedo.com/
+)
+
+webstart() {
+  for site in ${COMMON_SITES[@]}; do
+    open ${site}
+  done
+}
