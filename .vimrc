@@ -40,7 +40,6 @@ nnoremap - /
 "
 nnoremap bp :bprevious<CR>
 nnoremap bn :bnext<CR>
-nnoremap bd :b#<bar>bd#<CR>
 
 "
 " Split management
