@@ -72,13 +72,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'rhysd/vim-crystal'
 Plugin 'brooth/far.vim'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'nanotech/jellybeans.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'morhetz/gruvbox'
-Plugin 'itchyny/vim-cursorword'
-Plugin 'mhartington/oceanic-next'
-Plugin 'chriskempson/base16-vim'
 Plugin 'timakro/vim-searchant'
 Plugin 'MaxSt/FlatColor'
 Plugin 'terryma/vim-multiple-cursors'
@@ -142,13 +137,6 @@ set guifont=Hack:h11
 syntax enable
 set background=dark
 colorscheme FlatColor
-
-"
-" cursorline config
-"
-set cursorline
-hi CursorLineNR gui=bold guibg=#15122e guifg=#ffffff
-hi CursorLine guibg=#1e1c30
 
 "
 " Project management
