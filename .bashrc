@@ -114,6 +114,7 @@ COMMON_SITES=(
   https://github.com/
   http://turnoff.us/
   http://www.commitstrip.com/en/?
+  http://www.smbc-comics.com/index.php
   https://news.ycombinator.com/
   https://lobste.rs/
   https://www.reddit.com/
