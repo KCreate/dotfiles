@@ -36,12 +36,6 @@ nnoremap <c-n> :NERDTreeToggle<CR>
 nnoremap - /
 
 "
-" Buffer management
-"
-nnoremap bp :bprevious<CR>
-nnoremap bn :bnext<CR>
-
-"
 " Split management
 "
 nnoremap sw :split<CR>
