@@ -80,7 +80,7 @@ alias l="ls -laGh"
 alias ..='cd ../'
 alias cl='clear'
 alias irc="irssi"
-alias hexdump="hexdump -C"
+alias hexdump="hexdump -Cv"
 
 cd() {
     builtin cd "$@";
