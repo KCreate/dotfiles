@@ -18,6 +18,11 @@ PATH=$PATH:~/.cargo/bin
 export PATH=$PATH
 
 #
+# Shell config
+#
+shopt -s dotglob
+
+#
 # Default Colors used throughout the terminal and applications
 #
 export COLOR_PRI=234
