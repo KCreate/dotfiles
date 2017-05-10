@@ -131,6 +131,7 @@ set guifont=Hack:h11
 syntax enable
 set background=dark
 colorscheme FlatColor
+highlight Normal guibg=#110f23
 
 "
 " Project management
@@ -203,3 +204,8 @@ au BufWritePre * %s/\s\+$//e " Remove whitespace on file write
 "
 highlight OverLength ctermbg=red ctermfg=white guifg=white guibg=#FF5C57
 match OverLength /\%121v.\+/
+
+"
+" This fixes indendation for C switch cases
+"
+set cinoptions=l1
