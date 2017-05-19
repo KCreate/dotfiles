@@ -86,6 +86,7 @@ alias ..='cd ../'
 alias cl='clear'
 alias irc="irssi"
 alias hexdump="hexdump -Cv"
+alias dotpng="dot -Tpng"
 
 cd() {
     builtin cd "$@";
