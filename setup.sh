@@ -25,6 +25,9 @@ brew install graphviz --with-app --with-freetype --with-librsvg
 brew install irssi
 brew install cryload
 brew install lolcat
+brew install ocaml
+brew install opam # ocaml package manager
+opam init
 
 #
 # Install Mac App Store applications
