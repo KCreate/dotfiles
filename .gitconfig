@@ -1,20 +1,39 @@
 [user]
 [alias]
-  s = status -s --branch
+  # committing stuff
   c = commit -m
-  cm = commit
   ca = commit -a
   cp = !git commit && git push
   cap = !git commit -a && git push
   co = checkout
   cb = checkout -b
-  pop = reset HEAD~1
+
+  # short-hand commands
+  s = status -s --branch
   f = fetch
   p = push
   aa = add -A
-  log = log --oneline --decorate --graph --all
   l = log --oneline --decorate --graph --all
+  pop = reset HEAD~1
+  log = log --oneline --decorate --graph --all
   branch = branch -vv
+
+  # Include all files in `git stash`
+  #
+  # Git divides your files into 4 types,
+  # 1. unstaged changes to tracked files
+  # 2. staged changes to tracked files
+  # 3. untracked files
+  # 4. ignored files
+  #
+  # There are 2 options for git stash which change this behaviour
+  # --include-untracked     Include unstaged, staged and untracked files
+  # --all                   Include unstaged, staged, untracked and ignored files
+  stash = stash --all
+
+  # Revert the last commit
+  fuck = reset HEAD~1
+
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
