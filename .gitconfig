@@ -34,6 +34,9 @@
   # Revert the last commit
   fuck = reset HEAD~1
 
+  # Show the amount of commits each contributor made
+  score = shortlog -sn
+
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
