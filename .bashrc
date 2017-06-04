@@ -15,6 +15,7 @@ function color {
 PATH=/usr/local/Cellar/ruby/2.3.1_2/bin/:$PATH
 PATH=$PATH:/usr/local/bin
 PATH=$PATH:~/.cargo/bin
+PATH=$PATH:/usr/local/opt/llvm/bin
 export PATH=$PATH
 
 #
