@@ -130,6 +130,7 @@ nnoremap gr :!git reset<CR>
 set guifont=Hack:h11
 syntax enable
 set background=dark
+set termguicolors
 colorscheme FlatColor
 highlight Normal guibg=#110f23
 
@@ -169,16 +170,7 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#tab_min_count=2
 let g:airline#extensions#tabline#buffer_min_count=2
 let g:airline#extensions#tabline#fnamemod=":t"
-let g:airline_section_b='' " Hides git info
 let g:airline_section_y='' " Hides file encoding
-
-"
-" Vim Tabs styling
-"
-highlight TabLineFill ctermfg=lightgreen  ctermbg=darkgreen
-highlight TabLine     ctermfg=blue        ctermbg=yellow
-highlight TabLineSel  ctermfg=red         ctermbg=yellow
-highlight Title       ctermfg=lightblue   ctermbg=magenta
 
 "
 " Cursor styling
@@ -209,3 +201,11 @@ match OverLength /\%121v.\+/
 " This fixes indendation for C switch cases
 "
 set cinoptions=l1
+
+"
+" Fix scrolling in console
+"
+map <ScrollWheelUp> <C-Y>
+map <S-ScrollWheelUp> <C-U>
+map <ScrollWheelDown> <C-E>
+map <S-ScrollWheelDown> <C-D>
