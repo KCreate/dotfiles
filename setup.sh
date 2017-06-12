@@ -17,6 +17,7 @@ sudo xcodebuild -license accept
 #
 brew install node
 brew install macvim --with-override-system-vim
+brew install vim --with-override-system-vi
 brew install hub
 brew install findutils
 brew install crystal-lang --with-llvm
