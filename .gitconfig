@@ -49,7 +49,7 @@
 [ghi]
 	token = !security find-internet-password -a KCreate -s github.com -l 'ghi token' -w
 [core]
-	editor = '/usr/local/bin/gvim' -f -i NONE
+	editor = '/usr/local/bin/vim' -f -i NONE
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [gpg]
 	program = /usr/local/bin/gpg
