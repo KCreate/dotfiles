@@ -26,6 +26,10 @@ brew install graphviz --with-app --with-freetype --with-librsvg
 brew install irssi
 brew install cryload
 brew install lolcat
+brew install pv
+brew install diff-so-fancy
+brew install llvm --with-lldb
+brew install nasm
 brew install ocaml
 brew install opam # ocaml package manager
 opam init
