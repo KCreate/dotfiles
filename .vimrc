@@ -203,7 +203,10 @@ set cinoptions=l1
 "
 " Fix scrolling in console
 "
-map <ScrollWheelUp> <C-Y>
-map <S-ScrollWheelUp> <C-U>
-map <ScrollWheelDown> <C-E>
-map <S-ScrollWheelDown> <C-D>
+if has("gui_running")
+else
+  map <ScrollWheelUp> <C-Y>
+  map <S-ScrollWheelUp> <C-U>
+  map <ScrollWheelDown> <C-E>
+  map <S-ScrollWheelDown> <C-D>
+endif
