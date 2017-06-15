@@ -115,7 +115,9 @@ nnoremap <silent> <C-f> :Farp<CR>
 "
 " Clear search highlighting
 "
+nnoremap <Esc> :noh<CR>
 let g:searchant_map_stop = 0
+nmap <Esc> <Plug>SearchantStop
 
 "
 " NerdTree Settings
