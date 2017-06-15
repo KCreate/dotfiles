@@ -55,6 +55,9 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 " Automatically equalize all splits when resizing the window
 autocmd VimResized * wincmd =
 
+" Automatically read the file when it was changed from an outside session
+set autoread
+
 "
 " Automatically save the current buffer to disk upon leaving insert mode
 "
