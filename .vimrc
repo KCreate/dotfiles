@@ -15,6 +15,7 @@ set guioptions-=r
 set hidden
 set hlsearch
 set incsearch
+set wrapscan
 set ignorecase
 set smartcase
 set laststatus=2
@@ -23,6 +24,26 @@ set notimeout ttimeout ttimeoutlen=0
 set number
 set shell=/bin/bash
 set t_Co=256
+set modelines=0
+set vb
+set mousehide
+
+"
+" Comments
+"
+" c - Auto-wrap comments using textwidth, inserting the current comment leader automatically.
+" o - Automatically insert the current comment leader after hitting ‘o’ or ‘O’ in Normal mode.
+" t - Auto-wrap text using textwidth
+" q - Allow formatting of comments with “gq”.
+" r - Automatically insert the current comment leader after hitting in Insert mode.
+"
+set formatoptions=cotqr
+
+" Disable backup and swap files
+" Took me 1 year to find this option
+set nobackup
+set nowritebackup
+set noswapfile
 
 "
 " Navigation and control
@@ -98,7 +119,6 @@ filetype plugin indent on
 set autoindent
 set expandtab
 set mouse=a
-set nofoldenable " Disables code folding
 set noshowmode " Hides the default vim status bar
 set shiftround
 set shiftwidth=2
@@ -108,6 +128,12 @@ set softtabstop=2
 set tabstop=2
 set ttyfast
 set wildmenu
+
+" Folding
+set foldmethod=indent
+set nofoldenable
+
+nnoremap <Leader>t za
 
 " Always keep the current line approximately in the center
 set scrolloff=30
