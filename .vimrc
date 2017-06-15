@@ -81,12 +81,14 @@ Plugin 'brooth/far.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'mhinz/vim-grepper'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rhysd/vim-crystal'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'timakro/vim-searchant'
+Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
@@ -106,6 +108,9 @@ set softtabstop=2
 set tabstop=2
 set ttyfast
 set wildmenu
+
+" Always keep the current line approximately in the center
+set scrolloff=30
 
 "
 " Far.vim config
@@ -243,3 +248,10 @@ else
   map <ScrollWheelDown> <C-E>
   map <S-ScrollWheelDown> <C-D>
 endif
+
+" Quickly select the text that was just pasted
+noremap gV `[v`]
+
+" Stay in visual mode when indenting
+vnoremap < <gv
+vnoremap > >gv
