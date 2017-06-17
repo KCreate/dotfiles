@@ -135,9 +135,6 @@ set nofoldenable
 
 nnoremap <Leader>t za
 
-" Always keep the current line approximately in the center
-set scrolloff=30
-
 "
 " Far.vim config
 "
