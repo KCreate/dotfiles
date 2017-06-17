@@ -101,6 +101,14 @@ clone() {
 }
 
 #
+# GVIM thinks it's fun to pipe errors messages into my terminal
+# This will shows it who's boss
+#
+gvim() {
+  $(which gvim) $1 > /dev/null 2>&1
+}
+
+#
 # Setup hub (installed from homebrew)
 #
 eval "$(hub alias -s)"
