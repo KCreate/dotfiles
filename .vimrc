@@ -58,6 +58,8 @@ nnoremap <silent> <Down> gj
 nnoremap <silent> <Up> gk
 nnoremap <silent> j gj
 nnoremap <silent> k gk
+nnoremap <c-j> 10j
+nnoremap <c-k> 10k
 
 "
 " Split management
