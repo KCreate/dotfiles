@@ -27,6 +27,7 @@ set t_Co=256
 set modelines=0
 set vb
 set mousehide
+set nowrap
 
 "
 " Comments
