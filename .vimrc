@@ -64,18 +64,19 @@ nnoremap <silent> k gk
 "
 nnoremap s= <C-W>=
 nnoremap sd :vsplit<CR>
+nnoremap sw :split<CR>
+nnoremap sq <C-W>q
 nnoremap sh <C-W><left>
 nnoremap sj <C-W><down>
 nnoremap sk <C-W><up>
 nnoremap sl <C-W><right>
-nnoremap sq <C-W>q
-nnoremap sw :split<CR>
 
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " Automatically equalize all splits when resizing the window
 autocmd VimResized * wincmd =
+autocmd VimResized * redraw!
 
 " Automatically read the file when it was changed from an outside session
 set autoread
@@ -104,6 +105,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'mhinz/vim-grepper'
+Plugin 'morhetz/gruvbox'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rhysd/vim-crystal'
 Plugin 'scrooloose/nerdcommenter'
@@ -187,8 +189,7 @@ set guifont=Hack:h11
 syntax enable
 set background=dark
 set termguicolors
-colorscheme FlatColor
-highlight Normal guibg=#110f23
+colorscheme GruvBox
 
 "
 " Project management
@@ -207,7 +208,9 @@ let g:multi_cursor_quit_key='<Esc>'
 "
 " GruvBox config
 "
-let g:gruvbox_contrast_light="hard"
+
+let g:gruvbox_contrast_light=hard
+let g:gruvbox_contrast_dark=hard
 let g:gruvbox_italicize_strings=1
 let g:gruvbox_invert_signs=1
 
@@ -226,12 +229,12 @@ let g:airline#extensions#tabline#tab_min_count=2
 let g:airline_left_sep=""
 let g:airline_right_sep=""
 let g:airline_section_y='' " Hides file encoding
-let g:airline_theme='cobalt2'
+let g:airline_theme='gruvbox'
 
 "
 " Cursor styling
 "
-highlight Cursor guifg=black guibg=white
+highlight Cursor guifg=white
 
 "
 " CTRLP config
