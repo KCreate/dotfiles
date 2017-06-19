@@ -189,7 +189,17 @@ set complete+=kspell
 "
 set guifont=Hack:h11
 syntax enable
-set background=dark
+
+let theme_mode="light"
+if theme_mode == "light"
+  set background=light
+  highlight Cursor guifg=black
+else
+  set background=dark
+  highlight Cursor guifg=white
+
+endif
+
 set termguicolors
 colorscheme GruvBox
 
@@ -211,8 +221,8 @@ let g:multi_cursor_quit_key='<Esc>'
 " GruvBox config
 "
 
-let g:gruvbox_contrast_light=hard
-let g:gruvbox_contrast_dark=hard
+let g:gruvbox_contrast_light="hard"
+let g:gruvbox_contrast_dark="hard"
 let g:gruvbox_italicize_strings=1
 let g:gruvbox_invert_signs=1
 
@@ -232,11 +242,6 @@ let g:airline_left_sep=""
 let g:airline_right_sep=""
 let g:airline_section_y='' " Hides file encoding
 let g:airline_theme='gruvbox'
-
-"
-" Cursor styling
-"
-highlight Cursor guifg=white
 
 "
 " CTRLP config

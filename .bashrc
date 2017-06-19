@@ -1,16 +1,3 @@
-# Colors
-# Reference: http://stackoverflow.com/questions/10466749/bash-colored-output-with-a-variable
-RESTORE='\[\033[0m\]'
-
-function color {
-    if [ $# -eq 1 ]
-    then
-        echo "\[\033[38;5;${1}m\]"
-    else
-        echo "\[\033[38;5;${1};48;5;${2}m\]"
-    fi
-}
-
 # Path
 PATH=/usr/local/Cellar/ruby/2.3.1_2/bin/:$PATH
 PATH=/usr/local/bin:$PATH
@@ -25,12 +12,8 @@ shopt -s dotglob
 
 #
 # Default Colors used throughout the terminal and applications
-#
-export COLOR_PRI=234
-export COLOR_SEC=235
-export COLOR_TER=236
-export COLOR_HIL=255
-export COLOR_SHE=220
+export COLOR_SHE='\x1b[38;2;255;196;49m'
+export COLOR_RESTORE='\x1b[0m'
 
 #
 # Shorthand aliases for commonly used directories
@@ -43,7 +26,7 @@ alias dotfiles='cd ~/dotfiles'
 #
 # Shell input settings
 #
-export PS1="$(color $COLOR_SHE)\$${RESTORE} "
+export PS1='$(printf "${COLOR_SHE}")\$$(printf "${COLOR_RESTORE}") '
 export PS2=$PS1
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
 
