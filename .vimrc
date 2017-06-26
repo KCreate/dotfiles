@@ -27,7 +27,6 @@ set t_Co=256
 set modelines=0
 set vb
 set mousehide
-set nowrap
 
 "
 " Comments
@@ -72,6 +71,7 @@ nnoremap sh <C-W><left>
 nnoremap sj <C-W><down>
 nnoremap sk <C-W><up>
 nnoremap sl <C-W><right>
+nnoremap <Leader>q :Bdelete<CR>
 
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
@@ -117,6 +117,10 @@ Plugin 'timakro/vim-searchant'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'moll/vim-bbye'
+Plugin 'sjl/badwolf'
+Plugin 'lifepillar/vim-solarized8'
 
 call vundle#end()
 filetype plugin indent on
@@ -187,21 +191,41 @@ set complete+=kspell
 "
 " Aesthetic settings
 "
-set guifont=Hack:h11
+set guifont=Menlo:h11
+set termguicolors
 syntax enable
 
-let theme_mode="light"
-if theme_mode == "light"
-  set background=light
-  highlight Cursor guifg=black
-else
+#include <iostream>
+
+"
+" Available themes
+" gruvbox-dark
+" gruvbox-light
+" badwolf
+"
+let theme="solarized8-light"
+
+if theme == "gruvbox-dark"
   set background=dark
+  highlight Cursor guifg=black
+  colorscheme GruvBox
+elseif theme == "gruvbox-light"
+  set background=light
   highlight Cursor guifg=white
-
+  colorscheme GruvBox
+elseif theme == "badwolf"
+  set background=dark
+  highlight Cursor guifg=black
+  colorscheme badwolf
+elseif theme == "solarized8-dark"
+  set background=dark
+  highlight Cursor guifg=black
+  colorscheme solarized8_dark_flat
+elseif theme == "solarized8-light"
+  set background=light
+  highlight Cursor guifg=white
+  colorscheme solarized8_light_flat
 endif
-
-set termguicolors
-colorscheme GruvBox
 
 "
 " Project management
