@@ -64,8 +64,13 @@ nnoremap <c-k> 10k
 " Split management
 "
 nnoremap s= <C-W>=
-nnoremap sd :vsplit<CR>
-nnoremap sw :split<CR>
+
+" Quick-access to todos and scratchpad file
+nnoremap st :split ~/dotfiles/todos.md<CR>       :exe "resize " . (winheight(0) * 2/5)<CR>
+nnoremap ss :split ~/dotfiles/scratchpad.txt<CR> :exe "resize " . (winheight(0) * 2/5)<CR>
+
+nnoremap sd :vsplit new<CR>
+nnoremap sw :split new<CR>
 nnoremap sq <C-W>q
 nnoremap sh <C-W><left>
 nnoremap sj <C-W><down>
@@ -104,23 +109,24 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'brooth/far.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'godlygeek/tabular'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'lifepillar/vim-solarized8'
 Plugin 'mhinz/vim-grepper'
+Plugin 'moll/vim-bbye'
 Plugin 'morhetz/gruvbox'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'pseewald/vim-anyfold'
 Plugin 'rhysd/vim-crystal'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
+Plugin 'sjl/badwolf'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'timakro/vim-searchant'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'dhruvasagar/vim-table-mode'
-Plugin 'moll/vim-bbye'
-Plugin 'sjl/badwolf'
-Plugin 'lifepillar/vim-solarized8'
 
 call vundle#end()
 filetype plugin indent on
@@ -141,8 +147,8 @@ set wildmenu
 " Folding
 set foldmethod=indent
 set nofoldenable
-
-nnoremap <Leader>t za
+let anyfold_activate=1
+set foldlevel=0
 
 "
 " Far.vim config
@@ -172,11 +178,10 @@ set updatetime=500
 "
 " Git bindings
 "
-nnoremap ga :!git add %<CR>
-nnoremap gc :!git commit <CR>
-nnoremap gp :!git p <CR>
-nnoremap gr :!git reset<CR>
-nnoremap gs :!git status <CR>
+nnoremap <leader>ga :!git add %<CR>
+nnoremap <leader>gc :!git commit <CR>
+nnoremap <leader>gp :!git p <CR>
+nnoremap <leader>gs :!git s <CR>
 
 "
 " Substitutions
@@ -195,15 +200,13 @@ set guifont=Menlo:h11
 set termguicolors
 syntax enable
 
-#include <iostream>
-
 "
 " Available themes
 " gruvbox-dark
 " gruvbox-light
 " badwolf
 "
-let theme="solarized8-light"
+let theme="badwolf"
 
 if theme == "gruvbox-dark"
   set background=dark
@@ -230,7 +233,7 @@ endif
 "
 " Project management
 "
-nnoremap <C-m> :!make <CR>
+nnoremap <leader>m :!make<CR>
 
 "
 " Multiple cursor config
