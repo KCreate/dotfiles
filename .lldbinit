@@ -1,0 +1,2 @@
+type format add -f hex uint8_t
+type format add -f pointer uint8_t*

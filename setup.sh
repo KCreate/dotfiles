@@ -59,6 +59,7 @@ ln -sf ~/dotfiles/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/.bashrc ~/.bashrc
 ln -sf ~/dotfiles/.bash_profile ~/.bash_profile
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
+ln -sf ~/dotfiles/.lldbinit ~/.lldbinit
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
