@@ -69,7 +69,7 @@ nnoremap s= <C-W>=
 nnoremap st :split ~/dotfiles/todos.md<CR>       :exe "resize " . (winheight(0) * 2/5)<CR>
 nnoremap ss :split ~/dotfiles/scratchpad.txt<CR> :exe "resize " . (winheight(0) * 2/5)<CR>
 
-nnoremap sd :vsplit new<CR>
+nnoremap sd :vsplit <CR>
 nnoremap sw :split new<CR>
 nnoremap sq <C-W>q
 nnoremap sh <C-W><left>
