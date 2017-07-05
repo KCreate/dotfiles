@@ -29,6 +29,12 @@ set vb
 set mousehide
 
 "
+" Save undo history accross reloads
+"
+set undofile
+set undodir=~/.vim/undo/
+
+"
 " Comments
 "
 " c - Auto-wrap comments using textwidth, inserting the current comment leader automatically.
