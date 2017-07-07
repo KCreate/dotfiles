@@ -11,11 +11,6 @@ export PATH=$PATH
 shopt -s dotglob
 
 #
-# Default Colors used throughout the terminal and applications
-export COLOR_SHE='\x1b[38;2;255;196;49m'
-export COLOR_RESTORE='\x1b[0m'
-
-#
 # Shorthand aliases for commonly used directories
 #
 alias doc='cd ~/Documents'
@@ -26,7 +21,8 @@ alias dotfiles='cd ~/dotfiles'
 #
 # Shell input settings
 #
-export PS1='$(printf "${COLOR_SHE}")\$$(printf "${COLOR_RESTORE}") '
+SHELL_PROMPT_PREFIX='$'
+export PS1='\[$(tput setaf 10)\]$SHELL_PROMPT_PREFIX \[$(tput sgr0)\]\[$(tput sgr0)\]'
 export PS2=$PS1
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
 
