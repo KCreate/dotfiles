@@ -312,3 +312,15 @@ noremap gV `[v`]
 " Stay in visual mode when indenting
 vnoremap < <gv
 vnoremap > >gv
+
+" Neovim config
+if has('nvim')
+  " NeoVim escape the terminal
+  tnoremap <Esc> <C-\><C-n>
+
+  " Fix backspace in neovim
+  vnoremap <BS> d
+
+  " Insert two new lines here
+  nnoremap <S-L> O<ESC>o
+endif

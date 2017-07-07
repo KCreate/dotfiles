@@ -16,8 +16,9 @@ sudo xcodebuild -license accept
 # Install some stuff from brew
 #
 brew install node
-brew install macvim --with-override-system-vim
+brew install macvim --with-override-system-vim --HEAD
 brew install vim --with-override-system-vi
+brew install nvim
 brew install hub
 brew install findutils
 brew install crystal-lang --with-llvm
@@ -61,6 +62,7 @@ ln -sf ~/dotfiles/.bash_profile ~/.bash_profile
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/.lldbinit ~/.lldbinit
 ln -sf ~/dotfiles/.emacs ~/.emacs
+ln -sf ~/dotfiles/.vimrc ~/.config/nvim/init.nvim # Maybe create a dedicated neovim config file?
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
