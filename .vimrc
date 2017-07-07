@@ -97,15 +97,6 @@ autocmd VimResized * redraw!
 set autoread
 
 "
-" Automatically save the current buffer to disk upon leaving insert mode
-"
-augroup autoSaveAndRead
-  autocmd!
-  autocmd TextChanged,InsertLeave,FocusLost * silent! wall
-  autocmd CursorHold * silent! checktime
-augroup END
-
-"
 " Vundle Setup
 "
 filetype off
@@ -115,7 +106,6 @@ call vundle#begin()
 Plugin 'MaxSt/FlatColor'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'brooth/far.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'godlygeek/tabular'
@@ -159,14 +149,6 @@ let anyfold_activate=1
 set foldlevel=0
 
 "
-" Far.vim config
-"
-let g:far#auto_preview=1
-let g:far#default_mappings=1
-let g:far#highlight_match=1
-nnoremap <silent> <C-f> :Farp<CR>
-
-"
 " Clear search highlighting
 "
 nnoremap <Esc> :noh<CR>
@@ -204,8 +186,9 @@ set complete+=kspell
 "
 " Aesthetic settings
 "
-set guifont=Menlo:h11
+set guifont=Hack:h11
 set termguicolors
+set colorcolumn=100
 syntax enable
 
 "
@@ -239,11 +222,6 @@ elseif theme == "solarized8-light"
 endif
 
 "
-" Project management
-"
-nnoremap <leader>m :!make<CR>
-
-"
 " Multiple cursor config
 "
 let g:multi_cursor_use_default_mapping=0
@@ -269,14 +247,13 @@ let g:AutoPairs = {'(': ')', '[': ']', '{': '}', "'": "'", '"': '"'}
 "
 " Vim-Airline config options
 "
-let g:airline#extensions#tabline#buffer_min_count=2
+let g:airline#extensions#tabline#buffer_min_count=1
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=":t"
-let g:airline#extensions#tabline#tab_min_count=2
 let g:airline_left_sep=""
 let g:airline_right_sep=""
 let g:airline_section_y='' " Hides file encoding
-let g:airline_theme='gruvbox'
+let g:airline_theme='cool'
 
 "
 " CTRLP config
