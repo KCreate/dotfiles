@@ -125,6 +125,11 @@ Plugin 'timakro/vim-searchant'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'yuttie/comfortable-motion.vim'
+Plugin 'roman/golden-ratio'
+Plugin 'unblevable/quick-scope'
+Plugin 'junegunn/goyo.vim'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 
 call vundle#end()
 filetype plugin indent on
@@ -182,6 +187,13 @@ set gdefault
 " Completions
 "
 set complete+=kspell
+
+"
+" Enhanced CPP highlighting
+"
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
 
 "
 " Aesthetic settings
