@@ -87,6 +87,8 @@ gvim() {
   $(which gvim) $1 > /dev/null 2>&1
 }
 
+alias vim='vimr'
+
 #
 # Setup hub (installed from homebrew)
 #

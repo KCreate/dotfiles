@@ -196,8 +196,11 @@ let g:cpp_class_decl_highlight = 1
 
 "
 " Aesthetic settings
-"
-set guifont=Hack:h11
+
+if has('gui_macvim')
+  set guifont=Hack:h11
+endif
+
 set termguicolors
 set colorcolumn=100
 syntax enable
@@ -313,14 +316,15 @@ noremap gV `[v`]
 vnoremap < <gv
 vnoremap > >gv
 
+" Insert two new lines here
+nnoremap <S-L> O<ESC>o
+
 " Neovim config
 if has('nvim')
   " NeoVim escape the terminal
-  tnoremap <Esc> <C-\><C-n>
+  " œ is produced by Alt + q (on mac)
+  tnoremap œ <C-\><C-n>
 
   " Fix backspace in neovim
   vnoremap <BS> d
-
-  " Insert two new lines here
-  nnoremap <S-L> O<ESC>o
 endif
