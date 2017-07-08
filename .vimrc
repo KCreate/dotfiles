@@ -206,7 +206,7 @@ set termguicolors
 set colorcolumn=100
 syntax enable
 
-let theme="dracula"
+let theme="gruvbox-dark"
 if theme == "gruvbox-dark"
   set background=dark
   highlight Cursor guifg=black
@@ -309,9 +309,6 @@ else
   map <S-ScrollWheelDown> <C-D>
 endif
 
-" Quickly select the text that was just pasted
-noremap gV `[v`]
-
 " Stay in visual mode when indenting
 vnoremap < <gv
 vnoremap > >gv
@@ -321,9 +318,6 @@ nnoremap <S-L> O<ESC>o
 
 " Neovim config
 if has('nvim')
-  " NeoVim escape the terminal
-  " œ is produced by Alt + q (on mac)
-  tnoremap œ <C-\><C-n>
 
   " Fix backspace in neovim
   vnoremap <BS> d
