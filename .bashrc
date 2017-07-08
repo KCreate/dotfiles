@@ -22,7 +22,7 @@ alias dotfiles='cd ~/dotfiles'
 # Shell input settings
 #
 SHELL_PROMPT_PREFIX='$'
-export PS1='\[$(tput setaf 10)\]$SHELL_PROMPT_PREFIX \[$(tput sgr0)\]\[$(tput sgr0)\]'
+export PS1='\[$(tput setaf 5)\]$SHELL_PROMPT_PREFIX \[$(tput sgr0)\]\[$(tput sgr0)\]'
 export PS2=$PS1
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
 
