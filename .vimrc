@@ -129,6 +129,7 @@ Plugin 'yuttie/comfortable-motion.vim'
 Plugin 'unblevable/quick-scope'
 Plugin 'junegunn/goyo.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'dracula/vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -205,14 +206,7 @@ set termguicolors
 set colorcolumn=100
 syntax enable
 
-"
-" Available themes
-" gruvbox-dark
-" gruvbox-light
-" badwolf
-"
-let theme="badwolf"
-
+let theme="dracula"
 if theme == "gruvbox-dark"
   set background=dark
   highlight Cursor guifg=black
@@ -233,6 +227,10 @@ elseif theme == "solarized8-light"
   set background=light
   highlight Cursor guifg=white
   colorscheme solarized8_light_flat
+elseif theme == "dracula"
+  set background=dark
+  highlight Cursor guifg=black
+  colorscheme dracula
 endif
 
 "
@@ -261,12 +259,14 @@ let g:AutoPairs = {'(': ')', '[': ']', '{': '}', "'": "'", '"': '"'}
 "
 " Vim-Airline config options
 "
-let g:airline#extensions#tabline#buffer_min_count=1
+let g:airline#extensions#tabline#buffer_min_count=2
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=":t"
+let g:airline#extensions#hunks#enabled=0
 let g:airline_left_sep=""
 let g:airline_right_sep=""
-let g:airline_section_y='' " Hides file encoding
+let g:airline_section_y="" " Hides file encoding
+let g:airline_section_z="" " Hides percentage, line number, column number
 let g:airline_theme='cool'
 
 "
