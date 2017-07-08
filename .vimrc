@@ -58,15 +58,21 @@ let mapleader = ","
 nnoremap - /
 nnoremap <c-h> :bprevious<CR>
 nnoremap <c-l> :bnext<CR>
-nnoremap <c-n> :NERDTreeToggle<CR>
 nnoremap <silent> <Down> gj
 nnoremap <silent> <Up> gk
 nnoremap <silent> j gj
 nnoremap <silent> k gk
 nnoremap <c-j> 10j
+nnoremap <s-j> 10j
 vnoremap <c-j> 10j
+vnoremap <s-j> 10j
 nnoremap <c-k> 10k
-noremap <c-k> 10k
+nnoremap <s-k> 10k
+vnoremap <c-k> 10k
+vnoremap <s-k> 10k
+
+" Whole-line visual mode
+nnoremap <s-e> V
 
 "
 " Split management
@@ -103,33 +109,39 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'MaxSt/FlatColor'
+" Vundle
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'dhruvasagar/vim-table-mode'
+
+" Language support
 Plugin 'godlygeek/tabular'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'lifepillar/vim-solarized8'
-Plugin 'mhinz/vim-grepper'
-Plugin 'moll/vim-bbye'
-Plugin 'morhetz/gruvbox'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'pseewald/vim-anyfold'
 Plugin 'rhysd/vim-crystal'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'sjl/badwolf'
+
+" Looks and integration
+Plugin 'airblade/vim-gitgutter'
+Plugin 'moll/vim-bbye'
+
+" Editing
+Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'junegunn/goyo.vim'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'timakro/vim-searchant'
 Plugin 'tpope/vim-surround'
+
+" Files & search
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'timakro/vim-searchant'
+
+" Themes
+Plugin 'MaxSt/FlatColor'
+Plugin 'dracula/vim'
+Plugin 'lifepillar/vim-solarized8'
+Plugin 'mkarmona/materialbox'
+Plugin 'morhetz/gruvbox'
+Plugin 'sjl/badwolf'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'yuttie/comfortable-motion.vim'
-Plugin 'unblevable/quick-scope'
-Plugin 'junegunn/goyo.vim'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'dracula/vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -159,11 +171,6 @@ set foldlevel=0
 nnoremap <Esc> :noh<CR>
 let g:searchant_map_stop = 0
 nmap <Esc> <Plug>SearchantStop
-
-"
-" NerdTree Settings
-"
-let NERDTreeShowHidden=1
 
 "
 " Misc. settings
@@ -205,33 +212,47 @@ endif
 set termguicolors
 set colorcolumn=100
 syntax enable
+let theme="dracula"
 
-let theme="gruvbox-dark"
 if theme == "gruvbox-dark"
   set background=dark
-  highlight Cursor guifg=black
   colorscheme GruvBox
+
 elseif theme == "gruvbox-light"
   set background=light
-  highlight Cursor guifg=white
   colorscheme GruvBox
+
 elseif theme == "badwolf"
   set background=dark
-  highlight Cursor guifg=black
   colorscheme badwolf
+
 elseif theme == "solarized8-dark"
   set background=dark
-  highlight Cursor guifg=black
   colorscheme solarized8_dark_flat
+
 elseif theme == "solarized8-light"
   set background=light
-  highlight Cursor guifg=white
   colorscheme solarized8_light_flat
+
 elseif theme == "dracula"
   set background=dark
-  highlight Cursor guifg=black
   colorscheme dracula
+
+elseif theme == "materialbox-light"
+  set background=light
+  colorscheme materialbox
+
+elseif theme == "materialbox-dark"
+  set background=dark
+  colorscheme materialbox
+
 endif
+
+if &background == "dark"
+  highlight Cursor guifg=black
+else
+  highlight Cursor guibg=white
+end
 
 "
 " Multiple cursor config

@@ -67,6 +67,7 @@ alias cl='clear'
 alias irc="irssi"
 alias hexdump="hexdump -Cv"
 alias dotpng="dot -Tpng"
+alias vim='vimr -s'
 
 cd() {
     builtin cd "$@";
@@ -78,16 +79,6 @@ clone() {
     gh;
     cd $1;
 }
-
-#
-# GVIM thinks it's fun to pipe errors messages into my terminal
-# This will shows it who's boss
-#
-gvim() {
-  $(which gvim) $1 > /dev/null 2>&1
-}
-
-alias vim='vimr'
 
 #
 # Setup hub (installed from homebrew)
