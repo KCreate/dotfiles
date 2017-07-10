@@ -16,7 +16,6 @@ sudo xcodebuild -license accept
 # Install some stuff from brew
 #
 brew install node
-brew install macvim --with-override-system-vim --HEAD
 brew install vim --with-override-system-vi
 brew install nvim
 brew install hub

@@ -73,6 +73,7 @@ vnoremap <s-k> 10k
 
 " Whole-line visual mode
 nnoremap <s-e> V
+nnoremap <c-e> V
 
 "
 " Split management
@@ -81,7 +82,7 @@ nnoremap s= <C-W>=
 
 " Quick-access to todos and scratchpad file
 nnoremap st :split ~/dotfiles/todos.md<CR>       :exe "resize " . (winheight(0) * 2/5)<CR>
-nnoremap ss :split ~/dotfiles/scratchpad.txt<CR> :exe "resize " . (winheight(0) * 2/5)<CR>
+nnoremap ss :split ~/dotfiles/scratchpad.md<CR> :exe "resize " . (winheight(0) * 2/5)<CR>
 
 nnoremap sd :vsplit<CR>
 nnoremap sw :split<CR>
@@ -128,6 +129,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/goyo.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
+Plugin 'editorconfig/editorconfig-vim'
 
 " Files & search
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -191,16 +193,14 @@ nnoremap <leader>gs :!git s <CR>
 set gdefault
 
 "
+" Table Mode Config
+"
+let g:table_mode_corner='|'
+
+"
 " Completions
 "
 set complete+=kspell
-
-"
-" Enhanced CPP highlighting
-"
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
 
 "
 " Aesthetic settings
@@ -210,9 +210,9 @@ if has('gui_macvim')
 endif
 
 set termguicolors
-set colorcolumn=100
+set colorcolumn=120
 syntax enable
-let theme="dracula"
+let theme="gruvbox-dark"
 
 if theme == "gruvbox-dark"
   set background=dark
@@ -343,3 +343,8 @@ if has('nvim')
   " Fix backspace in neovim
   vnoremap <BS> d
 endif
+
+"
+" Open tig in a new horicontal split
+"
+nnoremap <Leader>tig :execute 'sp \| term tig'<CR>
