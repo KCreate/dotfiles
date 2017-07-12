@@ -108,7 +108,7 @@ set autoread
 "
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call vundle#rc()
 
 " Vundle
 Plugin 'VundleVim/Vundle.vim'
@@ -216,11 +216,11 @@ let theme="gruvbox-dark"
 
 if theme == "gruvbox-dark"
   set background=dark
-  colorscheme GruvBox
+  colorscheme gruvbox
 
 elseif theme == "gruvbox-light"
   set background=light
-  colorscheme GruvBox
+  colorscheme gruvbox
 
 elseif theme == "badwolf"
   set background=dark

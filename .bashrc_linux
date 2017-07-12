@@ -1,0 +1,86 @@
+# Path
+PATH=/usr/local/Cellar/ruby/2.3.1_2/bin/:$PATH
+PATH=/usr/local/bin:$PATH
+PATH=~/.cargo/bin:$PATH
+PATH=/usr/local/opt/llvm/bin:$PATH
+export PATH=$PATH
+
+#
+# Shell config
+#
+shopt -s dotglob
+
+#
+# Shorthand aliases for commonly used directories
+#
+alias doc='cd ~/Documents'
+alias gh='cd ~/Documents/GitHub'
+alias de='cd ~/Desktop'
+alias dotfiles='cd ~/dotfiles'
+
+#
+# Shell input settings
+#
+SHELL_PROMPT_PREFIX='$'
+export PS1='\[$(tput setaf 220)\]$SHELL_PROMPT_PREFIX \[$(tput sgr0)\]\[$(tput sgr0)\]'
+export PS2=$PS1
+export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
+
+#
+# Config directories
+#
+export CHARLYDIR=/Users/leonardschuetz/Documents/GitHub/charly-lang/charly
+export NODE_PATH=/usr/local/lib/node_modules
+
+#
+# Shorthand aliases and defaults for some commands
+#
+alias l="ls -laGh"
+alias ..='cd ../'
+alias cl='clear'
+alias irc="irssi"
+alias hexdump="hexdump -Cv"
+alias dotpng="dot -Tpng"
+alias vim="nvim"
+
+cd() {
+    builtin cd "$@";
+    l;
+}
+
+clone() {
+    git clone https://github.com/$1 '/home/leonardschuetz/Documents/GitHub/'$1'/';
+    gh;
+    cd $1;
+}
+
+#
+# Bash completions
+#
+source ~/dotfiles/completions/git-completion.bash
+source ~/dotfiles/completions/git-prompt.sh
+
+#
+# Commonly visited websites
+#
+COMMON_SITES=(
+  https://www.facebook.com/
+  https://twitter.com/
+  https://github.com/
+  http://turnoff.us/
+  http://www.commitstrip.com/en/?
+  http://www.smbc-comics.com/index.php
+  https://news.ycombinator.com/
+  https://lobste.rs/
+  https://www.reddit.com/
+  https://www.reddit.com/r/ProgrammerHumor/
+  https://www.youtube.com/
+  http://designspiration.net/
+  http://abduzeedo.com/
+)
+
+webstart() {
+  for site in ${COMMON_SITES[@]}; do
+    xdg-open ${site}
+  done
+}

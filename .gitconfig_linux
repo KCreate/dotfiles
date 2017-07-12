@@ -1,0 +1,55 @@
+[user]
+[alias]
+  # committing stuff
+  c = commit -m
+  ca = commit -a
+  cp = !git commit -p
+  cap = !git commit -a && git push
+  co = checkout
+  cb = checkout -b
+
+  # short-hand commands
+  s = status -s --branch
+  f = fetch
+  p = push
+  aa = add -A
+  l = log --oneline --decorate --graph --all
+  pop = reset HEAD~1
+  log = log --oneline --decorate --graph --all
+  branch = branch -vv
+
+  # Revert the last commit
+  fuck = reset HEAD~1
+
+  # Show the amount of commits each contributor made
+  score = shortlog -sn
+
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[user]
+	name = Leonard Schuetz
+	email = leni.schuetz@me.com
+	signingkey = 063C9347
+[push]
+	default = simple
+[color]
+	ui = auto
+[commit]
+	gpgsign = true
+[github]
+	user = KCreate
+[ghi]
+	token = !security find-internet-password -a KCreate -s github.com -l 'ghi token' -w
+[core]
+	editor = '/usr/local/bin/vimr' -s --wait
+[gpg]
+	program = /usr/bin/gpg
