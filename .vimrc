@@ -141,6 +141,7 @@ Plugin 'dracula/vim'
 Plugin 'lifepillar/vim-solarized8'
 Plugin 'mkarmona/materialbox'
 Plugin 'morhetz/gruvbox'
+Plugin 'romainl/Apprentice'
 Plugin 'sjl/badwolf'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -212,7 +213,7 @@ endif
 set termguicolors
 set colorcolumn=120
 syntax enable
-let theme="gruvbox-dark"
+let theme="apprentice"
 
 if theme == "gruvbox-dark"
   set background=dark
@@ -245,6 +246,10 @@ elseif theme == "materialbox-light"
 elseif theme == "materialbox-dark"
   set background=dark
   colorscheme materialbox
+
+elseif theme == "apprentice"
+  set background=dark
+  colorscheme apprentice
 
 endif
 
@@ -331,6 +336,8 @@ else
 endif
 
 " Stay in visual mode when indenting
+nnoremap < <<
+nnoremap > >>
 vnoremap < <gv
 vnoremap > >gv
 
