@@ -62,6 +62,7 @@ ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/.lldbinit ~/.lldbinit
 ln -sf ~/dotfiles/.emacs ~/.emacs
 ln -sf ~/dotfiles/.vimrc ~/.config/nvim/init.nvim # Maybe create a dedicated neovim config file?
+ln -sf ~/dotfiles/.tigrc ~/.tigrc
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
