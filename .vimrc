@@ -311,6 +311,7 @@ au BufNewFile,BufReadPost *.ch set filetype=javascript
 "
 " Remove whitespace on file write
 "
+au BufWritePre * %s/\%u00A0/ /e
 au BufWritePre * %s/\s\+$//e
 
 "
