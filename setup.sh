@@ -17,7 +17,6 @@ sudo xcodebuild -license accept
 #
 brew install node
 brew install vim --with-override-system-vi
-brew install nvim
 brew install hub
 brew install findutils
 brew install crystal-lang --with-llvm
@@ -44,7 +43,7 @@ mas install 409201541   # Pages
 mas install 409183694   # Keynote
 mas install 425424353   # The Unarchiver
 mas install 409203825   # Numbers
-mas install 1206020918  # Battery Indicator
+mas install 1206020918  # Battery Indicator
 
 #
 # Install the rust compiler and development tools

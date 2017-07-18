@@ -5,10 +5,6 @@ PATH=~/.cargo/bin:$PATH
 PATH=/usr/local/opt/llvm/bin:$PATH
 export PATH=$PATH
 
-# NVM config
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
-
 #
 # Shell config
 #
