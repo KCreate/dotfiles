@@ -58,6 +58,15 @@ network() {
     echo "Loc: "$(ipconfig getifaddr en0);
 }
 
+fsearch() {
+  if [ $# -eq 1 ]
+  then
+    grep -rnwI --exclude=".git/*" --exclude="node_modules/" . -e "$1"
+  else
+    echo "Incorrect amount of arguments supplied! Try running fsearch <your search query>"
+  fi
+}
+
 #
 # Shorthand aliases and defaults for some commands
 #
