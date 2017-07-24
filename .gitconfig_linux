@@ -38,7 +38,7 @@
 [user]
 	name = Leonard Schuetz
 	email = leni.schuetz@me.com
-	signingkey = 063C9347
+	signingkey = 3524F295
 [push]
 	default = simple
 [color]
@@ -52,4 +52,4 @@
 [core]
 	editor = /usr/bin/nvim
 [gpg]
-	program = /usr/bin/gpg
+	program = /usr/bin/gpg2
