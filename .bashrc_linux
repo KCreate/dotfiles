@@ -42,6 +42,7 @@ alias irc="irssi"
 alias hexdump="hexdump -Cv"
 alias dotpng="dot -Tpng"
 alias vim="nvim"
+alias g="git"
 
 cd() {
     builtin cd "$@";
