@@ -7,6 +7,7 @@ sudo apt-get install vim
 sudo apt-get install git
 sudo apt-get install clang
 sudo apt-get install tig
+sudo apt-get install compton
 
 # Filesystem setup
 mkdir .logs
@@ -23,6 +24,11 @@ sudo ln -sf ~/dotfiles/.vimrc /usr/share/nvim/sysinit.vim
 ln -sf ~/dotfiles/.gitconfig_linux ~/.gitconfig
 ln -sf ~/dotfiles/.lldbinit ~/.lldbinit
 ln -sf ~/dotfiles/.tigrc ~/.tigrc
+ln -sf ~/dotfiles/i3-config ~/.config/i3/config
+ln -sf ~/dotfiles/.i3status.conf ~/.i3status.conf
+ln -sf ~/dotfiles/.compton.conf ~/.compton.conf
+ln -sf ~/dotfiles/screen-docked-setup.sh ~/screen-docked-setup.sh
+ln -sf ~/dotfiles/screen-standalone-setup.sh ~/screen-standalone-setup.sh
 /usr/bin/vim +PluginInstall +qall
 
 # Delete vim again and install neovim
