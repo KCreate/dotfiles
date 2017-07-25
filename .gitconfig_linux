@@ -53,3 +53,5 @@
 	editor = /usr/bin/nvim
 [gpg]
 	program = /usr/bin/gpg2
+[credential]
+	helper = cache --timeout 7200
