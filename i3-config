@@ -185,14 +185,14 @@ bar {
 exec --no-startup-id xset r rate 200 30
 
 # Gaps config
-gaps inner 15
-gaps outer 5
+gaps inner 10
+gaps outer 0
 
 # Disable the title bar of windows
 for_window [class="^.*"] border pixel 0
 
 # Compton config
-exec compton --config ~/.compton.conf -b
+exec compton --config ~/.compton.conf -b --shadow-exclude '!focused'
 
 # Config displays
 exec --no-startup-id xrandr --output VGA1 --auto --right-of LVDS1
@@ -200,18 +200,13 @@ exec --no-startup-id xrandr --output VGA1 --auto --right-of LVDS1
 # Background image
 exec --no-startup-id feh --bg-fill ~/Documents/Wallpapers/goosegumps.jpg
 
+# We default to docked mode
+exec ~/screen-docked-setup.sh
+
 # Launch some applications on startup
-exec i3-msg workspace $workspace1
-exec i3-msg move workspace to output right
-exec gnome-terminal
-
-exec i3-msg workspace $workspace2
-exec i3-msg move workspace to output left
-exec google-chrome
-
-exec i3-msg workspace $workspace3
-exec i3-msg move workspace to output right
-exec spotify
+exec i3-msg "workspace $workspace1; exec gnome-terminal; move workspace to output DP1"
+exec i3-msg "workspace $workspace2; exec google-chrome; move workspace to output VGA1"
+exec i3-msg "workspace $workspace3; exec spotify; move workspace to output VGA1"
 
 # Move specific application to the right workspace
 for_window [class="google-chrome"] move to workspace $workspace2
