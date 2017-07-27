@@ -5,6 +5,10 @@ PATH=~/.cargo/bin:$PATH
 PATH=/usr/local/opt/llvm/bin:$PATH
 export PATH=$PATH
 
+# Default editor for other programs to use
+export VISUAL=nvim;
+export EDITOR=nvim;
+
 #
 # Shell config
 #

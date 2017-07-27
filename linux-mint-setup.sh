@@ -8,6 +8,8 @@ sudo apt-get install git
 sudo apt-get install clang
 sudo apt-get install tig
 sudo apt-get install compton
+sudo apt-get install rofi
+sudo apt-get install ranger
 
 # Filesystem setup
 mkdir .logs
@@ -26,9 +28,7 @@ ln -sf ~/dotfiles/.lldbinit ~/.lldbinit
 ln -sf ~/dotfiles/.tigrc ~/.tigrc
 ln -sf ~/dotfiles/i3-config ~/.config/i3/config
 ln -sf ~/dotfiles/.i3status.conf ~/.i3status.conf
-ln -sf ~/dotfiles/.compton.conf ~/.compton.conf
-ln -sf ~/dotfiles/screen-docked-setup.sh ~/screen-docked-setup.sh
-ln -sf ~/dotfiles/screen-standalone-setup.sh ~/screen-standalone-setup.sh
+ln -sf ~/dotfiles/.ranger.conf ~/.config/ranger/rc.conf
 /usr/bin/vim +PluginInstall +qall
 
 # Delete vim again and install neovim
