@@ -151,29 +151,40 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
   status_command i3status
+  position top
 
   colors {
-    background #f3f4f5
-    statusline #232323
-    separator #000000
+    background #252525
+    statusline #ffffff
+    separator #909090
 
-    # klass             border    background  text
-    focused_workspace   #f0f0f0   #a0a0a0     #000000
+    # Colors copied from http://tunnelshade.in/blog/2014/05/making-i3-beautiful/
+
+    # klass             border  background  text
+    focused_workspace   #007fff #007fff     #ffffff
+    active_workspace    #333333 #252525     #ffffff
+    inactive_workspace  #333333 #222222     #888888
+    urgent_workspace    #aa0000 #990000     #ffffff
   }
 }
+
+# Border styling
+for_window [class="^.*"] border pixel 2
+
+# Window border styling
+set $bordercolor #003366
+# klass             border        background    text
+client.focused      $bordercolor  $bordercolor  #ffffff
 
 # Key repeat rate
 exec --no-startup-id xset r rate 200 30
 
 # Gaps config
-gaps inner 10
+gaps inner 20
 gaps outer 0
 
-# Disable the title bar of windows
-for_window [class="^.*"] border pixel 0
-
 # Compton config
-exec compton --config ~/.compton.conf -b --shadow-exclude '!focused'
+exec compton --config ~/.compton.conf -b
 
 # Config displays
 exec --no-startup-id xrandr --output VGA1 --auto --right-of LVDS1
