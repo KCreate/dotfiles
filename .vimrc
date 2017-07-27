@@ -137,6 +137,7 @@ Plugin 'timakro/vim-searchant'
 
 " Themes
 Plugin 'MaxSt/FlatColor'
+Plugin 'cocopon/iceberg.vim'
 Plugin 'dracula/vim'
 Plugin 'lifepillar/vim-solarized8'
 Plugin 'mkarmona/materialbox'
@@ -213,7 +214,7 @@ endif
 set termguicolors
 set colorcolumn=120
 syntax enable
-let theme="apprentice"
+let theme="iceberg"
 
 if theme == "gruvbox-dark"
   set background=dark
@@ -250,6 +251,10 @@ elseif theme == "materialbox-dark"
 elseif theme == "apprentice"
   set background=dark
   colorscheme apprentice
+
+elseif theme == "iceberg"
+  set background=dark
+  colorscheme iceberg
 
 endif
 
@@ -293,7 +298,7 @@ let g:airline_left_sep=""
 let g:airline_right_sep=""
 let g:airline_section_y="" " Hides file encoding
 let g:airline_section_z="" " Hides percentage, line number, column number
-let g:airline_theme='cool'
+let g:airline_theme='iceberg'
 
 "
 " CTRLP config
@@ -351,8 +356,3 @@ if has('nvim')
   " Fix backspace in neovim
   vnoremap <BS> d
 endif
-
-"
-" Open tig in a new horicontal split
-"
-nnoremap <Leader>tig :execute 'sp \| term tig'<CR>
