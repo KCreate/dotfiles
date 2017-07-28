@@ -158,8 +158,8 @@ client.focused      $bordercolor  $bordercolor  #ffffff
 exec --no-startup-id xset r rate 200 30
 
 # Gaps config
-gaps inner 25
-gaps outer 75
+gaps inner 0
+gaps outer 0
 bindsym $mod+g                gaps outer all minus 15
 bindsym $mod+Shift+g          gaps outer all plus 15
 bindsym $mod+Control+g        gaps inner all minus 15
