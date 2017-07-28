@@ -176,7 +176,7 @@ set $bordercolor #005fff
 client.focused      $bordercolor  $bordercolor  #ffffff
 
 # Key repeat rate
-exec --no-startup-id xset r rate 100 30
+exec --no-startup-id xset r rate 200 30
 
 # Gaps config
 gaps inner 25
