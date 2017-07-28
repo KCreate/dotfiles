@@ -107,7 +107,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-msg exit"
 
 # lock the screen
-bindsym $mod+l exec "i3lock -f -i ~/Documents/Wallpapers/goosegumps.png"
+bindsym $mod+l exec "i3lock -f -t -i ~/Documents/Wallpapers/goosegumps.png"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
