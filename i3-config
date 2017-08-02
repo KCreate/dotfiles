@@ -158,18 +158,19 @@ client.focused      $bordercolor  $bordercolor  #ffffff
 exec --no-startup-id xset r rate 200 30
 
 # Gaps config
-gaps inner 0
-gaps outer 0
+gaps inner 25
+gaps outer 10
 bindsym $mod+g                gaps outer all minus 15
 bindsym $mod+Shift+g          gaps outer all plus 15
 bindsym $mod+Control+g        gaps inner all minus 15
 bindsym $mod+Control+Shift+g  gaps inner all plus 15
 
 # Compton config
-exec compton --config ~/dotfiles/.compton.conf -b
+# -o = The opacity of shadows, defauilts to 0.75
+exec compton --config ~/dotfiles/.compton.conf -b -o 0.25
 
 # Background image
-exec --no-startup-id feh --bg-fill ~/Documents/Wallpapers/goosegumps.jpg
+exec --no-startup-id feh --bg-fill ~/Documents/Wallpapers/greennebula.jpg
 
 # We default to docked mode
 exec ~/dotfiles/screen-docked-setup.sh
