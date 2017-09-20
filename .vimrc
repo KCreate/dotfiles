@@ -22,6 +22,7 @@ set laststatus=2
 set nocompatible
 set notimeout ttimeout ttimeoutlen=0
 set number
+set relativenumber
 set shell=/bin/bash
 set t_Co=256
 set modelines=0

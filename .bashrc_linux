@@ -47,6 +47,8 @@ alias hexdump="hexdump -Cv"
 alias dotpng="dot -Tpng"
 alias vim="nvim"
 alias g="git"
+alias i3left="i3-msg move workspace to output left"
+alias i3right="i3-msg move workspace to output right"
 
 cd() {
     builtin cd "$@";
