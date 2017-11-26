@@ -132,6 +132,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
 
 " Files & search
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -200,6 +201,12 @@ set gdefault
 " Table Mode Config
 "
 let g:table_mode_corner='|'
+
+"
+" Toggle nerdtree
+"
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 "
 " Completions
