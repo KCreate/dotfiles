@@ -131,6 +131,7 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'scrooloose/nerdcommenter'
 
 " Files & search
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -215,7 +216,7 @@ endif
 set termguicolors
 set colorcolumn=120
 syntax enable
-let theme="iceberg"
+let theme="solarized8-light"
 
 if theme == "gruvbox-dark"
   set background=dark
@@ -299,7 +300,7 @@ let g:airline_left_sep=""
 let g:airline_right_sep=""
 let g:airline_section_y="" " Hides file encoding
 let g:airline_section_z="" " Hides percentage, line number, column number
-let g:airline_theme='iceberg'
+let g:airline_theme='solarized'
 
 "
 " CTRLP config
