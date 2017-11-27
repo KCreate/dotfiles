@@ -22,7 +22,6 @@ set laststatus=2
 set nocompatible
 set notimeout ttimeout ttimeoutlen=0
 set number
-set relativenumber
 set shell=/bin/bash
 set t_Co=256
 set modelines=0
@@ -149,6 +148,10 @@ Plugin 'romainl/Apprentice'
 Plugin 'sjl/badwolf'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'zefei/cake16'
+Plugin 'endel/vim-github-colorscheme'
+Plugin 'rakr/vim-one'
+Plugin 'NLKNguyen/papercolor-theme'
 
 call vundle#end()
 filetype plugin indent on
@@ -223,7 +226,7 @@ endif
 set termguicolors
 set colorcolumn=120
 syntax enable
-let theme="solarized8-light"
+let theme="one"
 
 if theme == "gruvbox-dark"
   set background=dark
@@ -264,6 +267,23 @@ elseif theme == "apprentice"
 elseif theme == "iceberg"
   set background=dark
   colorscheme iceberg
+
+elseif theme == "cake16"
+  set background=light
+  colorscheme cake16
+
+elseif theme == "github"
+  set background=light
+  colorscheme github
+
+elseif theme == "one"
+  set background=light
+  colorscheme one
+  let g:airline_theme='one'
+
+elseif theme == "papercolor"
+  set background=light
+  colorscheme PaperColor
 
 endif
 
