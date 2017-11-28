@@ -327,14 +327,16 @@ let g:airline_left_sep=""
 let g:airline_right_sep=""
 let g:airline_section_y="" " Hides file encoding
 let g:airline_section_z="" " Hides percentage, line number, column number
-let g:airline_theme='solarized'
+let g:airline_theme='one'
 
 "
 " CTRLP config
 "
-let g:ctrlp_custom_ignore='\v[\/](node_modules|.git|.shards)$'
-let g:ctrlp_show_hidden=1
-let g:ctrlp_use_caching=0
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|.git|.shards)$'
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_use_caching = 0
+let g:ctrlp_match_window = 'bottom,order:btt,min:20,max:20,results:20'
+let g:ctrlp_switch_buffer = 'E'
 
 "
 " Filetypes
