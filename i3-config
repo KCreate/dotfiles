@@ -171,7 +171,7 @@ bindsym $mod+Control+Shift+g  gaps inner all plus 15
 exec compton --config ~/dotfiles/.compton.conf -b -o 0.25
 
 # Background image
-exec --no-startup-id feh --bg-fill ~/Documents/Wallpapers/greennebula.jpg
+exec --no-startup-id feh --bg-fill ~/Documents/Wallpapers/spacex-falcon9-landing.jpg
 
 # We default to docked mode
 exec ~/dotfiles/screen-docked-setup.sh
