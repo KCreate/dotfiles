@@ -132,6 +132,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
+Plugin 'rhysd/vim-clang-format'
 
 " Files & search
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -216,6 +217,14 @@ let NERDTreeShowHidden=1
 " Completions
 "
 set complete+=kspell
+
+"
+" vim-clang-format
+"
+let g:clang_format#detect_style_file=1
+let g:clang_format#enable_fallback_style=1
+nnoremap f :ClangFormat<CR>
+vnoremap f :ClangFormat<CR>
 
 "
 " Aesthetic settings
