@@ -152,6 +152,7 @@ Plugin 'zefei/cake16'
 Plugin 'endel/vim-github-colorscheme'
 Plugin 'rakr/vim-one'
 Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'nanotech/jellybeans.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -226,7 +227,7 @@ endif
 set termguicolors
 set colorcolumn=120
 syntax enable
-let theme="one"
+let theme="jellybeans"
 
 if theme == "gruvbox-dark"
   set background=dark
@@ -276,14 +277,23 @@ elseif theme == "github"
   set background=light
   colorscheme github
 
-elseif theme == "one"
+elseif theme == "one-light"
   set background=light
+  colorscheme one
+  let g:airline_theme='one'
+
+elseif theme == "one-dark"
+  set background=dark
   colorscheme one
   let g:airline_theme='one'
 
 elseif theme == "papercolor"
   set background=light
   colorscheme PaperColor
+
+elseif theme == "jellybeans"
+  set background=dark
+  colorscheme jellybeans
 
 endif
 
