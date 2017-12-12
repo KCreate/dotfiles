@@ -126,11 +126,3 @@ webstart() {
     open ${site}
   done
 }
-
-# OPAM configuration
-. /Users/leonardschuetz/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
-
-#
-# Setup OPAM
-#
-eval $(opam config env)

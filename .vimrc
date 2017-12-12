@@ -81,8 +81,9 @@ nnoremap <c-e> V
 nnoremap s= <C-W>=
 
 " Quick-access to todos and scratchpad file
-nnoremap st :split ~/dotfiles/todos.md<CR>       :exe "resize " . (winheight(0) * 2/5)<CR>
-nnoremap ss :split ~/dotfiles/scratchpad.md<CR> :exe "resize " . (winheight(0) * 2/5)<CR>
+nnoremap ss :split todos.md<CR>       :exe "resize " . (winheight(0) * 2/5)<CR>
+nnoremap st :split<CR>                :exe "term"<CR>
+tnoremap <Esc> <C-\><C-n>
 
 nnoremap sd :vsplit<CR>
 nnoremap sw :split<CR>
