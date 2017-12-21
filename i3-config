@@ -130,11 +130,11 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
   status_command i3status
-  position top
+  position bottom
 
   colors {
-    background #252525
-    statusline #ffffff
+    background #eaeaea
+    statusline #000000
     separator #909090
 
     # Colors copied from http://tunnelshade.in/blog/2014/05/making-i3-beautiful/
