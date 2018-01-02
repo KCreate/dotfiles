@@ -35,7 +35,7 @@ function fish_right_prompt
     # Source: https://adrian-philipp.com/post/cmd-duration-fish-shell
     # OS X notification when a command takes longer than notify_duration
     set notify_duration 10000
-    set exclude_cmd "fish|bash|less|man|more|ssh"
+    set exclude_cmd "lldb|fish|bash|less|man|more|ssh"
     if begin
       test $CMD_DURATION -gt $notify_duration
       and echo $history[1] | grep -vqE "^($exclude_cmd).*"
