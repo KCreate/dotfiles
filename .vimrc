@@ -329,10 +329,21 @@ elseif theme == "spacegray"
 endif
 
 if &background == "dark"
-  highlight Cursor guifg=black
+  highlight Cursor guibg=yellow
 else
-  highlight Cursor guibg=white
+  highlight Cursor guibg=yellow
 end
+
+"
+" Cursorline config
+"
+set cursorline
+hi clear CursorLine
+hi clear CursorLineNR
+
+" This color is dependent on the current theme
+hi CursorLine guibg=#111314
+hi CursorLineNR guifg=#eedc0f
 
 "
 " Multiple cursor config
@@ -390,12 +401,6 @@ au BufNewFile,BufReadPost *.ch set filetype=javascript
 "
 au BufWritePre * %s/\%u00A0/ /e
 au BufWritePre * %s/\s\+$//e
-
-"
-" Highlight lines longer than 100 columns with a red background
-"
-highlight OverLength ctermbg=red ctermfg=white guifg=white guibg=#FF5C57
-match OverLength /\%121v.\+/
 
 "
 " This fixes indendation for C switch cases
