@@ -22,7 +22,7 @@ set laststatus=2
 set nocompatible
 set notimeout ttimeout ttimeoutlen=0
 set number
-set shell=/bin/bash
+set shell=fish
 set t_Co=256
 set modelines=0
 set vb
@@ -119,6 +119,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rhysd/vim-crystal'
+Plugin 'dag/vim-fish'
 
 " Looks and integration
 Plugin 'airblade/vim-gitgutter'
@@ -155,9 +156,17 @@ Plugin 'endel/vim-github-colorscheme'
 Plugin 'rakr/vim-one'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'ajh17/spacegray.vim'
+Plugin 'kabbamine/yowish.vim'
 
 call vundle#end()
 filetype plugin indent on
+
+function UpdateVim()
+  set shell=bash
+  PluginInstall
+  set shell=fish
+endfunction
 
 set autoindent
 set expandtab
@@ -237,7 +246,7 @@ endif
 set termguicolors
 set colorcolumn=120
 syntax enable
-let theme="papercolor"
+let theme="spacegray"
 
 if theme == "gruvbox-dark"
   set background=dark
@@ -297,13 +306,25 @@ elseif theme == "one-dark"
   colorscheme one
   let g:airline_theme='one'
 
-elseif theme == "papercolor"
+elseif theme == "papercolor-light"
   set background=light
+  colorscheme PaperColor
+
+elseif theme == "papercolor-dark"
+  set background=dark
   colorscheme PaperColor
 
 elseif theme == "jellybeans"
   set background=dark
   colorscheme jellybeans
+
+elseif theme == "yowish"
+  set background=dark
+  colorscheme yowish
+
+elseif theme == "spacegray"
+  set background=dark
+  colorscheme spacegray
 
 endif
 

@@ -16,21 +16,17 @@ sudo xcodebuild -license accept
 # Install some stuff from brew
 #
 brew install node
-brew install vim --with-override-system-vi
 brew install hub
 brew install findutils
 brew install crystal-lang --with-llvm
 brew cask install vlc
 brew install graphviz --with-app --with-freetype --with-librsvg
 brew install irssi
-brew install cryload
-brew install lolcat
 brew install pv
 brew install diff-so-fancy
 brew install llvm --with-lldb
 brew install nasm
-brew install ocaml
-brew install opam # ocaml package manager
+brew install fish
 opam init
 
 #
@@ -39,16 +35,10 @@ opam init
 mas install 403388562   # Transmit
 mas install 969418666   # ColorSnapper2
 mas install 443987910   # 1Password
-mas install 409201541   # Pages
 mas install 409183694   # Keynote
 mas install 425424353   # The Unarchiver
 mas install 409203825   # Numbers
 mas install 1206020918  # Battery Indicator
-
-#
-# Install the rust compiler and development tools
-#
-curl https://sh.rustup.rs -sSf | sh
 
 #
 # Download and symlink dotfiles from github
@@ -56,6 +46,7 @@ curl https://sh.rustup.rs -sSf | sh
 git clone https://github.com/KCreate/dotfiles.git ~/dotfiles/
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/.bashrc ~/.bashrc
+ln -sf ~/dotfiles/.config.fish ~/.config/fish/config.fish
 ln -sf ~/dotfiles/.bash_profile ~/.bash_profile
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/.lldbinit ~/.lldbinit
@@ -193,13 +184,13 @@ defaults write com.apple.dock dashboard-in-overlay -bool true
 echo "Installation complete!"
 echo "Restart now!"
 echo "You still need to download the following programs from the internet:"
-echo "- MySQL WorkBench"
 echo "- Spotify"
+echo "- Sequel Pro"
 echo "- Chrome"
 echo "- iTerm2"
 echo "- Docker"
 echo "- Atom"
 echo "- GPG Keychain"
-echo "- Tower"
 echo "- TrashBegone"
 echo "- Whatsapp"
+echo "- VimR"
