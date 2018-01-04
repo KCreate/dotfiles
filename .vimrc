@@ -299,12 +299,10 @@ elseif theme == "github"
 elseif theme == "one-light"
   set background=light
   colorscheme one
-  let g:airline_theme='one'
 
 elseif theme == "one-dark"
   set background=dark
   colorscheme one
-  let g:airline_theme='one'
 
 elseif theme == "papercolor-light"
   set background=light
@@ -346,6 +344,11 @@ hi CursorLine guibg=#111314
 hi CursorLineNR guifg=#eedc0f
 
 "
+" Highlight the vertical splits in the same color the statusline is colored
+"
+hi VertSplit guibg=#015e87 guifg=#015e87
+
+"
 " Multiple cursor config
 "
 let g:multi_cursor_use_default_mapping=0
@@ -379,7 +382,7 @@ let g:airline_left_sep=""
 let g:airline_right_sep=""
 let g:airline_section_y="" " Hides file encoding
 let g:airline_section_z="" " Hides percentage, line number, column number
-let g:airline_theme='one'
+let g:airline_theme='cool'
 
 "
 " CTRLP config
