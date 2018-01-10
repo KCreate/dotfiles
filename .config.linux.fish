@@ -42,14 +42,8 @@ end
 # Shorthand aliases for commonly used directories
 alias doc "cd ~/Documents"
 alias gh "cd ~/Documents/GitHub"
-alias de "cd ~/Desktop"
 alias dotfiles "cd ~/dotfiles"
 alias .. "cd .."
-
-# Open the current directory in the finder
-function finder
-  open -a "Finder" .
-end
 
 # Print the local and external IP addresses of the hosting machine
 function network
@@ -69,7 +63,7 @@ alias cl "clear"
 alias irc "irssi"
 alias hexdump "hexdump -Cv"
 alias dotpng "dot -Tpng"
-alias vim "vimr -s"
+alias vim "nvim"
 alias g "git"
 
 # Always print directory contents after the cd command
@@ -80,7 +74,7 @@ end
 
 # Close a repository from github into a folder
 function clone
-  git clone https://github.com/$argv[1] '/Users/leonardschuetz/Documents/GitHub/'$argv[1]'/';
+  git clone https://github.com/$argv[1] '~/Documents/GitHub/'$argv[1]'/';
   gh;
   cd $argv[1];
 end
