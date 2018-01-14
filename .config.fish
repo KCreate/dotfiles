@@ -1,6 +1,7 @@
 # Set some variables
 set -gx PATH /usr/local/opt/llvm/bin $PATH
 set -gx CHARLYDIR /Users/leonardschuetz/Documents/GitHub/charly-lang/charly
+set -gx CHARLYVMDIR /Users/leonardschuetz/Documents/GitHub/KCreate/charly-vm
 set -gx NODE_PATH /usr/local/lib/node_modules
 
 # Load some scripts
