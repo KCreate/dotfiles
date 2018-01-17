@@ -246,7 +246,7 @@ endif
 set termguicolors
 set colorcolumn=120
 syntax enable
-let theme="spacegray"
+let theme="iceberg"
 
 if theme == "gruvbox-dark"
   set background=dark
@@ -324,6 +324,10 @@ elseif theme == "spacegray"
   set background=dark
   colorscheme spacegray
 
+elseif theme == "iceberg"
+  set background=dark
+  colorscheme iceberg
+
 endif
 
 if &background == "dark"
@@ -331,17 +335,6 @@ if &background == "dark"
 else
   highlight Cursor guibg=yellow
 end
-
-"
-" Cursorline config
-"
-set cursorline
-hi clear CursorLine
-hi clear CursorLineNR
-
-" This color is dependent on the current theme
-hi CursorLine guibg=#111314
-hi CursorLineNR guifg=#eedc0f
 
 "
 " Highlight the vertical splits in the same color the statusline is colored
@@ -382,7 +375,7 @@ let g:airline_left_sep=""
 let g:airline_right_sep=""
 let g:airline_section_y="" " Hides file encoding
 let g:airline_section_z="" " Hides percentage, line number, column number
-let g:airline_theme='cool'
+let g:airline_theme='cobalt2'
 
 "
 " CTRLP config
