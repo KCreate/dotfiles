@@ -1,3 +1,8 @@
+set -gx CHARLYVMDIR /home/leonardschuetz/Documents/GitHub/KCreate/charly-vm
+
+export ASAN_SYMBOLIZER_PATH=/usr/lib/llvm-5.0/bin/llvm-symbolizer
+export ASAN_OPTIONS=symbolize=1
+
 # Log each command to a logfile
 function postexec_test --on-event fish_postexec
   echo (date "+%Y-%m-%d.%H:%M:%S") (pwd) $argv >> ~/.logs/fish-history-(date "+%Y-%m-%d").log

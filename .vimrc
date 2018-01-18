@@ -246,7 +246,7 @@ endif
 set termguicolors
 set colorcolumn=120
 syntax enable
-let theme="iceberg"
+let theme="dracula"
 
 if theme == "gruvbox-dark"
   set background=dark

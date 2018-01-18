@@ -25,6 +25,10 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+bindsym $mod+Shift+h focus left
+bindsym $mod+Shift+j focus down
+bindsym $mod+Shift+k focus up
+bindsym $mod+Shift+l focus right
 
 # Move a window around
 bindsym $mod+Shift+Left move left
@@ -170,7 +174,7 @@ bindsym $mod+Control+Shift+g  gaps inner all plus 15
 exec compton --config ~/dotfiles/.compton.conf -b -o 0.25
 
 # Background image
-exec --no-startup-id feh --bg-fill ~/Documents/Wallpapers/spacex-falcon9-landing.jpg
+exec --no-startup-id feh --bg-fill ~/Documents/Wallpapers/mountain.jpg
 
 # We default to docked mode
 exec ~/dotfiles/screen-docked-setup.sh
