@@ -22,7 +22,7 @@ set laststatus=2
 set nocompatible
 set notimeout ttimeout ttimeoutlen=0
 set number
-set shell=fish
+set shell=bash
 set t_Co=256
 set modelines=0
 set vb
@@ -158,6 +158,7 @@ Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'ajh17/spacegray.vim'
 Plugin 'kabbamine/yowish.vim'
+Plugin 'nightsense/nemo'
 
 call vundle#end()
 filetype plugin indent on
@@ -246,7 +247,7 @@ endif
 set termguicolors
 set colorcolumn=120
 syntax enable
-let theme="dracula"
+let theme="nemo-light"
 
 if theme == "gruvbox-dark"
   set background=dark
@@ -328,6 +329,14 @@ elseif theme == "iceberg"
   set background=dark
   colorscheme iceberg
 
+elseif theme == "nemo-dark"
+  set background=dark
+  colorscheme nemo-dark
+
+elseif theme == "nemo-light"
+  set background=light
+  colorscheme nemo-light
+
 endif
 
 if &background == "dark"
@@ -335,11 +344,6 @@ if &background == "dark"
 else
   highlight Cursor guibg=yellow
 end
-
-"
-" Highlight the vertical splits in the same color the statusline is colored
-"
-hi VertSplit guibg=#015e87 guifg=#015e87
 
 "
 " Multiple cursor config
@@ -375,7 +379,7 @@ let g:airline_left_sep=""
 let g:airline_right_sep=""
 let g:airline_section_y="" " Hides file encoding
 let g:airline_section_z="" " Hides percentage, line number, column number
-let g:airline_theme='cobalt2'
+let g:airline_theme='tomorrow'
 
 "
 " CTRLP config
