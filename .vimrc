@@ -22,7 +22,7 @@ set laststatus=2
 set nocompatible
 set notimeout ttimeout ttimeoutlen=0
 set number
-set shell=bash
+set shell=fish
 set t_Co=256
 set modelines=0
 set vb
