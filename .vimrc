@@ -76,6 +76,18 @@ nnoremap <s-e> V
 nnoremap <c-e> V
 
 "
+" Move lines with Alt+J and Alt+K
+"
+nnoremap º :m .+1<CR>==
+nnoremap ∆ :m .-2<CR>==
+
+inoremap º <Esc>:m .+1<CR>==gi
+inoremap ∆ <Esc>:m .-2<CR>==gi
+
+vnoremap º :m '>+1<CR>gv=gv
+vnoremap ∆ :m '<-2<CR>gv=gv
+
+"
 " Split management
 "
 nnoremap s= <C-W>=
@@ -115,11 +127,11 @@ call vundle#rc()
 Plugin 'VundleVim/Vundle.vim'
 
 " Language support
+Plugin 'dag/vim-fish'
 Plugin 'godlygeek/tabular'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rhysd/vim-crystal'
-Plugin 'dag/vim-fish'
 
 " Looks and integration
 Plugin 'airblade/vim-gitgutter'
@@ -127,14 +139,14 @@ Plugin 'moll/vim-bbye'
 
 " Editing
 Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'editorconfig/editorconfig-vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/goyo.vim'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-surround'
-Plugin 'editorconfig/editorconfig-vim'
+Plugin 'rhysd/vim-clang-format'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'rhysd/vim-clang-format'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-surround'
 
 " Files & search
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -142,23 +154,24 @@ Plugin 'timakro/vim-searchant'
 
 " Themes
 Plugin 'MaxSt/FlatColor'
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'ajh17/spacegray.vim'
 Plugin 'cocopon/iceberg.vim'
 Plugin 'dracula/vim'
+Plugin 'endel/vim-github-colorscheme'
+Plugin 'https://github.com/ayu-theme/ayu-vim'
+Plugin 'kabbamine/yowish.vim'
 Plugin 'lifepillar/vim-solarized8'
 Plugin 'mkarmona/materialbox'
 Plugin 'morhetz/gruvbox'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'nightsense/nemo'
+Plugin 'rakr/vim-one'
 Plugin 'romainl/Apprentice'
 Plugin 'sjl/badwolf'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'zefei/cake16'
-Plugin 'endel/vim-github-colorscheme'
-Plugin 'rakr/vim-one'
-Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'ajh17/spacegray.vim'
-Plugin 'kabbamine/yowish.vim'
-Plugin 'nightsense/nemo'
 
 call vundle#end()
 filetype plugin indent on
@@ -247,7 +260,7 @@ endif
 set termguicolors
 set colorcolumn=120
 syntax enable
-let theme="nemo-light"
+let theme="ayu-dark"
 
 if theme == "gruvbox-dark"
   set background=dark
@@ -336,6 +349,21 @@ elseif theme == "nemo-dark"
 elseif theme == "nemo-light"
   set background=light
   colorscheme nemo-light
+
+elseif theme == "ayu-light"
+  set background=light
+  let ayucolor="light"
+  colorscheme ayu
+
+elseif theme == "ayu-mirage"
+  set background=dark
+  let ayucolor="mirage"
+  colorscheme ayu
+
+elseif theme == "ayu-dark"
+  set background=light
+  let ayucolor="dark"
+  colorscheme ayu
 
 endif
 
