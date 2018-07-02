@@ -1,3 +1,5 @@
+shopt -s expand_aliases
+
 # Path
 PATH=/usr/local/Cellar/ruby/2.3.1_2/bin/:$PATH
 PATH=/usr/local/bin:$PATH
