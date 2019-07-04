@@ -260,7 +260,7 @@ endif
 set termguicolors
 set colorcolumn=120
 syntax enable
-let theme="ayu-mirage"
+let theme="one-light"
 
 if theme == "gruvbox-dark"
   set background=dark
