@@ -52,4 +52,4 @@
 [core]
 	editor = '/usr/local/bin/vimr' -s --wait
 [gpg]
-	program = /usr/local/bin/gpg
+	program = /usr/local/MacGPG2/bin/gpg2

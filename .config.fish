@@ -1,5 +1,6 @@
 # Set some variables
 set -gx PATH /usr/local/opt/llvm/bin $PATH
+set -gx CPATH /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/ $CPATH
 set -gx CHARLYDIR /Users/leonardschuetz/Documents/GitHub/charly-lang/charly
 set -gx CHARLYVMDIR /Users/leonardschuetz/Documents/GitHub/KCreate/charly-vm
 set -gx NODE_PATH /usr/local/lib/node_modules
@@ -67,7 +68,7 @@ alias cl "clear"
 alias irc "irssi"
 alias hexdump "hexdump -Cv"
 alias dotpng "dot -Tpng"
-alias vim "vimr -s"
+alias vim "vimr --nvim"
 alias g "git"
 
 # Always print directory contents after the cd command

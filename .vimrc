@@ -147,10 +147,12 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
+Plugin 'junegunn/vim-easy-align'
 
 " Files & search
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'timakro/vim-searchant'
+Plugin 'dyng/ctrlsf.vim'
 
 " Themes
 Plugin 'MaxSt/FlatColor'
@@ -172,6 +174,7 @@ Plugin 'sjl/badwolf'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'zefei/cake16'
+Plugin 'arzg/vim-colors-xcode'
 
 call vundle#end()
 filetype plugin indent on
@@ -247,8 +250,6 @@ set complete+=kspell
 "
 let g:clang_format#detect_style_file=1
 let g:clang_format#enable_fallback_style=1
-nnoremap f :ClangFormat<CR>
-vnoremap f :ClangFormat<CR>
 
 "
 " Aesthetic settings
@@ -260,7 +261,7 @@ endif
 set termguicolors
 set colorcolumn=120
 syntax enable
-let theme="one-light"
+let theme="xcode-light"
 
 if theme == "gruvbox-dark"
   set background=dark
@@ -365,6 +366,19 @@ elseif theme == "ayu-dark"
   let ayucolor="dark"
   colorscheme ayu
 
+
+elseif theme == "xcode-light"
+  set background=light
+  let g:xcodelight_green_comments = 1
+  let g:xcodelight_match_paren_style = 1
+  colorscheme xcodelight
+
+elseif theme == "xcode-dark"
+  set background=dark
+  let g:xcodedark_green_comments = 1
+  let g:xcodedark_match_paren_style = 1
+  colorscheme xcodedark
+
 endif
 
 if &background == "dark"
@@ -372,6 +386,12 @@ if &background == "dark"
 else
   highlight Cursor guibg=yellow
 end
+
+"
+" EasyAlign config
+"
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 "
 " Multiple cursor config
@@ -412,17 +432,30 @@ let g:airline_theme='tomorrow'
 "
 " CTRLP config
 "
+" This is the filepicker
+"
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|.git|.shards)$'
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_use_caching = 0
+let g:ctrlp_use_caching = 1
 let g:ctrlp_match_window = 'bottom,order:btt,min:20,max:20,results:20'
 let g:ctrlp_switch_buffer = 'E'
+
+"
+" CTRLSF config
+"
+" This is the file searcher
+nmap _ <Plug>CtrlSFPrompt
+vmap _ <Plug>CtrlSFVwordExec
+let g:ctrlsf_confirm_save = 0 " Disable confirmation on saving edits
+let g:ctrlsf_auto_preview = 1 " Automatically change preview while moving from match to match
+let g:ctrlsf_default_view_mode = 'compact'
+let g:ctrlsf_search_mode = 'async'
 
 "
 " Filetypes
 "
 au BufNewFile,BufReadPost *.md set filetype=markdown
-au BufNewFile,BufReadPost *.ch set filetype=javascript
+au BufNewFile,BufReadPost *.ch set filetype=charly
 
 "
 " Remove whitespace on file write
