@@ -39,6 +39,7 @@
 [user]
 	name = Leonard Schuetz
 	email = leni.schuetz@me.com
+	signingkey = 5389F765544C1554BA8DC52CCA691B8ADC64635A
 [push]
 	default = simple
 [color]

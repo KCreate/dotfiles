@@ -128,7 +128,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Language support
 Plugin 'dag/vim-fish'
-Plugin 'godlygeek/tabular'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rhysd/vim-crystal'
@@ -217,6 +216,12 @@ nmap <Esc> <Plug>SearchantStop
 set updatetime=500
 
 "
+" Completions
+"
+set noinfercase           " ignore case of typed text, always use case of completed word
+setglobal complete-=t     " do not search for tags
+
+"
 " Git bindings
 "
 nnoremap <leader>ga :!git add %<CR>
@@ -241,15 +246,11 @@ map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 "
-" Completions
-"
-set complete+=kspell
-
-"
 " vim-clang-format
 "
 let g:clang_format#detect_style_file=1
 let g:clang_format#enable_fallback_style=1
+vnoremap f :ClangFormat<CR>
 
 "
 " Aesthetic settings
@@ -261,7 +262,7 @@ endif
 set termguicolors
 set colorcolumn=120
 syntax enable
-let theme="xcode-light"
+let theme="xcode-dark"
 
 if theme == "gruvbox-dark"
   set background=dark
