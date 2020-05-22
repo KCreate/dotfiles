@@ -70,6 +70,8 @@ alias hexdump "hexdump -Cv"
 alias dotpng "dot -Tpng"
 alias vim "vimr --nvim"
 alias g "git"
+alias ag "ag --hidden"
+alias rg "rg --hidden"
 
 # Always print directory contents after the cd command
 function cd

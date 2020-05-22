@@ -22,7 +22,7 @@ set laststatus=2
 set nocompatible
 set notimeout ttimeout ttimeoutlen=0
 set number
-set shell=fish
+set shell=/bin/bash
 set t_Co=256
 set modelines=0
 set vb
@@ -135,6 +135,7 @@ Plugin 'rhysd/vim-crystal'
 " Looks and integration
 Plugin 'airblade/vim-gitgutter'
 Plugin 'moll/vim-bbye'
+Plugin 'vimlab/split-term.vim'
 
 " Editing
 Plugin 'dhruvasagar/vim-table-mode'
@@ -149,7 +150,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'junegunn/vim-easy-align'
 
 " Files & search
-Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'Yggdroot/LeaderF'
 Plugin 'timakro/vim-searchant'
 Plugin 'dyng/ctrlsf.vim'
 
@@ -220,14 +221,6 @@ set updatetime=500
 "
 set noinfercase           " ignore case of typed text, always use case of completed word
 setglobal complete-=t     " do not search for tags
-
-"
-" Git bindings
-"
-nnoremap <leader>ga :!git add %<CR>
-nnoremap <leader>gc :!git commit <CR>
-nnoremap <leader>gp :!git p <CR>
-nnoremap <leader>gs :!git s <CR>
 
 "
 " Substitutions
@@ -427,36 +420,64 @@ let g:airline#extensions#hunks#enabled=0
 let g:airline_left_sep=""
 let g:airline_right_sep=""
 let g:airline_section_y="" " Hides file encoding
-let g:airline_section_z="" " Hides percentage, line number, column number
 let g:airline_theme='tomorrow'
 
 "
-" CTRLP config
+" split-term config
 "
-" This is the filepicker
+let g:split_term_default_shell = "fish"
+nnoremap <leader>sd :VTerm<CR>
+nnoremap <leader>sw :Term<CR>
+set splitright
+
 "
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|.git|.shards)$'
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_use_caching = 1
-let g:ctrlp_match_window = 'bottom,order:btt,min:20,max:20,results:20'
-let g:ctrlp_switch_buffer = 'E'
+" LeaderF config
+"
+let g:Lf_HideHelp = 1
+let g:Lf_ShowHidden = 1
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_CommandMap = {'<C-K>': ['<Up>', '<C-K>'], '<C-J>': ['<Down>', '<C-J>']}
+let g:Lf_RgConfig = [
+    \ "--max-columns=150",
+    \ "--glob=!git/*",
+    \ "--hidden"
+\ ]
+nmap <C-p> :Leaderf file<CR>
+nmap <C-b> :Leaderf rg<CR>
 
 "
 " CTRLSF config
 "
 " This is the file searcher
+nmap f <Plug>CtrlSFPrompt<CR>
 nmap _ <Plug>CtrlSFPrompt
 vmap _ <Plug>CtrlSFVwordExec
 let g:ctrlsf_confirm_save = 0 " Disable confirmation on saving edits
 let g:ctrlsf_auto_preview = 1 " Automatically change preview while moving from match to match
-let g:ctrlsf_default_view_mode = 'compact'
 let g:ctrlsf_search_mode = 'async'
+let g:ctrlsf_auto_focus = {
+    \ "at" : "start",
+    \ "duration_less_than": 1000
+    \ }
+let g:ctrlsf_auto_close = {
+    \ "normal" : 1,
+    \ "compact": 0
+    \}
+let g:ctrlsf_extra_backend_args = {
+    \ 'ag': '--hidden'
+    \ }
 
 "
 " Filetypes
 "
 au BufNewFile,BufReadPost *.md set filetype=markdown
 au BufNewFile,BufReadPost *.ch set filetype=charly
+
+augroup charly_group
+  autocmd!
+  autocmd Syntax charly source $HOME/.vim/syntax/charly.vim
+  autocmd Syntax charly source $HOME/.vim/indent/charly.vim
+augroup END
 
 "
 " Remove whitespace on file write
