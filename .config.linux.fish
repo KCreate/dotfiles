@@ -1,12 +1,18 @@
-set -gx CHARLYVMDIR /home/leonardschuetz/Documents/GitHub/KCreate/charly-vm
+set -gx CHARLYVMDIR $HOME/Documents/GitHub/KCreate/charly-vm
 
 export ASAN_SYMBOLIZER_PATH=/usr/lib/llvm-5.0/bin/llvm-symbolizer
 export ASAN_OPTIONS=symbolize=1
+export EDITOR=nvim
+
+export rofi_PLUGIN_INSTALL_DIR=$HOME/.rofi-plugin-dir
 
 # Log each command to a logfile
 function postexec_test --on-event fish_postexec
   echo (date "+%Y-%m-%d.%H:%M:%S") (pwd) $argv >> ~/.logs/fish-history-(date "+%Y-%m-%d").log
 end
+
+# Disable welcome message
+set fish_greeting
 
 # Custom prompt
 function fish_prompt
@@ -68,7 +74,7 @@ end
 
 # Close a repository from github into a folder
 function clone
-  git clone https://github.com/$argv[1] '~/Documents/GitHub/'$argv[1]'/';
+  git clone https://github.com/$argv[1] $HOME/Documents/GitHub/$argv[1]/;
   gh;
   cd $argv[1];
 end

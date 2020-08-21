@@ -255,7 +255,7 @@ endif
 set termguicolors
 set colorcolumn=120
 syntax enable
-let theme="xcode-dark"
+let theme="gruvbox-dark"
 
 if theme == "gruvbox-dark"
   set background=dark
@@ -364,13 +364,11 @@ elseif theme == "ayu-dark"
 elseif theme == "xcode-light"
   set background=light
   let g:xcodelight_green_comments = 1
-  let g:xcodelight_match_paren_style = 1
   colorscheme xcodelight
 
 elseif theme == "xcode-dark"
   set background=dark
   let g:xcodedark_green_comments = 1
-  let g:xcodedark_match_paren_style = 1
   colorscheme xcodedark
 
 endif
@@ -434,6 +432,7 @@ set splitright
 " LeaderF config
 "
 let g:Lf_HideHelp = 1
+let g:Lf_ShowDevIcons = 0
 let g:Lf_ShowHidden = 1
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_CommandMap = {'<C-K>': ['<Up>', '<C-K>'], '<C-J>': ['<Down>', '<C-J>']}
