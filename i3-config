@@ -17,8 +17,11 @@ bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# Network Manager
+exec_always --no-startup-id nm-applet --sm-disable
+
 # Rofi
-bindsym $mod+space exec rofi  -combi-modi "drun#run#window" \
+bindsym $mod+space exec rofi  -combi-modi "drun#run" \
                               -mode combi \
                               -show combi \
                               -config ~/dotfiles/rofi-config
@@ -30,13 +33,13 @@ bindsym $mod+c exec --no-startup-id rofi  -show calc \
                           -no-sort \
                           -no-history \
                           -lines 1 \
-                          -width 20 \
+                          -width 25 \
                           -columns 1 \
-                          -theme solarized \
+                          -theme Paper \
                           -config ~/dotfiles/rofi-config
 
 # Launch screenshot program
-bindsym $mod+Control+s exec gnome-screenshot -i
+bindsym $mod+Ctrl+s exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
 # Move focus to another window
 bindsym $mod+Left focus left
@@ -92,6 +95,9 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+bindsym $mod+Control+l move workspace to output right
+bindsym $mod+Control+j move workspace to output left
+
 # Audio controls
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
@@ -114,6 +120,8 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+set $accentColor #ffba08
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -122,17 +130,15 @@ bar {
   tray_output primary
 
   colors {
-    background #eaeaea
-    statusline #000000
+    background #252525
+    statusline #ffffff
     separator #909090
 
-    # Colors copied from http://tunnelshade.in/blog/2014/05/making-i3-beautiful/
-    #
-    # klass             border  background  text
-    focused_workspace   #007fff #007fff     #ffffff
-    active_workspace    #333333 #252525     #ffffff
-    inactive_workspace  #333333 #222222     #888888
-    urgent_workspace    #aa0000 #990000     #ffffff
+    # klass             border        background      text      indicator
+    focused_workspace   $accentColor  $accentColor    #000000   $accentColor
+    active_workspace    #222222       #222222         #ffffff   #252525
+    inactive_workspace  #202020       #202020         #888888   #222222
+    urgent_workspace    #990000       #990000         #ffffff   #990000
   }
 }
 
@@ -140,45 +146,39 @@ bar {
 for_window [class="^.*"] border pixel 2
 
 # Window border styling
-set $bordercolor #005fff
-# klass             border        background    text
-client.focused      $bordercolor  $bordercolor  #ffffff
+set $bordercolor $accentColor
+
+# klass                   border        background      text    indicator
+client.focused            $accentColor  $accentColor    #000000 $accentColor
+client.focused_inactive   #252525       #252525         #ffffff #252525
+client.unfocused          #222222       #222222         #888888 #222222
+client.urgent             #990000       #990000         #ffffff #990000
 
 # Key repeat rate
-exec --no-startup-id xset r rate 200 30
+exec --no-startup-id xset r rate 200 40
 
 # Gaps config
-gaps inner 25
-gaps outer 10
-bindsym $mod+g                gaps outer all minus 15
-bindsym $mod+Shift+g          gaps outer all plus 15
-bindsym $mod+Control+g        gaps inner all minus 15
-bindsym $mod+Control+Shift+g  gaps inner all plus 15
+gaps inner 0
+gaps outer 0
+bindsym $mod+g                gaps inner all plus 10
+bindsym $mod+Shift+g          gaps inner all minus 10
 
 # Compton config
 # -o = The opacity of shadows, defauilts to 0.75
 exec compton --config ~/dotfiles/.compton.conf -b -o 0.25
 
 # Background image
-exec --no-startup-id feh --bg-fill ~/Documents/Wallpapers/earth-space-hd.jpg
+exec --no-startup-id feh --bg-fill ~/Documents/Wallpapers/oerliker-park.jpg
 
 # Exit mode
-set $exit_mode Exit mode (l)ock (e)logout (r)eboot (s)hutdown (i)3-reload (q)uit sus(p)end
-mode "$exit_mode" {
+set $control_mode s[suspend] r[reboot] i[reload i3] e[logout]
+mode "$control_mode" {
   bindsym Escape mode "default"
-  bindsym Return mode "default"
+  bindsym $mod+x mode "default"
 
-  # Window control
-  bindsym q kill; mode "default"
-
-  # System control
-  bindsym l exec "i3lock -f -t -i ~/Documents/Wallpapers/earth-space-hd.jpg"
-  bindsym e exec i3-msg exit
+  bindsym s exec systemctl suspend; mode "default"
   bindsym r exec systemctl reboot
-  bindsym s exec systemctl poweroff
-  bindsym p exec systemctl suspend
-
-  # Misc
+  bindsym e exec i3-msg exit
   bindsym i restart
 }
-bindsym $mod+x mode "$exit_mode"
+bindsym $mod+x mode "$control_mode"

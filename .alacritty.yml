@@ -91,6 +91,9 @@ scrolling:
 
 # Font configuration
 font:
+  # Point size
+  size: 12
+
   # Normal (roman) font face
   normal:
     # Font family
@@ -99,7 +102,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: Hack
+    family: monospace
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -137,9 +140,6 @@ font:
     # The `style` can be specified to pick a specific face.
     #style: Bold Italic
 
-  # Point size
-  size: 10.0
-
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   #offset:
@@ -166,7 +166,7 @@ draw_bold_text_with_bright_colors: false
 colors:
   # Default colors
   primary:
-    background: '0x101421'
+    background: '0x02040a'
     foreground: '0xfffbf6'
 
   # Normal colors
@@ -341,7 +341,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.8
+background_opacity: 1.0
 
 #selection:
   # This string contains all characters that are used as separators for "semantic words" in Alacritty.
@@ -653,7 +653,14 @@ mouse:
 # in the order they were defined in.
 
 key_bindings:
-  - { key: N,         mods: Control,        action: SpawnNewInstance }
+  - { key: N, mods: Super, action: SpawnNewInstance }
+  - { key: K, mods: Super, action: ClearLogNotice }
+  - { key: K, mods: Super, chars: "\x0c" }
+  - { key: K, mods: Super, action: ClearHistory }
+  - { key: Period, mods: Control, action: IncreaseFontSize }
+  - { key: Period, mods: Control, action: IncreaseFontSize }
+  - { key: Subtract, mods: Control, action: DecreaseFontSize }
+  - { key: Subtract, mods: Control, action: DecreaseFontSize }
 
 #key_bindings:
   #- { key: Paste,                                action: Paste          }
@@ -749,12 +756,12 @@ key_bindings:
   #- { key: F,      mods: Command,            action: SearchForward    }
   #- { key: B,      mods: Command,            action: SearchBackward   }
 
-#debug:
+debug:
   # Display the time it takes to redraw each frame.
   #render_timer: false
 
   # Keep the log file after quitting Alacritty.
-  #persistent_logging: false
+  persistent_logging: false
 
   # Log level
   #

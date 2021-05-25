@@ -3,13 +3,9 @@ set -gx CHARLYVMDIR $HOME/Documents/GitHub/KCreate/charly-vm
 export ASAN_SYMBOLIZER_PATH=/usr/lib/llvm-5.0/bin/llvm-symbolizer
 export ASAN_OPTIONS=symbolize=1
 export EDITOR=nvim
+set PATH $HOME/.local/bin $PATH
 
 export rofi_PLUGIN_INSTALL_DIR=$HOME/.rofi-plugin-dir
-
-# Log each command to a logfile
-function postexec_test --on-event fish_postexec
-  echo (date "+%Y-%m-%d.%H:%M:%S") (pwd) $argv >> ~/.logs/fish-history-(date "+%Y-%m-%d").log
-end
 
 # Disable welcome message
 set fish_greeting
@@ -60,11 +56,8 @@ end
 # Shorthand aliases for some often used commands
 alias l "ls -a1"
 alias cl "clear"
-alias irc "irssi"
 alias hexdump "hexdump -Cv"
-alias dotpng "dot -Tpng"
-alias vim "nvim"
-alias g "git"
+alias lg "lazygit"
 
 # Always print directory contents after the cd command
 function cd

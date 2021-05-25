@@ -8,11 +8,6 @@ set -gx NODE_PATH /usr/local/lib/node_modules
 # Load some scripts
 eval (hub alias -s)
 
-# Log each command to a logfile
-function postexec_test --on-event fish_postexec
-  echo (date "+%Y-%m-%d.%H:%M:%S") (pwd) $argv >> ~/.logs/fish-history-(date "+%Y-%m-%d").log
-end
-
 # Custom prompt
 function fish_prompt
   set_color yellow;

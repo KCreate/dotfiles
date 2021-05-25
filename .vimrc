@@ -4,6 +4,7 @@
 "
 set backspace=2
 set clipboard=unnamed
+set clipboard+=unnamedplus
 set encoding=utf-8
 set guioptions+=m
 set guioptions-=L
@@ -91,12 +92,7 @@ vnoremap ∆ :m '<-2<CR>gv=gv
 " Split management
 "
 nnoremap s= <C-W>=
-
-" Quick-access to todos and scratchpad file
-nnoremap ss :split todos.md<CR>       :exe "resize " . (winheight(0) * 2/5)<CR>
-nnoremap st :split<CR>                :exe "term"<CR>
 tnoremap <Esc> <C-\><C-n>
-
 nnoremap sd :vsplit<CR>
 nnoremap sw :split<CR>
 nnoremap sq <C-W>q
@@ -136,6 +132,7 @@ Plugin 'rhysd/vim-crystal'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'moll/vim-bbye'
 Plugin 'vimlab/split-term.vim'
+Plugin 'voldikss/vim-floaterm'
 
 " Editing
 Plugin 'dhruvasagar/vim-table-mode'
@@ -158,6 +155,7 @@ Plugin 'dyng/ctrlsf.vim'
 Plugin 'MaxSt/FlatColor'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'ajh17/spacegray.vim'
+Plugin 'arzg/vim-colors-xcode'
 Plugin 'cocopon/iceberg.vim'
 Plugin 'dracula/vim'
 Plugin 'endel/vim-github-colorscheme'
@@ -174,7 +172,6 @@ Plugin 'sjl/badwolf'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'zefei/cake16'
-Plugin 'arzg/vim-colors-xcode'
 
 call vundle#end()
 filetype plugin indent on
@@ -185,6 +182,7 @@ function UpdateVim()
   set shell=fish
 endfunction
 
+let g:loaded_matchparen=1 " vims native noshowmatch doesn't seem to work...
 set autoindent
 set expandtab
 set mouse=a
@@ -233,10 +231,21 @@ set gdefault
 let g:table_mode_corner='|'
 
 "
+" Nerd commenter
+"
+let g:NERDCommentEmptyLines=1
+let g:NERDSpaceDelims=1
+let g:NERDDefaultAlign='both'
+
+"
 " Toggle nerdtree
 "
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
 
 "
 " vim-clang-format
@@ -247,16 +256,25 @@ vnoremap f :ClangFormat<CR>
 
 "
 " Aesthetic settings
-
+"
 if has('gui_macvim')
   set guifont=Hack:h11
 endif
 
+"
+" GruvBox config
+"
+let g:gruvbox_contrast_light="medium"
+let g:gruvbox_contrast_dark="medium"
+let g:gruvbox_italic=1
+let g:gruvbox_bold=1
+let g:gruvbox_italicize_comments=1
+
 set termguicolors
 set colorcolumn=120
 syntax enable
-let theme="gruvbox-dark"
 
+let theme="gruvbox-dark"
 if theme == "gruvbox-dark"
   set background=dark
   colorscheme gruvbox
@@ -269,13 +287,13 @@ elseif theme == "badwolf"
   set background=dark
   colorscheme badwolf
 
-elseif theme == "solarized8-dark"
+elseif theme == "solarized-dark"
   set background=dark
-  colorscheme solarized8_dark_flat
+  colorscheme solarized8_flat
 
-elseif theme == "solarized8-light"
+elseif theme == "solarized-light"
   set background=light
-  colorscheme solarized8_light_flat
+  colorscheme solarized8_flat
 
 elseif theme == "dracula"
   set background=dark
@@ -360,7 +378,6 @@ elseif theme == "ayu-dark"
   let ayucolor="dark"
   colorscheme ayu
 
-
 elseif theme == "xcode-light"
   set background=light
   let g:xcodelight_green_comments = 1
@@ -393,15 +410,6 @@ let g:multi_cursor_next_key='<C-d>'
 let g:multi_cursor_prev_key='<C-s>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
-
-"
-" GruvBox config
-"
-
-let g:gruvbox_contrast_light="hard"
-let g:gruvbox_contrast_dark="hard"
-let g:gruvbox_italicize_strings=1
-let g:gruvbox_invert_signs=1
 
 "
 " auto-pairs config
@@ -477,6 +485,18 @@ augroup charly_group
   autocmd Syntax charly source $HOME/.vim/syntax/charly.vim
   autocmd Syntax charly source $HOME/.vim/indent/charly.vim
 augroup END
+
+"
+" Vim markdown highlighting stuff
+"
+let g:markdown_fenced_languages = ["cpp", "c", "javascript", "charly=javascript"]
+let g:markdown_minlines = 50
+let g:markdown_syntax_conceal = 0
+
+"
+" Make the syntax highlighter process every line from the beginning
+"
+autocmd BufEnter * :syntax sync fromstart
 
 "
 " Remove whitespace on file write
