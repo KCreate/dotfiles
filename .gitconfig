@@ -18,7 +18,7 @@
   log = log --oneline --decorate --graph --all
   branch = branch -vv
 
-  # Revert the last commit
+  # Revert the last commit
   fuck = reset HEAD~1
 
   # Show the amount of commits each contributor made
@@ -37,7 +37,7 @@
 	process = git-lfs filter-process
 	required = true
 [user]
-	name = Leonard Schuetz
+	name = Leonard Schütz
 	email = leni.schuetz@me.com
 	signingkey = 5389F765544C1554BA8DC52CCA691B8ADC64635A
 [push]
@@ -48,9 +48,9 @@
 	gpgsign = true
 [github]
 	user = KCreate
-[ghi]
-	token = !security find-internet-password -a KCreate -s github.com -l 'ghi token' -w
 [core]
 	editor = '/usr/local/bin/vimr' -s --wait
 [gpg]
 	program = /usr/local/MacGPG2/bin/gpg2
+[init]
+	defaultBranch = main

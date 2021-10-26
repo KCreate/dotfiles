@@ -1,9 +1,12 @@
 # Set some variables
 set -gx PATH /usr/local/opt/llvm/bin $PATH
 set -gx CPATH /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/ $CPATH
-set -gx CHARLYDIR /Users/leonardschuetz/Documents/GitHub/charly-lang/charly
-set -gx CHARLYVMDIR /Users/leonardschuetz/Documents/GitHub/KCreate/charly-vm
+set -gx CHARLYDIR /Users/leonardschuetz/Documents/Code/charly-lang/charly
+set -gx CHARLYVMDIR /Users/leonardschuetz/Documents/Code/KCreate/charly-vm
 set -gx NODE_PATH /usr/local/lib/node_modules
+
+# Disable the fish welcome greeting
+set fish_greeting
 
 # Load some scripts
 eval (hub alias -s)
@@ -35,20 +38,15 @@ end
 
 # Shorthand aliases for commonly used directories
 alias doc "cd ~/Documents"
-alias gh "cd ~/Documents/GitHub"
+alias dld "cd ~/Downloads"
+alias code "cd ~/Documents/Code"
 alias de "cd ~/Desktop"
-alias dotfiles "cd ~/dotfiles"
+alias dotfiles "cd ~/Documents/Code/KCreate/dotfiles"
 alias .. "cd .."
 
 # Open the current directory in the finder
 function finder
   open -a "Finder" .
-end
-
-# Print the local and external IP addresses of the hosting machine
-function network
-  echo "Loc: "(ipconfig getifaddr en0);
-  echo "Ext: "(dig +short myip.opendns.com @resolver1.opendns.com);
 end
 
 # Recursively search all files in the current directory for a match with
@@ -58,15 +56,13 @@ function fsearch
 end
 
 # Shorthand aliases for some often used commands
-alias l "ls -a1"
-alias cl "clear"
-alias irc "irssi"
+alias l "ls -A1"
 alias hexdump "hexdump -Cv"
-alias dotpng "dot -Tpng"
-alias vim "vimr --nvim"
+alias vim "nvim"
 alias g "git"
 alias ag "ag --hidden"
 alias rg "rg --hidden"
+alias lg "lazygit"
 
 # Always print directory contents after the cd command
 function cd
@@ -74,9 +70,14 @@ function cd
   l;
 end
 
-# Close a repository from github into a folder
+# Clone a repository from github into a folder
 function clone
-  git clone https://github.com/$argv[1] '/Users/leonardschuetz/Documents/GitHub/'$argv[1]'/';
-  gh;
+  git clone git@github.com:$argv[1] '/Users/leonardschuetz/Documents/Code/'$argv[1];
+  code;
   cd $argv[1];
 end
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval /usr/local/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<

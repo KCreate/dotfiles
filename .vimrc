@@ -127,6 +127,7 @@ Plugin 'dag/vim-fish'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rhysd/vim-crystal'
+Plugin 'mustache/vim-mustache-handlebars'
 
 " Looks and integration
 Plugin 'airblade/vim-gitgutter'
@@ -188,9 +189,9 @@ set expandtab
 set mouse=a
 set noshowmode " Hides the default vim status bar
 set shiftround
-set shiftwidth=2
 set showbreak=...
 set smartindent
+set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set ttyfast
