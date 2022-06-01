@@ -4,30 +4,9 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 #
-# 'mas' can download an app from the mac app store
-#
-brew install mas
-
-#
 # Download Xcode and install developer tools
 #
-mas install 497799835 # Xcode
-sudo xcodebuild -license accept
 xcode-select --install
-
-#
-# Misc. app store apps
-#
-mas install 1333542190 # 1Password
-mas install 411643860  # DaisyDisk
-mas install 409183694  # Keynote
-mas install 409203825  # Numbers
-mas install 409201541  # Pages
-mas install 462058435  # Excel
-mas install 462062816  # PowerPoint
-mas install 462054704  # Word
-mas install 803453959  # Slack
-mas install 1147396723 # WhatsApp
 
 #
 # Install some stuff from brew
@@ -44,6 +23,8 @@ brew install cmake
 brew install neovim
 brew install vimr
 brew install folderify
+brew install miniconda
+conda config --set changeps1 False
 
 #
 # Speed up Dock animation
@@ -55,7 +36,7 @@ defaults write com.apple.Dock autohide-time-modifier -float 0.5
 # Build up document hierarchy
 #
 cd ~
-mkdir .logs
+mkdir -p .logs
 
 cd Documents
 mkdir -p Code
@@ -66,7 +47,8 @@ mkdir -p Wallpaper
 #
 # Download dotfiles repository from github and setup symlinks
 #
-git clone https://github.com/KCreate/dotfiles.git ~/Documents/Code/KCreate/dotfiles
+mkdir -p ~/.config/fish
+mkdir -p ~/.config/nvim
 ln -sf ~/Documents/Code/KCreate/dotfiles/.vimrc ~/.vimrc
 ln -sf ~/Documents/Code/KCreate/dotfiles/.vimrc ~/.config/nvim/init.vim
 ln -sf ~/Documents/Code/KCreate/dotfiles/.bashrc ~/.bashrc
@@ -82,18 +64,6 @@ vim +PluginInstall +qall
 # Setup folder icons
 #
 folderify ~/Documents/Code/KCreate/dotfiles/screenshot-icon.png ~/Documents/Screenshots
-
-#
-# Enable the Three Finger Drag Gesture
-#
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerSwipeGesture -int 1
-
-#
-# Disable annoying autocorrect-ish stuff
-#
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
-defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
-defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 #
 # Fast key repeat rate
@@ -155,12 +125,26 @@ echo "Installation complete!"
 echo ""
 echo "You still need to download the following programs from the internet:"
 echo "- Alfred"
-echo "- Docker"
 echo "- GPG Keychain"
 echo "- Spotify"
 echo "- Teams"
 echo "- iTerm2"
 echo "- IntelliJ"
 echo "- CLion"
+echo "- Battery Indicator";
+echo "- Rectangle";
+echo "- 1Password"
+echo "- DaisyDisk"
+echo "- Keynote"
+echo "- Numbers"
+echo "- Pages"
+echo "- Excel"
+echo "- PowerPoint"
+echo "- Word"
+echo "- Slack"
+echo "- WhatsApp"
+echo ""
+echo "Run the following command to accept xcode license stuff:"
+echo "	sudo xcodebuild -license accept";
 
 killall Dock

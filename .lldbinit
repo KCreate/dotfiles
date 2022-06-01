@@ -1,2 +1,4 @@
 type format add -f hex uint8_t
 type format add -f pointer uint8_t*
+settings set stop-line-count-before 15
+settings set stop-line-count-after 10

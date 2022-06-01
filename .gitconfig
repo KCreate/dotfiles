@@ -49,7 +49,7 @@
 [github]
 	user = KCreate
 [core]
-	editor = '/usr/local/bin/vimr' -s --wait
+	editor = nvim
 [gpg]
 	program = /usr/local/MacGPG2/bin/gpg2
 [init]

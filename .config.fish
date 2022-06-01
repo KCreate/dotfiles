@@ -1,9 +1,12 @@
 # Set some variables
-set -gx PATH /usr/local/opt/llvm/bin $PATH
 set -gx CPATH /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/ $CPATH
 set -gx CHARLYDIR /Users/leonardschuetz/Documents/Code/charly-lang/charly
 set -gx CHARLYVMDIR /Users/leonardschuetz/Documents/Code/KCreate/charly-vm
 set -gx NODE_PATH /usr/local/lib/node_modules
+
+set -gx PATH /usr/local/opt/llvm/bin $PATH
+set -gx PATH /opt/homebrew/bin $PATH
+set -gx PATH $HOME/.cargo/bin $PATH
 
 # Disable the fish welcome greeting
 set fish_greeting
@@ -13,8 +16,7 @@ eval (hub alias -s)
 
 # Custom prompt
 function fish_prompt
-  set_color yellow;
-  echo '$ '
+  printf '%s%s%s # ' (set_color $fish_color_cwd) (prompt_pwd) (set_color yellow)
 end
 
 function fish_right_prompt
@@ -79,5 +81,6 @@ end
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-eval /usr/local/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | source
+eval /opt/homebrew/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
+

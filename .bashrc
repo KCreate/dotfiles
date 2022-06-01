@@ -129,3 +129,4 @@ webstart() {
     open ${site}
   done
 }
+. "$HOME/.cargo/env"
