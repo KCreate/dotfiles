@@ -42,6 +42,7 @@ end
 alias doc "cd ~/Documents"
 alias dld "cd ~/Downloads"
 alias code "cd ~/Documents/Code"
+alias stud "cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Studium"
 alias de "cd ~/Desktop"
 alias dotfiles "cd ~/Documents/Code/KCreate/dotfiles"
 alias .. "cd .."

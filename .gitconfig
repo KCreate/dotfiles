@@ -3,6 +3,7 @@
   # committing stuff
   c = commit -m
   ca = commit -a
+  cam = commit --amend
   cp = !git commit -p
   cap = !git commit -a && git push
   co = checkout
