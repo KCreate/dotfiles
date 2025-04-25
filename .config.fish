@@ -45,6 +45,7 @@ alias code "cd ~/Documents/Code"
 alias stud "cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Studium"
 alias de "cd ~/Desktop"
 alias dotfiles "cd ~/Documents/Code/KCreate/dotfiles"
+alias cdcharly "cd ~/Documents/Code/KCreate/charly-vm"
 alias .. "cd .."
 
 # Open the current directory in the finder

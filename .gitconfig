@@ -45,13 +45,9 @@
 	default = simple
 [color]
 	ui = auto
-[commit]
-	gpgsign = true
 [github]
 	user = KCreate
 [core]
 	editor = nvim
-[gpg]
-	program = /usr/local/MacGPG2/bin/gpg2
 [init]
 	defaultBranch = main
