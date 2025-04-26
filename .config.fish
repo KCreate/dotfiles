@@ -17,23 +17,10 @@ set -g fish_color_cwd green
 
 # Custom prompt
 function fish_prompt
-    set branch (command git rev-parse --abbrev-ref HEAD 2>/dev/null)
-    set is_dirty (command git status --porcelain 2>/dev/null)
-
-    set_color $fish_color_cwd
-    printf '%s' (prompt_pwd)
-
-    if test "$branch" != ""
-        set_color blue
-        printf ' [%s' $branch
-        if test "$is_dirty" != ""
-            printf '*'
-        end
-        printf ']'
-    end
-
+    # set_color $fish_color_cwd
+    # printf '%s' (prompt_pwd)
     set_color yellow
-    printf ' $ '
+    printf '$ '
     set_color normal
 end
 
@@ -55,8 +42,21 @@ function fish_right_prompt
     set_color red
     printf '%s jobs' (count (jobs))
     set_color normal
-    echo ")"
-    echo " "
+    echo ") "
+  end
+
+  # Show currently active git branch
+  set branch (command git rev-parse --abbrev-ref HEAD 2>/dev/null)
+  set is_dirty (command git status --porcelain 2>/dev/null)
+  if test "$branch" != ""
+      printf "("
+      set_color blue
+      printf '%s' $branch
+      if test "$is_dirty" != ""
+          printf '*'
+      end
+      set_color normal
+      printf ') '
   end
 
   # Show how long the last command took to execute
@@ -87,8 +87,14 @@ alias l "ls -A1"
 alias hexdump "hexdump -Cv"
 alias vim "nvim"
 alias g "git"
-alias rg "rg --hidden"
+alias rg "rg --hidden -i"
 alias clip "pbcopy"
+alias vimfishconfig "vim ~/Documents/code/KCreate/dotfiles/.config.fish"
+
+function fishreload
+  source ~/Documents/code/KCreate/dotfiles/.config.fish
+  echo "Reloaded fish config from disk!"
+end
 
 # Open the current directory in the finder
 function finder

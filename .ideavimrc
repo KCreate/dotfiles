@@ -18,6 +18,9 @@ nnoremap <s-k> 10k
 vnoremap <c-k> 10k
 vnoremap <s-k> 10k
 
+" Yank/Delete to system clipboard
+set clipboard=unnamedplus,ideaput
+
 " Whole-line visual mode
 nnoremap <s-e> V
 nnoremap <c-e> V
@@ -83,3 +86,22 @@ vnoremap > >gv
 
 " Insert two new lines here
 nnoremap <S-L> O<ESC>o
+
+"
+" Split management
+"
+tnoremap <Esc> <C-\><C-n>
+nnoremap sd :vsplit<CR>
+nnoremap sw :split<CR>
+nnoremap sh <C-W><left>
+nnoremap sj <C-W><down>
+nnoremap sk <C-W><up>
+nnoremap sl <C-W><right>
+nnoremap sq :q<CR>
+
+"
+" IdeaVim Plugins
+"
+set argtextobj
+set multiple-cursors
+set surround
