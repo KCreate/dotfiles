@@ -1,3 +1,5 @@
+set nocompatible
+
 "
 " Operating System Settings
 " Integration with system services
@@ -6,13 +8,6 @@ set backspace=2
 set clipboard=unnamed
 set clipboard+=unnamedplus
 set encoding=utf-8
-set guioptions+=m
-set guioptions-=L
-set guioptions-=R
-set guioptions-=b
-set guioptions-=h
-set guioptions-=l
-set guioptions-=r
 set hidden
 set hlsearch
 set incsearch
@@ -20,7 +15,6 @@ set wrapscan
 set ignorecase
 set smartcase
 set laststatus=2
-set nocompatible
 set notimeout ttimeout ttimeoutlen=0
 set number
 set shell=/bin/bash
@@ -155,7 +149,6 @@ Plugin 'dyng/ctrlsf.vim'
 " Themes
 Plugin 'MaxSt/FlatColor'
 Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'ajh17/spacegray.vim'
 Plugin 'arzg/vim-colors-xcode'
 Plugin 'cocopon/iceberg.vim'
 Plugin 'dracula/vim'
@@ -166,7 +159,6 @@ Plugin 'lifepillar/vim-solarized8'
 Plugin 'mkarmona/materialbox'
 Plugin 'morhetz/gruvbox'
 Plugin 'nanotech/jellybeans.vim'
-Plugin 'nightsense/nemo'
 Plugin 'rakr/vim-one'
 Plugin 'romainl/Apprentice'
 Plugin 'sjl/badwolf'
@@ -270,6 +262,7 @@ let g:gruvbox_contrast_dark="medium"
 let g:gruvbox_italic=1
 let g:gruvbox_bold=1
 let g:gruvbox_italicize_comments=1
+let g:gruvbox_transparent_bg=1
 
 set termguicolors
 set colorcolumn=120
@@ -348,10 +341,6 @@ elseif theme == "yowish"
   set background=dark
   colorscheme yowish
 
-elseif theme == "spacegray"
-  set background=dark
-  colorscheme spacegray
-
 elseif theme == "iceberg"
   set background=dark
   colorscheme iceberg
@@ -359,10 +348,6 @@ elseif theme == "iceberg"
 elseif theme == "nemo-dark"
   set background=dark
   colorscheme nemo-dark
-
-elseif theme == "nemo-light"
-  set background=light
-  colorscheme nemo-light
 
 elseif theme == "ayu-light"
   set background=light
@@ -498,6 +483,11 @@ let g:markdown_syntax_conceal = 0
 " Make the syntax highlighter process every line from the beginning
 "
 autocmd BufEnter * :syntax sync fromstart
+
+"
+" Remove background colors from gruvbox theme
+"
+autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE
 
 "
 " Remove whitespace on file write

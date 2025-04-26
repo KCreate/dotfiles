@@ -28,10 +28,6 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
-[filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -40,7 +36,6 @@
 [user]
 	name = Leonard Schütz
 	email = leni.schuetz@me.com
-	signingkey = 5389F765544C1554BA8DC52CCA691B8ADC64635A
 [push]
 	default = simple
 [color]

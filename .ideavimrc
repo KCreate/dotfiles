@@ -1,0 +1,85 @@
+"
+" Navigation and control
+"
+let mapleader = ","
+nnoremap - /
+nnoremap <c-h> :bprevious<CR>
+nnoremap <c-l> :bnext<CR>
+nnoremap <silent> <Down> gj
+nnoremap <silent> <Up> gk
+nnoremap <silent> j gj
+nnoremap <silent> k gk
+nnoremap <c-j> 10j
+nnoremap <s-j> 10j
+vnoremap <c-j> 10j
+vnoremap <s-j> 10j
+nnoremap <c-k> 10k
+nnoremap <s-k> 10k
+vnoremap <c-k> 10k
+vnoremap <s-k> 10k
+
+" Whole-line visual mode
+nnoremap <s-e> V
+nnoremap <c-e> V
+
+" Automatically read the file when it was changed from an outside session
+set autoread
+
+let g:loaded_matchparen=1 " vims native noshowmatch doesn't seem to work...
+set autoindent
+set expandtab
+set mouse=a
+set noshowmode " Hides the default vim status bar
+set shiftround
+set showbreak=...
+set smartindent
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set ttyfast
+set wildmenu
+
+"
+" Nerd commenter
+"
+let g:NERDCommentEmptyLines=1
+let g:NERDSpaceDelims=1
+let g:NERDDefaultAlign='both'
+
+"
+" vim-clang-format
+"
+let g:clang_format#detect_style_file=1
+let g:clang_format#enable_fallback_style=1
+vnoremap f :ClangFormat<CR>
+
+"
+" auto-pairs config
+"
+let g:AutoPairs = {'(': ')', '[': ']', '{': '}', "'": "'", '"': '"'}
+
+"
+" Filetypes
+"
+au BufNewFile,BufReadPost *.md set filetype=markdown
+au BufNewFile,BufReadPost *.ch set filetype=charly
+
+augroup charly_group
+  autocmd!
+  autocmd Syntax charly source $HOME/.vim/syntax/charly.vim
+  autocmd Syntax charly source $HOME/.vim/indent/charly.vim
+augroup END
+
+"
+" This fixes indendation for C switch cases
+"
+set cinoptions=l1
+
+" Stay in visual mode when indenting
+nnoremap < <<
+nnoremap > >>
+vnoremap < <gv
+vnoremap > >gv
+
+" Insert two new lines here
+nnoremap <S-L> O<ESC>o
