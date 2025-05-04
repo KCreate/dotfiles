@@ -35,7 +35,8 @@
 	required = true
 [user]
 	name = Leonard Schütz
-	email = leni.schuetz@me.com
+	email = hello@leonardschuetz.ch
+	signingkey = 83F6E8E0A5A0CC97
 [push]
 	default = simple
 [color]
@@ -44,5 +45,12 @@
 	user = KCreate
 [core]
 	editor = nvim
+	pager = delta --line-numbers --dark --diff-so-fancy
 [init]
 	defaultBranch = main
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
+[gpg]
+	program = gpg

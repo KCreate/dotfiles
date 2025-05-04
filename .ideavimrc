@@ -90,7 +90,6 @@ nnoremap <S-L> O<ESC>o
 "
 " Split management
 "
-tnoremap <Esc> <C-\><C-n>
 nnoremap sd :vsplit<CR>
 nnoremap sw :split<CR>
 nnoremap sh <C-W><left>
